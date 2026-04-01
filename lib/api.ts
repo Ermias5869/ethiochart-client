@@ -219,12 +219,16 @@ class ApiClient {
     return this.request('/patient-access/revoke', { method: 'POST', body: JSON.stringify(data) });
   }
 
-  // File upload
   async uploadFile(file: File, type: 'avatar'): Promise<ApiResponse<{ url: string }>> {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('type', type);
     return this.request('/upload', { method: 'POST', body: formData });
+  }
+
+  // Generic PATCH
+  async patch(endpoint: string, data: any): Promise<ApiResponse<any>> {
+    return this.request(endpoint, { method: 'PATCH', body: JSON.stringify(data) });
   }
 }
 

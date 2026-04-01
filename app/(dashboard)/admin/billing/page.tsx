@@ -1,10 +1,9 @@
 'use client';
-
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { api } from '@/lib/api';
+import Link from 'next/link';
 
-export default function BillingPage() {
+export default function AdminBillingPage() {
   const [bills, setBills] = useState<any[]>([]);
   const [filter, setFilter] = useState('all');
   const [loading, setLoading] = useState(true);
@@ -17,60 +16,49 @@ export default function BillingPage() {
     load();
   }, []);
 
-  const filtered = filter === 'all' ? bills : bills.filter(b => filter === 'paid' ? b.isPaid : !b.isPaid);
-  const totalPending = bills.filter(b => !b.isPaid).reduce((sum, b) => sum + b.amount, 0);
-  const totalPaid = bills.filter(b => b.isPaid).reduce((sum, b) => sum + b.amount, 0);
+  const filtered = filter === 'all' ? bills : bills.filter((b) => b.status === filter);
+  const totalPaid = bills.filter((b) => b.status === 'paid').reduce((s, b) => s + b.amount, 0);
+  const totalPending = bills.filter((b) => b.status === 'pending').reduce((s, b) => s + b.amount, 0);
 
   const markPaid = async (id: number) => {
-    try { await api.markBillPaid(id); setBills(bills.map(b => b.id === id ? {...b, isPaid: true, paidAt: new Date().toISOString()} : b)); } catch {}
+    try {
+      await api.patch(`/billing/${id}`, { status: 'paid', paidAt: new Date().toISOString() });
+      setBills((prev) => prev.map((b) => b.id === id ? { ...b, status: 'paid', paidAt: new Date() } : b));
+    } catch {}
   };
 
   return (
     <>
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex items-center justify-between mb-8">
         <h2 className="text-2xl font-headline font-bold text-primary">Billing & Payments</h2>
-        <Link href="/admin/billing/new" className="flex items-center gap-2 bg-primary-container text-white px-6 py-3 font-headline font-semibold text-sm hover:bg-primary transition-colors shadow-lg">
-          <span className="material-symbols-outlined text-lg">receipt_long</span>Create Bill
-        </Link>
+        <Link href="/admin/billing/new" className="px-6 py-3 bg-primary text-white font-headline font-semibold text-sm hover:bg-primary-container">Create Bill</Link>
       </div>
 
       <div className="grid grid-cols-3 gap-6 mb-8">
-        <div className="bg-surface-container-lowest p-6 shadow-sm"><p className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2">Total Bills</p><h3 className="text-2xl font-headline font-bold text-primary">{bills.length}</h3></div>
-        <div className="bg-surface-container-lowest p-6 shadow-sm border-b-2 border-gold"><p className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2">Pending Amount</p><h3 className="text-2xl font-headline font-bold text-on-tertiary-container">{totalPending.toLocaleString()} ETB</h3></div>
-        <div className="bg-surface-container-lowest p-6 shadow-sm border-b-2 border-primary-container"><p className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2">Collected</p><h3 className="text-2xl font-headline font-bold text-primary-container">{totalPaid.toLocaleString()} ETB</h3></div>
+        <div className="bg-surface-container-lowest p-6 shadow-sm border-b-2 border-primary-container"><p className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Total Revenue</p><h3 className="text-3xl font-headline font-bold text-primary">{(totalPaid + totalPending).toLocaleString()} <span className="text-sm font-normal">ETB</span></h3></div>
+        <div className="bg-surface-container-lowest p-6 shadow-sm border-b-2 border-primary-fixed-dim"><p className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Collected</p><h3 className="text-3xl font-headline font-bold text-primary-container">{totalPaid.toLocaleString()} <span className="text-sm font-normal">ETB</span></h3></div>
+        <div className="bg-surface-container-lowest p-6 shadow-sm border-b-2 border-gold"><p className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Outstanding</p><h3 className="text-3xl font-headline font-bold text-on-tertiary-container">{totalPending.toLocaleString()} <span className="text-sm font-normal">ETB</span></h3></div>
       </div>
 
-      <div className="flex gap-0 mb-6 border-b border-outline-variant/30">
-        {['all', 'pending', 'paid'].map(f => (
-          <button key={f} onClick={() => setFilter(f)} className={`px-6 py-3 font-headline font-medium text-sm capitalize transition-colors ${filter === f ? 'text-primary border-b-2 border-gold' : 'text-outline hover:text-primary'}`}>{f}</button>
+      <div className="flex gap-2 mb-6">
+        {['all', 'paid', 'pending'].map((f) => (
+          <button key={f} onClick={() => setFilter(f)} className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors ${filter === f ? 'bg-primary text-white' : 'bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-low shadow-sm'}`}>{f}</button>
         ))}
       </div>
 
       <div className="bg-surface-container-lowest shadow-sm">
-        <table className="w-full">
-          <thead><tr className="border-b border-outline-variant/20">
-            <th className="text-left px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-on-surface-variant">Patient</th>
-            <th className="text-right px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-on-surface-variant">Amount</th>
-            <th className="text-left px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-on-surface-variant">Description</th>
-            <th className="text-left px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-on-surface-variant">Status</th>
-            <th className="text-left px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-on-surface-variant">Created</th>
-            <th className="text-left px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-on-surface-variant">Actions</th>
-          </tr></thead>
-          <tbody>
-            {loading ? (
-              <tr><td colSpan={6} className="px-6 py-12 text-center"><div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" /></td></tr>
-            ) : filtered.map((b, i) => (
-              <tr key={b.id} className={`border-b border-outline-variant/10 hover:bg-surface-container-low/50 ${i%2?'bg-surface-container-low/30':''}`}>
-                <td className="px-6 py-4 text-sm font-semibold">{b.patient?.name || b.patient?.email?.split('@')[0] || 'N/A'}</td>
-                <td className="px-6 py-4 text-sm font-headline font-bold text-right">{b.amount?.toLocaleString()} ETB</td>
-                <td className="px-6 py-4 text-sm text-on-surface-variant">{b.description}</td>
-                <td className="px-6 py-4"><span className={`px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-sm ${b.isPaid ? 'bg-primary-container/10 text-primary-container' : 'bg-tertiary-fixed/30 text-on-tertiary-container'}`}>{b.isPaid ? 'Paid' : 'Pending'}</span></td>
-                <td className="px-6 py-4 text-sm text-on-surface-variant">{new Date(b.createdAt).toLocaleDateString()}</td>
-                <td className="px-6 py-4">{!b.isPaid && <button onClick={() => markPaid(b.id)} className="px-3 py-1 bg-primary-container text-white text-xs font-semibold hover:bg-primary transition-colors">Mark Paid</button>}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        {loading ? <div className="flex justify-center py-12"><div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin" /></div> :
+        filtered.map((b, i) => (
+          <div key={b.id} className={`flex items-center justify-between p-6 border-b border-outline-variant/10 ${i % 2 ? 'bg-surface-container-low/30' : ''}`}>
+            <div><p className="font-semibold text-sm">{b.description || 'Medical Service'}</p><p className="text-xs text-on-surface-variant">{new Date(b.createdAt).toLocaleDateString()}</p></div>
+            <div className="flex items-center gap-4">
+              <p className="font-headline font-bold text-primary">{b.amount.toLocaleString()} ETB</p>
+              <span className={`px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-sm ${b.status === 'paid' ? 'bg-primary-container/10 text-primary-container' : 'bg-gold/10 text-on-tertiary-container'}`}>{b.status}</span>
+              {b.status === 'pending' && <button onClick={() => markPaid(b.id)} className="px-3 py-1 bg-primary-container text-white text-xs font-semibold hover:bg-primary">Mark Paid</button>}
+            </div>
+          </div>
+        ))}
+        <div className="px-6 py-4 border-t border-outline-variant/20"><p className="font-mono text-xs text-on-surface-variant">{filtered.length} of {bills.length} records</p></div>
       </div>
     </>
   );

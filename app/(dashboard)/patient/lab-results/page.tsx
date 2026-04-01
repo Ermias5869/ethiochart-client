@@ -1,10 +1,28 @@
 'use client';
-const results = [
-  { test: 'Complete Blood Count', date: 'Oct 20, 2023', doctor: 'Dr. Kebede', result: 'Normal', status: 'reviewed' },
-  { test: 'Hemoglobin A1c', date: 'Oct 15, 2023', doctor: 'Dr. Kebede', result: '6.2%', status: 'reviewed' },
-  { test: 'Metabolic Panel', date: 'Oct 10, 2023', doctor: 'Dr. Desta', result: 'See Details', status: 'pending_review' },
-];
+import { useEffect, useState } from 'react';
+import { api } from '@/lib/api';
+
 export default function PatientLabResultsPage() {
+  const [results, setResults] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const res = await api.getAppointments();
+        const allLabs: any[] = [];
+        res.data.forEach((a: any) => {
+          if (a.labResults) {
+            a.labResults.forEach((lab: any) => allLabs.push({ ...lab, doctorName: a.doctor?.name, date: new Date(lab.recordedAt).toLocaleDateString() }));
+          }
+        });
+        setResults(allLabs);
+      } catch {}
+      setLoading(false);
+    };
+    load();
+  }, []);
+
   return (
     <>
       <h2 className="text-2xl font-headline font-bold text-primary mb-8">My Lab Results</h2>
@@ -15,17 +33,19 @@ export default function PatientLabResultsPage() {
             <th className="text-left px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-on-surface-variant">Date</th>
             <th className="text-left px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-on-surface-variant">Doctor</th>
             <th className="text-left px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-on-surface-variant">Result</th>
-            <th className="text-left px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-on-surface-variant">Status</th>
           </tr></thead>
-          <tbody>{results.map((r,i) => (
-            <tr key={i} className={`border-b border-outline-variant/10 ${i%2?'bg-surface-container-low/30':''}`}>
-              <td className="px-6 py-4 text-sm font-semibold">{r.test}</td>
-              <td className="px-6 py-4 text-sm text-on-surface-variant">{r.date}</td>
-              <td className="px-6 py-4 text-sm text-on-surface-variant">{r.doctor}</td>
-              <td className="px-6 py-4 text-sm font-mono">{r.result}</td>
-              <td className="px-6 py-4"><span className={`px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-sm ${r.status==='reviewed'?'bg-primary-container/10 text-primary-container':'bg-gold/10 text-on-tertiary-container'}`}>{r.status.replace('_',' ')}</span></td>
-            </tr>
-          ))}</tbody>
+          <tbody>
+            {loading ? <tr><td colSpan={4} className="px-6 py-12 text-center"><div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" /></td></tr> :
+            results.length === 0 ? <tr><td colSpan={4} className="px-6 py-12 text-center text-on-surface-variant text-sm">No lab results found</td></tr> :
+            results.map((r, i) => (
+              <tr key={i} className={`border-b border-outline-variant/10 ${i % 2 ? 'bg-surface-container-low/30' : ''}`}>
+                <td className="px-6 py-4 text-sm font-semibold">{r.type}</td>
+                <td className="px-6 py-4 text-sm text-on-surface-variant">{r.date}</td>
+                <td className="px-6 py-4 text-sm text-on-surface-variant">{r.doctorName}</td>
+                <td className="px-6 py-4 text-sm font-mono text-xs">{r.result}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </>

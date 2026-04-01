@@ -10,6 +10,8 @@ export interface AuthUser {
   hospitalName?: string;
   doctorProfileId?: number;
   patientProfileId?: number;
+  ethioChartId?: string;
+  isVerified?: boolean;
   avatarUrl?: string;
 }
 
