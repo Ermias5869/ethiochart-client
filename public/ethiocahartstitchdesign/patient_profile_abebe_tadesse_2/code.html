@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Patient Profile - EthioChart Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Poppins:wght@600&amp;family=Public+Sans:wght@600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e8e5ff",
+              "primary-fixed-dim": "#a5d0b9",
+              "on-tertiary": "#ffffff",
+              "outline": "#717973",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#2f2e43",
+              "on-secondary-fixed": "#0b1f18",
+              "on-background": "#1a1a2e",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#b5ccc0",
+              "primary-fixed": "#c1ecd4",
+              "on-primary": "#ffffff",
+              "tertiary-fixed-dim": "#eec058",
+              "secondary-container": "#cee5d9",
+              "on-tertiary-fixed-variant": "#5b4300",
+              "on-primary-fixed": "#002114",
+              "background": "#fcf8ff",
+              "tertiary-container": "#4e3800",
+              "on-secondary-fixed-variant": "#374b42",
+              "tertiary-fixed": "#ffdf9f",
+              "surface-container-highest": "#e2e0fc",
+              "outline-variant": "#c1c8c2",
+              "on-surface": "#1a1a2e",
+              "primary-container": "#1b4332",
+              "on-surface-variant": "#414844",
+              "surface-variant": "#e2e0fc",
+              "surface-bright": "#fcf8ff",
+              "on-error": "#ffffff",
+              "on-primary-fixed-variant": "#274e3d",
+              "inverse-on-surface": "#f2efff",
+              "secondary-fixed": "#d1e8dc",
+              "on-tertiary-fixed": "#261a00",
+              "surface-dim": "#dad7f3",
+              "on-secondary-container": "#52675e",
+              "secondary": "#4e635a",
+              "error-container": "#ffdad6",
+              "tertiary": "#332400",
+              "surface-container-low": "#f5f2ff",
+              "surface-tint": "#3f6653",
+              "on-primary-container": "#86af99",
+              "on-error-container": "#93000a",
+              "error": "#ba1a1a",
+              "surface": "#fcf8ff",
+              "primary": "#012d1d",
+              "on-tertiary-container": "#cba03b",
+              "inverse-primary": "#a5d0b9",
+              "surface-container": "#efecff"
+            },
+            fontFamily: {
+              "headline": ["Poppins", "Public Sans", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"],
+              "mono": ["JetBrains Mono", "monospace"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .border-image-gradient-flag {
+        border-image: linear-gradient(to right, #1B4332, #D4A843, #C1292E) 1;
+      }
+      body { font-family: 'Inter', sans-serif; }
+      .institutional-header { font-family: 'Poppins', sans-serif; }
+      .data-mono { font-family: 'JetBrains Mono', monospace; }
+    </script>
+</head>
+<body class="bg-surface-container-low text-on-surface selection:bg-on-tertiary-container/30">
+
+    <!-- Sidebar Navigation -->
+    <nav class="h-full w-72 flex-col fixed left-0 top-0 bg-[#081C15] dark:bg-[#081C15] shadow-2xl shadow-black/20 flex py-6 z-50">
+        <div class="px-8 mb-10">
+            <div class="text-xl font-bold text-white tracking-widest flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#D4A843]" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+                EthioChart
+            </div>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-emerald-500/60 font-mono mt-1">Sovereign Ledger</p>
+        </div>
+
+        <div class="flex-1 space-y-1">
+            <a href="#" class="flex items-center px-8 py-4 text-emerald-100/70 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200">
+                <span class="material-symbols-outlined mr-4">dashboard</span>
+                <span class="font-medium">Dashboard</span>
+            </a>
+            <a href="#" class="flex items-center px-8 py-4 text-emerald-100/70 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200">
+                <span class="material-symbols-outlined mr-4">calendar_today</span>
+                <span class="font-medium">Appointments</span>
+            </a>
+            <a href="#" class="flex items-center px-8 py-4 text-emerald-100/70 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200">
+                <span class="material-symbols-outlined mr-4">medication</span>
+                <span class="font-medium">Prescriptions</span>
+            </a>
+            <a href="#" class="flex items-center px-8 py-4 text-emerald-100/70 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200">
+                <span class="material-symbols-outlined mr-4">biotech</span>
+                <span class="font-medium">Lab Results</span>
+            </a>
+            <a href="#" class="flex items-center px-8 py-4 text-emerald-100/70 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200">
+                <span class="material-symbols-outlined mr-4">payments</span>
+                <span class="font-medium">Bills</span>
+            </a>
+            <a href="#" class="flex items-center px-8 py-4 text-emerald-100/70 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200">
+                <span class="material-symbols-outlined mr-4">chat</span>
+                <span class="font-medium">Messages</span>
+            </a>
+            <a href="#" class="flex items-center px-8 py-4 bg-[#1B4332] text-[#D4A843] border-r-4 border-[#D4A843] transition-colors duration-200">
+                <span class="material-symbols-outlined mr-4" style="font-variation-settings: 'FILL' 1;">person</span>
+                <span class="font-medium">Profile</span>
+            </a>
+        </div>
+
+        <div class="px-8 pt-6 border-t border-emerald-900/50">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100" data-alt="professional portrait of an Ethiopian man with a neutral expression and formal attire for institutional profile" class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden">
+                    <p class="text-white text-sm font-semibold truncate">Abebe Tadesse</p>
+                    <p class="text-emerald-500/60 text-[10px] font-mono">ID: EC-M5K2XRPA</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top AppBar -->
+    <header class="fixed top-0 right-0 w-[calc(100%-18rem)] h-16 bg-white dark:bg-[#012D1D] flex items-center justify-between px-8 z-40 shadow-sm border-t-[3px] border-t-transparent before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[3px] before:bg-gradient-to-r before:from-[#1B4332] before:via-[#D4A843] before:to-[#C1292E]">
+        <div class="flex items-center gap-2">
+            <nav class="flex text-[10px] font-mono uppercase tracking-widest text-on-surface-variant">
+                <span>Account</span>
+                <span class="mx-2">/</span>
+                <span class="text-primary font-bold">Patient Profile</span>
+            </nav>
+        </div>
+        
+        <div class="flex items-center gap-6">
+            <div class="relative hidden lg:block">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+                <input type="text" placeholder="Search records..." class="pl-10 pr-4 py-1.5 bg-surface-container-low border-none rounded text-xs w-64 focus:ring-1 focus:ring-primary">
+            </div>
+            <div class="flex items-center gap-4 text-on-surface-variant">
+                <span class="material-symbols-outlined cursor-pointer hover:text-[#D4A843] transition-colors">notifications</span>
+                <span class="material-symbols-outlined cursor-pointer hover:text-[#D4A843] transition-colors">settings</span>
+                <div class="h-6 w-[1px] bg-outline-variant"></div>
+                <span class="text-sm font-medium text-on-surface">Abebe Tadesse</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="ml-72 mt-16 p-10 min-h-[calc(100vh-4rem)] bg-background">
+        
+        <!-- Institutional Header Block -->
+        <div class="mb-10">
+            <h1 class="text-4xl font-semibold institutional-header text-primary tracking-tight">Patient Profile</h1>
+            <p class="text-on-surface-variant mt-2 max-w-2xl">Manage your sovereign health identity, security credentials, and institutional digital credentials.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Column 1: Personal Info & Security -->
+            <div class="lg:col-span-8 space-y-8">
+                
+                <!-- My Information Card -->
+                <section class="bg-surface-container-lowest p-8 shadow-sm rounded-lg relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <h2 class="text-xl font-semibold text-primary mb-1">My Information</h2>
+                            <p class="text-xs text-on-surface-variant font-medium">Verified Institutional Identity</p>
+                        </div>
+                        <div class="px-3 py-1 bg-primary-container/10 rounded text-[10px] font-bold text-primary tracking-tighter uppercase">Verified Ledger</div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-12">
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Full Name</label>
+                            <p class="text-lg font-medium">Abebe Tadesse</p>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">EthioChart ID</label>
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg font-bold data-mono text-primary-container">EC-M5K2XRPA-A1B2C3</span>
+                                <button class="p-1 hover:bg-surface-container rounded transition-colors" title="Copy ID">
+                                    <span class="material-symbols-outlined text-sm text-outline">content_copy</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">National ID</label>
+                            <p class="text-base data-mono">ET-****7890</p>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Email Address</label>
+                            <p class="text-base">abebe.tadesse@example.et</p>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Phone Number</label>
+                            <p class="text-base">+251 91 123 4567</p>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Primary Hospital</label>
+                            <p class="text-base">Addis Ababa General Hospital</p>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Registration Date</label>
+                            <p class="text-base data-mono">2023-10-14</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 flex items-start gap-3 p-4 bg-surface-container-low rounded">
+                        <span class="material-symbols-outlined text-primary text-xl">info</span>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">
+                            To update your personal information, please contact your hospital administrator. Your sovereign identity is locked to ensure institutional integrity.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Security Card -->
+                <section class="bg-surface-container-lowest p-8 shadow-sm rounded-lg">
+                    <h2 class="text-xl font-semibold text-primary mb-6">Security Credentials</h2>
+                    
+                    <form class="space-y-6 max-w-xl">
+                        <div class="space-y-1.5">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Current Password</label>
+                            <input type="password" class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 bg-transparent px-0 py-2 transition-all" placeholder="••••••••••••">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-1.5">
+                                <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">New Password</label>
+                                <input type="password" class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 bg-transparent px-0 py-2 transition-all">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Confirm New Password</label>
+                                <input type="password" class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 bg-transparent px-0 py-2 transition-all">
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <button type="submit" class="px-8 py-3 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-container transition-all active:scale-[0.98]">
+                                Update Password
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+            </div>
+
+            <!-- Column 2: Digital ID Card -->
+            <div class="lg:col-span-4 sticky top-24">
+                
+                <section class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-lg font-semibold text-primary">EthioChart Card</h2>
+                        <span class="material-symbols-outlined text-primary">verified_user</span>
+                    </div>
+
+                    <!-- The High-Fidelity ID Card -->
+                    <div class="relative w-full aspect-[1.586/1] rounded-xl bg-gradient-to-br from-[#1B4332] to-[#081C15] overflow-hidden shadow-2xl p-6 text-white flex flex-col justify-between group">
+                        <!-- Card Texture & Accents -->
+                        <div class="absolute top-0 right-0 w-48 h-48 bg-[#D4A843]/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+                        <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#D4A843]/5 rounded-full -ml-16 -mb-16 blur-2xl"></div>
+                        
+                        <!-- Header -->
+                        <div class="flex justify-between items-start relative z-10">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded bg-white/10 flex items-center justify-center p-1.5">
+                                    <span class="material-symbols-outlined text-[#D4A843] text-lg">medical_services</span>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-bold uppercase tracking-tighter leading-none">EthioChart</p>
+                                    <p class="text-[7px] text-emerald-400 font-mono tracking-widest uppercase">Sovereign Health</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-[8px] font-medium text-emerald-300">ISSUED BY</p>
+                                <p class="text-[9px] font-bold leading-none">A.A. General Hospital</p>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="flex gap-4 items-end relative z-10">
+                            <div class="w-24 h-24 rounded bg-white/10 p-1 border border-white/20">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200" data-alt="high contrast studio portrait of an Ethiopian man for a digital health identification card" class="w-full h-full object-cover rounded-sm grayscale group-hover:grayscale-0 transition-all duration-500">
+                            </div>
+                            <div class="flex-1 space-y-2">
+                                <div class="space-y-0.5">
+                                    <p class="text-[8px] text-[#D4A843] uppercase tracking-widest font-bold">Patient Holder</p>
+                                    <p class="text-lg font-semibold tracking-tight leading-none">Abebe Tadesse</p>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <p class="text-[8px] text-emerald-300 uppercase tracking-widest font-bold">Health Ledger ID</p>
+                                    <p class="text-xs data-mono text-[#D4A843]">EC-M5K2-XRPA</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer -->
+                        <div class="flex justify-between items-end relative z-10 border-t border-white/10 pt-3">
+                            <div class="flex gap-4">
+                                <div>
+                                    <p class="text-[7px] text-emerald-400 font-bold uppercase">Issued</p>
+                                    <p class="text-[9px] data-mono font-medium">10/2023</p>
+                                </div>
+                                <div>
+                                    <p class="text-[7px] text-emerald-400 font-bold uppercase">Blood Type</p>
+                                    <p class="text-[9px] data-mono font-medium">O Positive</p>
+                                </div>
+                            </div>
+                            <div class="w-10 h-10 bg-white p-0.5 rounded-sm">
+                                <div class="w-full h-full bg-slate-900 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-[32px] text-white">qr_code_2</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Actions -->
+                    <div class="grid grid-cols-2 gap-3 pt-2">
+                        <button class="flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-outline-variant text-on-surface text-xs font-semibold rounded-lg hover:bg-surface-container-low transition-colors">
+                            <span class="material-symbols-outlined text-sm">download</span>
+                            Download PDF
+                        </button>
+                        <button class="flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-outline-variant text-on-surface text-xs font-semibold rounded-lg hover:bg-surface-container-low transition-colors">
+                            <span class="material-symbols-outlined text-sm">print</span>
+                            Print Card
+                        </button>
+                    </div>
+
+                    <!-- Ledger Notice -->
+                    <div class="p-5 border-l-2 border-[#D4A843] bg-surface-container rounded-r-lg">
+                        <p class="text-[11px] text-on-surface-variant italic leading-relaxed">
+                            "This card represents your cryptographically signed health identity. Present it at any participating institution to unlock your medical history ledger."
+                        </p>
+                        <div class="mt-3 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[#D4A843] text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+                            <span class="text-[10px] font-bold text-primary tracking-widest uppercase">Verified Authority</span>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html></style></head><body></body></html>

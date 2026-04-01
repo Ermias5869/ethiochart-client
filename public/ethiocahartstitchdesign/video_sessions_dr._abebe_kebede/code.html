@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EthioChart - Video Sessions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Public+Sans:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#fcf8ff",
+                        "secondary-fixed-dim": "#b5ccc0",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1a2e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-secondary-fixed-variant": "#374b42",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2f2e43",
+                        "surface-container-low": "#f5f2ff",
+                        "secondary-container": "#cee5d9",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e8e5ff",
+                        "on-secondary-fixed": "#0b1f18",
+                        "secondary-fixed": "#d1e8dc",
+                        "surface-bright": "#fcf8ff",
+                        "error-container": "#ffdad6",
+                        "primary": "#012d1d",
+                        "on-secondary-container": "#52675e",
+                        "primary-fixed": "#c1ecd4",
+                        "on-surface": "#1a1a2e",
+                        "surface-container-highest": "#e2e0fc",
+                        "surface-container": "#efecff",
+                        "secondary": "#4e635a",
+                        "inverse-on-surface": "#f2efff",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#3f6653",
+                        "inverse-primary": "#a5d0b9",
+                        "surface-dim": "#dad7f3",
+                        "on-tertiary-container": "#cba03b",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#4e3800",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#332400",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "surface-variant": "#e2e0fc",
+                        "on-surface-variant": "#414844",
+                        "tertiary-fixed-dim": "#eec058",
+                        "on-primary-container": "#86af99",
+                        "outline": "#717973",
+                        "background": "#fcf8ff",
+                        "outline-variant": "#c1c8c2",
+                        "primary-container": "#1b4332"
+                    },
+                    fontFamily: {
+                        "headline": ["Poppins", "Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .flag-stripe {
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #1B4332, #D4A843, #C1292E);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 50;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background antialiased min-h-screen">
+<div class="flag-stripe"></div>
+<!-- SideNavBar -->
+<aside class="bg-[#081C15] h-screen w-72 fixed left-0 top-0 flex flex-col py-8 z-50">
+<div class="px-8 mb-10">
+<h1 class="text-xl font-semibold tracking-tight text-white mb-1">EthioChart</h1>
+<p class="text-xs font-mono text-[#D4A843] opacity-80 uppercase tracking-widest">Institutional Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-slate-400 hover:text-white transition-colors py-3 px-8 flex items-center gap-4 hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="text-slate-400 hover:text-white transition-colors py-3 px-8 flex items-center gap-4 hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-medium">Appointments</span>
+</a>
+<a class="text-slate-400 hover:text-white transition-colors py-3 px-8 flex items-center gap-4 hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-medium">Patients</span>
+</a>
+<!-- Active State Navigation -->
+<a class="bg-[#1B4332] text-[#D4A843] font-semibold border-r-4 border-[#D4A843] py-3 px-8 flex items-center gap-4" href="#">
+<span class="material-symbols-outlined" data-icon="video_call" style="font-variation-settings: 'FILL' 1;">video_call</span>
+<span>Video Sessions</span>
+</a>
+<a class="text-slate-400 hover:text-white transition-colors py-3 px-8 flex items-center gap-4 hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-medium">Clinical Records</span>
+</a>
+</nav>
+<div class="mt-auto px-8 pt-8 border-t border-white/5 space-y-1">
+<a class="text-slate-400 hover:text-white transition-colors py-2 flex items-center gap-4 text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="text-slate-400 hover:text-white transition-colors py-2 flex items-center gap-4 text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+<div class="mt-6 flex items-center gap-3 py-4">
+<img alt="Doctor Profile" class="w-10 h-10 rounded-full border border-[#1B4332] object-cover" data-alt="professional portrait of a middle-aged male doctor with a kind expression wearing a white coat in a clean medical setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD90Xd3n5ACCTBwRZ9N_PWg6lSMoRU3G4PO4CHPxDfpjW7vIRdVVIswkbSnw45y5KF5EG5PQK6cdfD2P4gThJoRGJL33PRAumF5CziUn186wb4YtSjDj_n4XitjKd6h5Oo-mN5ukapFG72vZi8q80KTS560-uIffcXAt8ffz6kbZc4R6bmC23nfjA8QvKRExChV6eW2aolGmncwl2fhgP_Y7zoBFmOBMczYK6bOs2lwvRgEVNrdt_Yp1IMmn5Otc2aUDziPR3q5q0Nl"/>
+<div>
+<p class="text-white text-sm font-semibold leading-tight">Dr. T. Bekele</p>
+<p class="text-[10px] font-mono text-[#D4A843]">SENIOR REGISTRAR</p>
+</div>
+</div>
+<button class="w-full bg-[#C1292E] text-white py-2 text-xs font-bold rounded mt-2 hover:bg-red-700 transition-all uppercase tracking-tighter">
+                Emergency Alert
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-72 min-h-screen">
+<!-- TopNavBar -->
+<header class="h-16 bg-white/80 backdrop-blur-md sticky top-0 z-40 flex justify-between items-center px-10 border-b border-slate-100">
+<div class="flex items-center gap-4">
+<p class="text-xs font-mono text-slate-400 uppercase tracking-widest">Sovereign Ledger</p>
+<span class="text-slate-300">/</span>
+<p class="text-sm font-semibold text-primary">Video Sessions</p>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-[#1B4332] text-white px-5 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="add_circle">add_circle</span>
+                    Schedule New Session
+                </button>
+<div class="flex items-center gap-3 border-l pl-6 border-slate-200">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-10 space-y-12">
+<!-- Institutional Header -->
+<div class="bg-primary-container p-10 rounded-xl relative overflow-hidden">
+<div class="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-black/20 to-transparent pointer-events-none"></div>
+<nav class="flex mb-4">
+<span class="font-mono text-xs text-on-primary-container/80 tracking-wider">PORTAL // V-SESSION_MGR</span>
+</nav>
+<h2 class="font-headline text-3xl font-semibold text-white tracking-tight">Telemedicine Gateway</h2>
+<p class="text-on-primary-container/90 mt-2 max-w-xl">
+                    Secure, sovereign medical consultations. All sessions are encrypted and logged in compliance with institutional digital healthcare standards.
+                </p>
+</div>
+<!-- Upcoming Sessions Section -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline text-xl font-semibold text-primary flex items-center gap-3">
+<span class="w-2 h-8 bg-[#D4A843] rounded-full"></span>
+                        Upcoming Sessions
+                    </h3>
+<p class="font-mono text-xs text-slate-500 bg-slate-100 px-3 py-1 rounded">3 ACTIVE ENTRIES</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Session Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0px_12px_32px_rgba(26,26,46,0.06)] relative flex flex-col group border border-transparent hover:border-primary/10 transition-all">
+<div class="flex justify-between items-start mb-6">
+<img alt="Patient Avatar" class="w-16 h-16 rounded-lg object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="portrait of a young Ethiopian woman with braided hair smiling gently in a soft lit studio environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8YS4NlRGaiEaiZGz6ku-Y_08x860YZnAK1hjY4alB58ABJKYRYlth3zWHUg-2LMYl-SAe358j-IIk-VJziQlWKSpbXU4X1cW9oilzm79RV3dygjFzqP5cZgFyNAPi2ROmklc5fYtukl_dZ3dBsMhnLe80Y2oChtmG-oBiHVvmnu7WrUZUbAVc9a-piB_cmaSiCnlB1EnU0r96gAAuBO62DUXYt6fzxjX-8Vk09e9qmylgZf0xwnR2D4bPIipQd9sxp6aWnMTkoZDR"/>
+<span class="bg-primary-fixed text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Scheduled</span>
+</div>
+<div class="mb-6">
+<h4 class="font-headline text-lg font-semibold text-primary">Abebe Tadesse</h4>
+<p class="font-mono text-xs text-slate-500 mt-1">ID: EC-M5K2XRPA</p>
+</div>
+<div class="flex items-center gap-4 mb-8 bg-surface-container-low p-4 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+<div>
+<p class="text-xs font-semibold text-primary uppercase">Today, 14:00</p>
+<p class="text-[10px] text-slate-500 uppercase">Duration: 45 Mins</p>
+</div>
+</div>
+<button class="w-full bg-[#1B4332] text-white py-4 rounded-lg font-bold flex items-center justify-center gap-3 hover:bg-[#012D1D] transition-all mb-4">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+                            Start Session
+                        </button>
+<div class="mt-auto pt-4 border-t border-slate-100 flex justify-center">
+<span class="font-mono text-[10px] text-slate-400 uppercase tracking-tighter">Token: <span class="text-primary font-bold">****-A8F2</span></span>
+</div>
+</div>
+<!-- Session Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0px_12px_32px_rgba(26,26,46,0.06)] relative flex flex-col group border border-transparent hover:border-primary/10 transition-all">
+<div class="flex justify-between items-start mb-6">
+<img alt="Patient Avatar" class="w-16 h-16 rounded-lg object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="mature man with salt and pepper beard looking directly at camera with professional demeanor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_E9UIPUzH2hW_MhdmUygOp12g2dlTA3AxBdXPnW5RCTE24LCXKByeUWNK_kmrF504TLiLG_HEli0XbtclMiu7EpGBm122FjiH_u_5KQgxKMd55w9q3NJZQ3HgVrykif4p3Tf6hWmdB3KUsKRmqO1t4k3J_QIY0pUEqEcOSLEbU7pSO8KVdPkzf0mB9yjbMUuWksAm0BuQ2OiO51lTzGaxrmnv280F-2ViEEKyQVLorGbFebYCvuGVI8nxBTSOhVzat9G7cqvfcXLL"/>
+<span class="bg-primary-fixed text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Scheduled</span>
+</div>
+<div class="mb-6">
+<h4 class="font-headline text-lg font-semibold text-primary">Kebede Lemma</h4>
+<p class="font-mono text-xs text-slate-500 mt-1">ID: EC-T9L1VQZB</p>
+</div>
+<div class="flex items-center gap-4 mb-8 bg-surface-container-low p-4 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+<div>
+<p class="text-xs font-semibold text-primary uppercase">Tomorrow, 09:30</p>
+<p class="text-[10px] text-slate-500 uppercase">Duration: 30 Mins</p>
+</div>
+</div>
+<button class="w-full bg-[#1B4332] text-white py-4 rounded-lg font-bold flex items-center justify-center gap-3 hover:bg-[#012D1D] transition-all mb-4">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+                            Start Session
+                        </button>
+<div class="mt-auto pt-4 border-t border-slate-100 flex justify-center">
+<span class="font-mono text-[10px] text-slate-400 uppercase tracking-tighter">Token: <span class="text-primary font-bold">****-R4X9</span></span>
+</div>
+</div>
+<!-- Session Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0px_12px_32px_rgba(26,26,46,0.06)] relative flex flex-col group border border-transparent hover:border-primary/10 transition-all">
+<div class="flex justify-between items-start mb-6">
+<img alt="Patient Avatar" class="w-16 h-16 rounded-lg object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="portrait of a young woman with intense eyes and natural hair in a warm sunlit indoor setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBXVwEXbnxh46zxF3dyTHqvnMNsVRNNzgnxDv10XGcaJedKm0bqlQfg4OgogF6dKOJAobXpEYW4sXeU83uYV1jbn-OvfUmIyp5wYqAqIlPCHdgZVT3xrXPOarGJ6-d6o63OIuunwjcCuD2Vy8I_8dog27kF_zBwDa2sDAlFpmkH5jnUD4KNnuT2E-sv9xbp0NUp7qPXhdZV_IB12MX3h9rxsGXF5g0EP_I4Tr9MvN60493MmVwuZsvXSJ9kO_zuazWp4ooBZRv8ND7"/>
+<span class="bg-primary-fixed text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Scheduled</span>
+</div>
+<div class="mb-6">
+<h4 class="font-headline text-lg font-semibold text-primary">Selamawit Yilma</h4>
+<p class="font-mono text-xs text-slate-500 mt-1">ID: EC-K0D3NPPC</p>
+</div>
+<div class="flex items-center gap-4 mb-8 bg-surface-container-low p-4 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+<div>
+<p class="text-xs font-semibold text-primary uppercase">Mar 24, 11:00</p>
+<p class="text-[10px] text-slate-500 uppercase">Duration: 15 Mins</p>
+</div>
+</div>
+<button class="w-full bg-[#1B4332] text-white py-4 rounded-lg font-bold flex items-center justify-center gap-3 hover:bg-[#012D1D] transition-all mb-4">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+                            Start Session
+                        </button>
+<div class="mt-auto pt-4 border-t border-slate-100 flex justify-center">
+<span class="font-mono text-[10px] text-slate-400 uppercase tracking-tighter">Token: <span class="text-primary font-bold">****-C2D1</span></span>
+</div>
+</div>
+</div>
+</section>
+<!-- Past Sessions Section -->
+<section>
+<div class="bg-slate-100 px-8 py-5 rounded-t-xl border-l-8 border-slate-400 flex justify-between items-center">
+<h3 class="font-headline text-lg font-semibold text-slate-700 uppercase tracking-widest">Historical Session Logs</h3>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer" data-icon="filter_list">filter_list</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer" data-icon="download">download</span>
+</div>
+</div>
+<div class="bg-white rounded-b-xl border border-slate-100 overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-slate-50 text-[10px] font-mono text-slate-400 uppercase tracking-widest">
+<th class="px-8 py-5 font-medium">Patient Entity</th>
+<th class="px-8 py-5 font-medium">Recorded Date</th>
+<th class="px-8 py-5 font-medium">Institutional Status</th>
+<th class="px-8 py-5 font-medium text-right">Archive Access</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-6">
+<p class="font-semibold text-primary">Hirut Melaku</p>
+<p class="font-mono text-[10px] text-slate-400">EC-X9211-P</p>
+</td>
+<td class="px-8 py-6 text-sm text-slate-600 font-mono">2023.10.12 // 14:30</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="w-1 h-1 bg-on-secondary-container rounded-full"></span>
+                                        Completed
+                                    </span>
+</td>
+<td class="px-8 py-6 text-right">
+<a class="text-primary font-bold text-xs underline decoration-2 decoration-[#D4A843] underline-offset-4 flex items-center justify-end gap-2 hover:text-[#D4A843] transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="play_circle">play_circle</span>
+                                        View Recording
+                                    </a>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-6">
+<p class="font-semibold text-primary">Dawit Girma</p>
+<p class="font-mono text-[10px] text-slate-400">EC-A8334-K</p>
+</td>
+<td class="px-8 py-6 text-sm text-slate-600 font-mono">2023.10.11 // 09:00</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-error-container text-on-error-container rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="w-1 h-1 bg-on-error-container rounded-full"></span>
+                                        Cancelled
+                                    </span>
+</td>
+<td class="px-8 py-6 text-right">
+<span class="text-slate-300 italic text-[10px] font-mono">NO RECORDING DATA</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-6">
+<p class="font-semibold text-primary">Aster Mamo</p>
+<p class="font-mono text-[10px] text-slate-400">EC-M2210-S</p>
+</td>
+<td class="px-8 py-6 text-sm text-slate-600 font-mono">2023.10.10 // 16:15</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="w-1 h-1 bg-on-secondary-container rounded-full"></span>
+                                        Completed
+                                    </span>
+</td>
+<td class="px-8 py-6 text-right">
+<a class="text-primary font-bold text-xs underline decoration-2 decoration-[#D4A843] underline-offset-4 flex items-center justify-end gap-2 hover:text-[#D4A843] transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="play_circle">play_circle</span>
+                                        View Recording
+                                    </a>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-6">
+<p class="font-semibold text-primary">Mulugeta Tesfaye</p>
+<p class="font-mono text-[10px] text-slate-400">EC-Z7782-L</p>
+</td>
+<td class="px-8 py-6 text-sm text-slate-600 font-mono">2023.10.09 // 11:30</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="w-1 h-1 bg-on-secondary-container rounded-full"></span>
+                                        Completed
+                                    </span>
+</td>
+<td class="px-8 py-6 text-right">
+<a class="text-primary font-bold text-xs underline decoration-2 decoration-[#D4A843] underline-offset-4 flex items-center justify-end gap-2 hover:text-[#D4A843] transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="play_circle">play_circle</span>
+                                        View Recording
+                                    </a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="mt-20 px-10 py-8 border-t border-slate-100 flex justify-between items-center opacity-60">
+<p class="text-[10px] font-mono uppercase tracking-widest text-slate-400">EthioChart // Sovereign Health Ledger © 2024</p>
+<div class="flex gap-6">
+<a class="text-[10px] font-mono uppercase tracking-widest hover:text-primary" href="#">Legal Terms</a>
+<a class="text-[10px] font-mono uppercase tracking-widest hover:text-primary" href="#">System Integrity</a>
+</div>
+</footer>
+</main>
+</body></html>

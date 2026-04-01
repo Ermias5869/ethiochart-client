@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EthioChart - Registration Complete</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#dad7f3",
+                        "on-tertiary-container": "#cba03b",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#4e3800",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1a1a2e",
+                        "surface-container-highest": "#e2e0fc",
+                        "surface-container": "#efecff",
+                        "secondary": "#4e635a",
+                        "inverse-on-surface": "#f2efff",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#3f6653",
+                        "inverse-primary": "#a5d0b9",
+                        "on-surface-variant": "#414844",
+                        "tertiary-fixed-dim": "#eec058",
+                        "on-primary-container": "#86af99",
+                        "outline": "#717973",
+                        "background": "#fcf8ff",
+                        "outline-variant": "#c1c8c2",
+                        "primary-container": "#1b4332",
+                        "tertiary": "#332400",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "surface-variant": "#e2e0fc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "surface": "#fcf8ff",
+                        "secondary-fixed-dim": "#b5ccc0",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1a2e",
+                        "secondary-fixed": "#d1e8dc",
+                        "surface-bright": "#fcf8ff",
+                        "error-container": "#ffdad6",
+                        "primary": "#012d1d",
+                        "on-secondary-container": "#52675e",
+                        "primary-fixed": "#c1ecd4",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-secondary-fixed-variant": "#374b42",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2f2e43",
+                        "surface-container-low": "#f5f2ff",
+                        "secondary-container": "#cee5d9",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e8e5ff",
+                        "on-secondary-fixed": "#0b1f18"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["JetBrains Mono"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-gradient {
+            background: linear-gradient(to right, #1B4332, #D4A843, #C1292E);
+        }
+        .paper-desk-effect {
+            box-shadow: 0px 12px 32px rgba(26, 26, 46, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface antialiased overflow-x-hidden">
+<!-- Mandatory Signature Flag Stripe -->
+<div class="fixed top-0 left-0 w-full h-[3px] signature-gradient z-[60]"></div>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[260px] z-50 bg-[#081C15] flex flex-col py-6 space-y-2 bg-gradient-to-b from-[#081C15] to-[#012D1D] shadow-2xl font-['Public_Sans'] font-medium antialiased">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-[#D4A843]" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div>
+<h1 class="text-lg font-bold text-white uppercase tracking-widest leading-none">EthioChart</h1>
+<p class="text-[10px] text-on-primary-container tracking-wider uppercase">Sovereign Ledger</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-100/60 hover:text-white hover:bg-emerald-900/30 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#1B4332] text-[#D4A843] rounded-r-full mr-4 translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span>Patients</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-100/60 hover:text-white hover:bg-emerald-900/30 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+<span>Hospitals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-100/60 hover:text-white hover:bg-emerald-900/30 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span>Doctors</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-100/60 hover:text-white hover:bg-emerald-900/30 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span>Appointments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-100/60 hover:text-white hover:bg-emerald-900/30 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Billing</span>
+</a>
+<div class="pt-4 mt-4 border-t border-emerald-900/50">
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-100/60 hover:text-white hover:bg-emerald-900/30 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-260px)] h-16 z-40 bg-white/80 backdrop-blur-md flex items-center justify-between px-8 shadow-sm font-['Public_Sans'] font-semibold">
+<div class="flex items-center gap-4">
+<div class="flex items-center text-[11px] font-label text-on-surface-variant uppercase tracking-widest gap-2">
+<span>Patients</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary">Registration Complete</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:bg-emerald-50/50 p-2 rounded transition-colors scale-95 active:opacity-80 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant/30">
+<div class="text-right">
+<p class="text-[12px] font-bold text-primary leading-none">Admin Portal</p>
+<p class="text-[10px] text-on-surface-variant">A. General Hospital</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-primary-container" data-icon="account_circle" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-[260px] pt-16 min-h-screen">
+<!-- Institutional Header -->
+<div class="bg-primary-container py-12 px-12 text-white">
+<div class="max-w-4xl mx-auto">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-3xl font-headline font-semibold tracking-tight">Patient Registered Successfully!</h2>
+<div class="flex gap-2">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-[#D4A843] flex items-center justify-center text-primary font-bold text-xs">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+<div class="w-8 h-[2px] bg-[#D4A843] mt-4"></div>
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-[#D4A843] flex items-center justify-center text-primary font-bold text-xs">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+<div class="w-8 h-[2px] bg-[#D4A843] mt-4"></div>
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-[#D4A843] flex items-center justify-center text-primary font-bold text-xs">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+<div class="w-8 h-[2px] bg-[#D4A843] mt-4"></div>
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-[#D4A843] flex items-center justify-center text-primary font-bold text-xs">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+<div class="w-8 h-[2px] bg-[#D4A843] mt-4"></div>
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-[#D4A843] flex items-center justify-center text-primary font-bold text-xs">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+</div>
+</div>
+<p class="text-on-primary-container font-body max-w-2xl">
+                    The patient records have been permanently committed to the EthioChart Sovereign Ledger. This identity is now valid across all participating institutional nodes.
+                </p>
+</div>
+</div>
+<div class="max-w-4xl mx-auto -mt-8 px-4 pb-20">
+<div class="bg-surface-container-lowest paper-desk-effect rounded-lg p-10 flex flex-col items-center text-center">
+<!-- Success Icon -->
+<div class="mb-8 relative">
+<div class="w-24 h-24 rounded-full bg-emerald-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-emerald-600" style="font-variation-settings: 'wght' 600;">check_circle</span>
+</div>
+</div>
+<div class="mb-10">
+<h3 class="text-on-surface-variant font-label text-xs uppercase tracking-[0.2em] mb-4">Permanent Identity ID</h3>
+<div class="bg-surface-container-low px-8 py-6 rounded-lg flex items-center gap-6 border-b-2 border-primary-container">
+<span class="text-2xl font-label font-bold text-primary tracking-wider">EC-M5K2XRPA-A1B2C3</span>
+<button class="p-2 hover:bg-surface-container-highest rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Digital Patient Card -->
+<div class="w-full max-w-md mx-auto mb-12">
+<h3 class="text-on-surface-variant font-label text-xs uppercase tracking-[0.2em] mb-6">Generated Digital Asset</h3>
+<div class="relative w-full aspect-[1.586/1] bg-[#1B4332] rounded-xl overflow-hidden paper-desk-effect border border-white/10 group">
+<!-- Holographic Accent -->
+<div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-[#D4A843]/20 to-transparent rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="absolute inset-0 p-8 flex flex-col justify-between">
+<!-- Card Header -->
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-[#D4A843] rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-[#1B4332] text-xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div>
+<h4 class="text-white text-sm font-bold tracking-widest uppercase">EthioChart</h4>
+<p class="text-[8px] text-[#D4A843] tracking-tighter uppercase font-label">Official Patient Record</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-white/40 text-[8px] font-label">ISSUING AUTHORITY</p>
+<p class="text-white text-[9px] font-medium">Addis Ababa General Hospital</p>
+</div>
+</div>
+<!-- Card Middle -->
+<div class="flex items-center gap-6">
+<div class="w-24 h-24 bg-surface-container-lowest/10 rounded-lg overflow-hidden border border-white/10 relative">
+<img alt="Abebe Tadesse" class="w-full h-full object-cover grayscale opacity-90" data-alt="professional studio portrait of an ethiopian man with short hair wearing a white shirt against a neutral gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGjBXbHcGWetCPR6QISifyeX903ZyNBCjaltHq6ORGHS2WiK7RTw9o980jj2e377f4mlHs0p1j0kamVI74A-JqnAmkWDvxH4Y12E-ratEblvQuYsRLv6lMZACetrSHMCBq3rFji3feHPLXamoF9GnsB0V0TaxThCHnkDydMd9HoAPx_-sXV-Qa_OzkZp9bvzEjqpysog3ZRmFvZekc7RLJ_RW4JtFIzOaQKOPE2aEcVfQIFP50D3t2QZFv77KZTTutI1u08ck77UaY"/>
+<div class="absolute inset-0 bg-[#D4A843]/10"></div>
+</div>
+<div class="flex-1 text-left">
+<p class="text-[#D4A843] text-[9px] font-label uppercase tracking-widest">Full Name</p>
+<h5 class="text-white text-xl font-headline font-semibold mb-2">Abebe Tadesse</h5>
+<p class="text-[#D4A843] text-[9px] font-label uppercase tracking-widest">Patient Identifier</p>
+<p class="text-white font-label text-sm tracking-widest">EC-M5K2XRPA-A1B2C3</p>
+</div>
+</div>
+<!-- Card Footer -->
+<div class="flex justify-between items-end border-t border-white/10 pt-4">
+<div class="flex gap-4">
+<div>
+<p class="text-white/40 text-[7px] font-label">ISSUED</p>
+<p class="text-white text-[9px] font-label">OCT 24, 2023</p>
+</div>
+<div>
+<p class="text-white/40 text-[7px] font-label">NODE ID</p>
+<p class="text-white text-[9px] font-label">AAGH-001</p>
+</div>
+</div>
+<div class="bg-white p-1 rounded-sm">
+<img alt="Patient QR Code" class="w-10 h-10" data-alt="a simple black and white square qr code on a white background for digital scanning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6xefn-WrqxljTwQhkKCr2t54ypi1YITXEU1V8aro-llZ7r02XHf5cky38-Y8HlrvjWSgmEDcuzTvSpdukKoIqeTl9Mg0vI9IoIo6RaJG-64uS1G0_SVVsvQcBtU0j9pc7H5wgkMTjDyAWbMz4KI66I0kqVmysGQApoTWcuNvfw6I17Or3yU2gH6dTzD13LnmpcJj58VogWANCjfdIu_nte7E20tUlATUX2kUPOxCLlluI9TiiSJulEK8Eh9-AysxRLF5H3pGadRDn"/>
+</div>
+</div>
+</div>
+</div>
+<p class="mt-4 text-on-surface-variant text-[11px] font-medium flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                        Encrypted with Sovereign Ledger Protocol v2.4
+                    </p>
+</div>
+<!-- Action Row -->
+<div class="flex flex-wrap items-center justify-center gap-4 w-full">
+<button class="flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-emerald-50 transition-colors">
+<span class="material-symbols-outlined text-[20px]">print</span>
+                        Print Card
+                    </button>
+<button class="flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-emerald-50 transition-colors">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+                        Register Another
+                    </button>
+<button class="flex items-center gap-2 px-8 py-3 bg-primary text-[#D4A843] font-bold rounded-lg shadow-lg hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+                        View Patient Profile
+                    </button>
+</div>
+</div>
+<!-- Contextual Help -->
+<div class="mt-8 flex items-start gap-4 p-6 bg-surface-container rounded-lg border-l-4 border-[#D4A843]">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">info</span>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-primary mb-1">What's Next?</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                        The patient can now access any healthcare facility in the EthioChart network using their Digital ID. You can also export this record to a physical smart card using the institutional kiosk terminal.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Identity Mark -->
+<footer class="ml-[260px] py-8 px-12 border-t border-outline-variant/10 text-center">
+<p class="text-[10px] font-label text-on-surface-variant tracking-[0.3em] uppercase">
+            Federal Ministry of Health • Digital Sovereign Ledger 2024
+        </p>
+</footer>
+</body></html>

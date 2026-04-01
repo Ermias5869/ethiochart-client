@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EthioChart | My Prescriptions</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-fixed": "#002114",
+            "surface-container-lowest": "#ffffff",
+            "on-background": "#1a1a2e",
+            "secondary-fixed-dim": "#b5ccc0",
+            "on-primary-fixed-variant": "#274e3d",
+            "surface": "#fcf8ff",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#52675e",
+            "primary-fixed": "#c1ecd4",
+            "surface-bright": "#fcf8ff",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#d1e8dc",
+            "primary": "#012d1d",
+            "on-primary": "#ffffff",
+            "surface-container-low": "#f5f2ff",
+            "secondary-container": "#cee5d9",
+            "surface-container-high": "#e8e5ff",
+            "on-secondary-fixed": "#0b1f18",
+            "on-secondary-fixed-variant": "#374b42",
+            "on-error": "#ffffff",
+            "inverse-surface": "#2f2e43",
+            "tertiary-container": "#4e3800",
+            "on-tertiary-fixed": "#261a00",
+            "on-error-container": "#93000a",
+            "surface-dim": "#dad7f3",
+            "on-tertiary-container": "#cba03b",
+            "on-tertiary": "#ffffff",
+            "surface-tint": "#3f6653",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#a5d0b9",
+            "on-surface": "#1a1a2e",
+            "secondary": "#4e635a",
+            "inverse-on-surface": "#f2efff",
+            "surface-container-highest": "#e2e0fc",
+            "surface-container": "#efecff",
+            "primary-container": "#1b4332",
+            "outline-variant": "#c1c8c2",
+            "tertiary-fixed-dim": "#eec058",
+            "on-primary-container": "#86af99",
+            "on-surface-variant": "#414844",
+            "background": "#fcf8ff",
+            "outline": "#717973",
+            "surface-variant": "#e2e0fc",
+            "tertiary": "#332400",
+            "primary-fixed-dim": "#a5d0b9",
+            "on-tertiary-fixed-variant": "#5b4300"
+          },
+          fontFamily: {
+            "headline": ["Poppins", "Public Sans", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "label": ["Inter", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .flag-gradient {
+      background: linear-gradient(to right, #1B4332, #D4A843, #C1292E);
+    }
+    .tonal-depth-shift {
+      background: linear-gradient(180deg, #081C15 0%, #012D1D 100%);
+    }
+  </style>
+</head>
+<body class="bg-background font-body text-on-background antialiased flex min-h-screen">
+<!-- Sovereign Sidebar -->
+<aside class="h-screen w-64 fixed left-0 top-0 tonal-depth-shift text-white flex flex-col py-8 z-50 overflow-y-auto">
+<div class="px-6 mb-10">
+<h1 class="font-headline font-bold text-2xl tracking-tight text-white">EthioChart</h1>
+<p class="font-mono text-[10px] uppercase tracking-[0.2em] text-tertiary-fixed-dim opacity-80">Sovereign Ledger</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard -->
+<a class="flex items-center px-6 py-3 text-emerald-100/70 hover:text-white hover:bg-emerald-900 transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100" data-icon="dashboard">dashboard</span>
+<span class="font-label text-sm tracking-wide">Dashboard</span>
+</a>
+<!-- Appointments -->
+<a class="flex items-center px-6 py-3 text-emerald-100/70 hover:text-white hover:bg-emerald-900 transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100" data-icon="calendar_today">calendar_today</span>
+<span class="font-label text-sm tracking-wide">My Appointments</span>
+</a>
+<!-- Prescriptions (ACTIVE) -->
+<a class="flex items-center px-6 py-3 bg-emerald-800 text-tertiary-fixed-dim font-semibold border-r-4 border-tertiary-fixed-dim transition-all duration-300" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="medication" style="font-variation-settings: 'FILL' 1;">medication</span>
+<span class="font-label text-sm tracking-wide">My Prescriptions</span>
+</a>
+<!-- Lab Results -->
+<a class="flex items-center px-6 py-3 text-emerald-100/70 hover:text-white hover:bg-emerald-900 transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100" data-icon="biotech">biotech</span>
+<span class="font-label text-sm tracking-wide">My Lab Results</span>
+</a>
+<!-- Bills -->
+<a class="flex items-center px-6 py-3 text-emerald-100/70 hover:text-white hover:bg-emerald-900 transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100" data-icon="receipt_long">receipt_long</span>
+<span class="font-label text-sm tracking-wide">My Bills</span>
+</a>
+<!-- Messages -->
+<a class="flex items-center px-6 py-3 text-emerald-100/70 hover:text-white hover:bg-emerald-900 transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100" data-icon="mail">mail</span>
+<span class="font-label text-sm tracking-wide">Messages</span>
+</a>
+<!-- Video Sessions -->
+<a class="flex items-center px-6 py-3 text-emerald-100/70 hover:text-white hover:bg-emerald-900 transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100" data-icon="video_chat">video_chat</span>
+<span class="font-label text-sm tracking-wide">Video Sessions</span>
+</a>
+<!-- Profile -->
+<a class="flex items-center px-6 py-3 text-emerald-100/70 hover:text-white hover:bg-emerald-900 transition-all duration-300 group mt-10" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100" data-icon="person">person</span>
+<span class="font-label text-sm tracking-wide">Profile</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<div class="p-4 bg-emerald-900/50 rounded-lg flex items-center space-x-3">
+<div class="w-10 h-10 rounded bg-tertiary-fixed-dim/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" data-icon="shield">shield</span>
+</div>
+<div>
+<p class="text-[10px] text-emerald-100/50 font-mono">ENCRYPTION</p>
+<p class="text-xs font-semibold">AES-256 ACTIVE</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Content Canvas -->
+<main class="flex-1 ml-64 min-h-screen flex flex-col relative">
+<!-- Ethiopian Flag Anchor -->
+<div class="fixed top-0 right-0 left-64 h-[3px] flag-gradient z-[60]"></div>
+<!-- Institutional Top Bar -->
+<header class="h-16 px-8 flex items-center justify-between sticky top-0 bg-white/80 backdrop-blur-md z-40 shadow-sm border-b border-outline-variant/10">
+<div class="flex items-center space-x-2 text-on-surface-variant">
+<span class="font-mono text-xs tracking-tighter opacity-50">LOCATION: ADDIS ABABA HQ</span>
+</div>
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-3">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider rounded-full">Patient</span>
+<div class="text-right">
+<p class="text-sm font-headline font-semibold text-primary leading-none">Abebe Tadesse</p>
+<p class="text-[10px] font-mono text-on-surface-variant">ID: ETH-9928-X</p>
+</div>
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-primary-container flex items-center justify-center">
+<img alt="Patient Avatar" class="w-full h-full object-cover" data-alt="professional portrait of an Ethiopian man in a white shirt, soft studio lighting, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpdNG38c1NNvQQ3SQ3FfeCd45t9VocWN3y9AYoG95ZN2bm52BgzK6hCuUsQd365QRuYl35On6ChuT4oLrnZnkVynuoQmhCC9FKMfYagi5AI6nNcZvzuehjjcBOIBkffh_BMqrkZ5CixChoZcIuuKM0GpPj0DG6T8EIVIq09XZRCSH7xn0Ig3GW8Y6hMVKItQnp35WtFAuXE5aYj_JVUUplvdycidpG5Qg4itNIBZHeTZ72Jhg2VTZ1yfD-vaqoezfMTGl6lKh38rbU"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-10 max-w-5xl mx-auto w-full">
+<!-- Breadcrumb -->
+<nav class="mb-6 flex items-center space-x-2 text-[11px] font-mono uppercase tracking-widest text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Portal</a>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-bold">My Prescriptions</span>
+</nav>
+<!-- Institutional Header Section -->
+<div class="mb-8">
+<h2 class="text-4xl font-headline font-bold text-primary tracking-tight">My Prescriptions</h2>
+<div class="h-1 w-20 bg-tertiary-fixed-dim mt-4"></div>
+</div>
+<!-- Info Banner -->
+<div class="mb-10 bg-surface-container-low border-l-4 border-primary rounded-r-lg p-5 flex items-start space-x-4 shadow-sm">
+<span class="material-symbols-outlined text-primary mt-0.5" data-icon="info">info</span>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+          These prescriptions were issued by your doctors within the EthioChart network. If you have questions regarding side effects or dosage, please contact the prescribing physician directly through the secure messaging portal.
+        </p>
+</div>
+<!-- Prescription List (Single Column) -->
+<section class="space-y-6">
+<!-- Card 1: Amoxicillin -->
+<article class="bg-surface-container-lowest border border-outline-variant/15 rounded-lg p-6 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-center space-x-6">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="medication">medication</span>
+</div>
+<div>
+<div class="flex items-center space-x-3 mb-1">
+<h3 class="text-xl font-headline font-bold text-primary">Amoxicillin</h3>
+<span class="font-mono text-[10px] px-2 py-0.5 bg-error-container text-on-error-container rounded">ANTIBIOTIC</span>
+</div>
+<div class="grid grid-cols-2 gap-x-8 gap-y-1 text-sm text-on-surface-variant">
+<p><span class="font-semibold text-primary">Dosage:</span> 500mg twice daily</p>
+<p><span class="font-semibold text-primary">Prescribed by:</span> Dr. Abebe Kebede</p>
+<p><span class="font-semibold text-primary">Duration:</span> 7 days (Oct 12 - Oct 19)</p>
+<p><span class="font-semibold text-primary">Date:</span> <span class="font-mono text-xs">Oct 12, 2023</span></p>
+</div>
+</div>
+</div>
+<div class="text-right flex flex-col items-end">
+<a class="text-[11px] font-mono text-primary flex items-center underline hover:opacity-70 transition-opacity" href="#">
+              Linked Appointment: Oct 12, 2023
+              <span class="material-symbols-outlined text-[14px] ml-1" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</article>
+<!-- Card 2: Metformin -->
+<article class="bg-surface-container-lowest border border-outline-variant/15 rounded-lg p-6 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center space-x-6">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="pill">pill</span>
+</div>
+<div>
+<div class="flex items-center space-x-3 mb-1">
+<h3 class="text-xl font-headline font-bold text-primary">Metformin</h3>
+<span class="font-mono text-[10px] px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded">CHRONIC</span>
+</div>
+<div class="grid grid-cols-2 gap-x-8 gap-y-1 text-sm text-on-surface-variant">
+<p><span class="font-semibold text-primary">Dosage:</span> 850mg once daily</p>
+<p><span class="font-semibold text-primary">Prescribed by:</span> Dr. Selamawit Yilma</p>
+<p><span class="font-semibold text-primary">Duration:</span> 90 days (Oct 05 - Jan 03)</p>
+<p><span class="font-semibold text-primary">Date:</span> <span class="font-mono text-xs">Oct 05, 2023</span></p>
+</div>
+</div>
+</div>
+<div class="text-right">
+<a class="text-[11px] font-mono text-primary flex items-center underline hover:opacity-70" href="#">
+              Linked Appointment: Oct 05, 2023
+              <span class="material-symbols-outlined text-[14px] ml-1" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</article>
+<!-- Card 3: Lisinopril -->
+<article class="bg-surface-container-lowest border border-outline-variant/15 rounded-lg p-6 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center space-x-6">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="medication">medication</span>
+</div>
+<div>
+<div class="flex items-center space-x-3 mb-1">
+<h3 class="text-xl font-headline font-bold text-primary">Lisinopril</h3>
+<span class="font-mono text-[10px] px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded">BP CONTROL</span>
+</div>
+<div class="grid grid-cols-2 gap-x-8 gap-y-1 text-sm text-on-surface-variant">
+<p><span class="font-semibold text-primary">Dosage:</span> 10mg once daily</p>
+<p><span class="font-semibold text-primary">Prescribed by:</span> Dr. Abebe Kebede</p>
+<p><span class="font-semibold text-primary">Duration:</span> 30 days (Sep 20 - Oct 20)</p>
+<p><span class="font-semibold text-primary">Date:</span> <span class="font-mono text-xs">Sep 20, 2023</span></p>
+</div>
+</div>
+</div>
+<div class="text-right">
+<a class="text-[11px] font-mono text-primary flex items-center underline hover:opacity-70" href="#">
+              Linked Appointment: Sep 18, 2023
+              <span class="material-symbols-outlined text-[14px] ml-1" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</article>
+<!-- Card 4: Atorvastatin -->
+<article class="bg-surface-container-lowest border border-outline-variant/15 rounded-lg p-6 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center space-x-6">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="vaccines">vaccines</span>
+</div>
+<div>
+<div class="flex items-center space-x-3 mb-1">
+<h3 class="text-xl font-headline font-bold text-primary">Atorvastatin</h3>
+<span class="font-mono text-[10px] px-2 py-0.5 bg-tertiary-container text-on-tertiary-container rounded">LIPIDS</span>
+</div>
+<div class="grid grid-cols-2 gap-x-8 gap-y-1 text-sm text-on-surface-variant">
+<p><span class="font-semibold text-primary">Dosage:</span> 20mg at bedtime</p>
+<p><span class="font-semibold text-primary">Prescribed by:</span> Dr. Selamawit Yilma</p>
+<p><span class="font-semibold text-primary">Duration:</span> 180 days (Aug 15 - Feb 11)</p>
+<p><span class="font-semibold text-primary">Date:</span> <span class="font-mono text-xs">Aug 15, 2023</span></p>
+</div>
+</div>
+</div>
+<div class="text-right">
+<a class="text-[11px] font-mono text-primary flex items-center underline hover:opacity-70" href="#">
+              Linked Appointment: Aug 12, 2023
+              <span class="material-symbols-outlined text-[14px] ml-1" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</article>
+<!-- Card 5: Omeprazole -->
+<article class="bg-surface-container-lowest border border-outline-variant/15 rounded-lg p-6 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center space-x-6">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="pill">pill</span>
+</div>
+<div>
+<div class="flex items-center space-x-3 mb-1">
+<h3 class="text-xl font-headline font-bold text-primary">Omeprazole</h3>
+<span class="font-mono text-[10px] px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded">GASTRO</span>
+</div>
+<div class="grid grid-cols-2 gap-x-8 gap-y-1 text-sm text-on-surface-variant">
+<p><span class="font-semibold text-primary">Dosage:</span> 20mg daily before meal</p>
+<p><span class="font-semibold text-primary">Prescribed by:</span> Dr. Abebe Kebede</p>
+<p><span class="font-semibold text-primary">Duration:</span> 14 days (Jul 01 - Jul 15)</p>
+<p><span class="font-semibold text-primary">Date:</span> <span class="font-mono text-xs">Jul 01, 2023</span></p>
+</div>
+</div>
+</div>
+<div class="text-right">
+<a class="text-[11px] font-mono text-primary flex items-center underline hover:opacity-70" href="#">
+              Linked Appointment: Jun 30, 2023
+              <span class="material-symbols-outlined text-[14px] ml-1" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</article>
+<!-- Card 6: Azithromycin -->
+<article class="bg-surface-container-lowest border border-outline-variant/15 rounded-lg p-6 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center space-x-6">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="medication">medication</span>
+</div>
+<div>
+<div class="flex items-center space-x-3 mb-1">
+<h3 class="text-xl font-headline font-bold text-primary">Azithromycin</h3>
+<span class="font-mono text-[10px] px-2 py-0.5 bg-error-container text-on-error-container rounded">ANTIBIOTIC</span>
+</div>
+<div class="grid grid-cols-2 gap-x-8 gap-y-1 text-sm text-on-surface-variant">
+<p><span class="font-semibold text-primary">Dosage:</span> 500mg daily</p>
+<p><span class="font-semibold text-primary">Prescribed by:</span> Dr. Selamawit Yilma</p>
+<p><span class="font-semibold text-primary">Duration:</span> 3 days (May 10 - May 13)</p>
+<p><span class="font-semibold text-primary">Date:</span> <span class="font-mono text-xs">May 10, 2023</span></p>
+</div>
+</div>
+</div>
+<div class="text-right">
+<a class="text-[11px] font-mono text-primary flex items-center underline hover:opacity-70" href="#">
+              Linked Appointment: May 09, 2023
+              <span class="material-symbols-outlined text-[14px] ml-1" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</article>
+</section>
+<!-- Footer Info -->
+<footer class="mt-16 pt-8 border-t border-outline-variant/10 flex justify-between items-center text-[11px] font-mono text-on-surface-variant/60 uppercase tracking-widest">
+<p>© 2023 EthioChart Health Ledger. All rights reserved.</p>
+<div class="flex space-x-6">
+<a class="hover:text-primary" href="#">Legal Terms</a>
+<a class="hover:text-primary" href="#">System Integrity</a>
+</div>
+</footer>
+</div>
+</main>
+<!-- Decorative Overlay for Institutional Feel -->
+<div class="fixed bottom-8 right-8 z-[100]">
+<button class="bg-primary text-white p-4 rounded-full shadow-2xl hover:bg-primary-container transition-all flex items-center space-x-2">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-sm font-semibold pr-2">Support</span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Abebe Tadesse - Patient Profile | EthioChart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f5f2ff",
+              "surface": "#fcf8ff",
+              "on-primary-fixed": "#002114",
+              "surface-container-high": "#e8e5ff",
+              "on-tertiary-container": "#cba03b",
+              "secondary-container": "#cee5d9",
+              "on-surface": "#1a1a2e",
+              "on-primary-fixed-variant": "#274e3d",
+              "on-tertiary": "#ffffff",
+              "on-primary-container": "#86af99",
+              "on-error": "#ffffff",
+              "on-secondary-fixed": "#0b1f18",
+              "on-secondary": "#ffffff",
+              "on-background": "#1a1a2e",
+              "surface-dim": "#dad7f3",
+              "error-container": "#ffdad6",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#a5d0b9",
+              "secondary-fixed-dim": "#b5ccc0",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#d1e8dc",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f2efff",
+              "surface-container-highest": "#e2e0fc",
+              "on-secondary-fixed-variant": "#374b42",
+              "on-secondary-container": "#52675e",
+              "on-surface-variant": "#414844",
+              "outline": "#717973",
+              "surface-variant": "#e2e0fc",
+              "surface-bright": "#fcf8ff",
+              "inverse-surface": "#2f2e43",
+              "tertiary-container": "#4e3800",
+              "secondary": "#4e635a",
+              "inverse-primary": "#a5d0b9",
+              "on-tertiary-fixed": "#261a00",
+              "tertiary-fixed-dim": "#eec058",
+              "tertiary-fixed": "#ffdf9f",
+              "tertiary": "#332400",
+              "primary-container": "#1b4332",
+              "outline-variant": "#c1c8c2",
+              "primary": "#012d1d",
+              "background": "#fcf8ff",
+              "surface-container": "#efecff",
+              "primary-fixed": "#c1ecd4",
+              "on-tertiary-fixed-variant": "#5b4300",
+              "error": "#ba1a1a",
+              "surface-tint": "#3f6653"
+            },
+            fontFamily: {
+              "headline": ["Public Sans", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"],
+              "mono": ["JetBrains Mono", "monospace"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #fcf8ff; }
+        .ethio-flag-bar {
+            height: 3px;
+            background: linear-gradient(to right, #1B4332 0%, #1B4332 33%, #D4A843 33%, #D4A843 66%, #C1292E 66%, #C1292E 100%);
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift {
+            background: linear-gradient(180deg, #081C15 0%, #012D1D 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- Sidebar -->
+<aside class="h-screen w-64 fixed left-0 top-0 flex flex-col tonal-shift shadow-2xl z-50">
+<div class="p-6 flex flex-col items-start gap-1">
+<h1 class="text-xl font-bold tracking-tight text-white font-headline">EthioChart</h1>
+<span class="font-mono text-[10px] uppercase tracking-widest text-[#D4A843]">Sovereign Ledger</span>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white bg-[#1B4332] border-r-4 border-[#D4A843] duration-200 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-medium text-sm">Patients</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-medium text-sm">Appointments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-medium text-sm">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-medium text-sm">Staff</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex flex-col min-h-screen">
+<!-- Sticky Flag Bar -->
+<div class="ethio-flag-bar"></div>
+<!-- Header -->
+<header class="sticky top-[3px] z-40 w-full bg-white/80 dark:bg-[#012D1D]/80 backdrop-blur-md flex justify-between items-center h-16 px-8 border-b border-outline-variant/10">
+<div class="flex items-center gap-2">
+<nav class="font-mono text-xs uppercase tracking-widest text-slate-500 flex gap-2">
+<span class="hover:text-primary cursor-pointer transition-colors">Patients</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-bold">Abebe Tadesse</span>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-transform hover:translate-y-[-1px]" data-icon="notifications">notifications</span>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-transform hover:translate-y-[-1px]" data-icon="help_outline">help_outline</span>
+</div>
+<div class="flex items-center gap-3 border-l border-outline-variant/30 pl-6">
+<div class="text-right">
+<p class="text-[10px] font-mono uppercase tracking-tighter text-slate-400">Medical Officer</p>
+<p class="text-xs font-bold text-primary">Dr. Selamawit T.</p>
+</div>
+<img alt="Medical Officer" class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/20 object-cover" data-alt="professional portrait of a confident female doctor in her 30s wearing a white lab coat with a subtle modern aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLSIhYsOTbc8RCINoELqcs9x841gIey12INWPFrH3u3zGx8BDla5AEsvsGQVKbeZO-XiXLeCiBRmsJmchXG0L2cqal0ZtO5N0R6rR7h1l3OEfX0XAjBrsERucmjU5Tnpv04l85CP3i283EBMuw19n5Jx2Je_iuqg0wl6CwpPJrbKz73MNvlPlIZAP6DqmwcWNVGfVvH0oDxJTM6VsSDhOi2jR4QAQ6WAJqpppnqTanhiSbHLzOe80j-ueOIwXReggMq7nFCw4cy6uJ"/>
+</div>
+</div>
+</header>
+<!-- Institutional Header Section -->
+<section class="p-8 space-y-8">
+<!-- Patient Header Card -->
+<div class="bg-surface-container-lowest shadow-[0px_12px_32px_rgba(26,26,46,0.04)] rounded-lg p-8 flex flex-col md:flex-row gap-8 items-start relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-widest">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1B4332]"></span> Verified
+                    </span>
+</div>
+<!-- Avatar & Core Info -->
+<div class="flex flex-col items-center gap-4 min-w-[200px]">
+<div class="w-32 h-32 rounded-full bg-primary-container flex items-center justify-center border-4 border-surface shadow-inner">
+<span class="text-4xl font-headline font-bold text-[#D4A843]">AT</span>
+</div>
+<div class="text-center">
+<h2 class="text-2xl font-headline font-semibold text-primary">Abebe Tadesse</h2>
+<p class="font-mono text-xs text-[#1B4332] font-medium tracking-tight mt-1">EC-M5K2XRPA-A1B2C3</p>
+</div>
+</div>
+<!-- Detailed Info Grid -->
+<div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-y-6 gap-x-12 border-l border-outline-variant/20 pl-8">
+<div class="space-y-4">
+<div class="flex flex-col">
+<label class="text-[10px] font-mono uppercase tracking-widest text-on-surface-variant/60">National ID</label>
+<span class="text-sm font-medium text-on-surface">ET-****7890</span>
+</div>
+<div class="flex flex-col">
+<label class="text-[10px] font-mono uppercase tracking-widest text-on-surface-variant/60">Contact Email</label>
+<span class="text-sm font-medium text-on-surface">patient@gmail.com</span>
+</div>
+<div class="flex flex-col">
+<label class="text-[10px] font-mono uppercase tracking-widest text-on-surface-variant/60">Primary Phone</label>
+<span class="text-sm font-medium text-on-surface font-mono">+251 911 112233</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex flex-col">
+<label class="text-[10px] font-mono uppercase tracking-widest text-on-surface-variant/60">Assigned Facility</label>
+<span class="text-sm font-medium text-on-surface">Addis Ababa General Hospital</span>
+</div>
+<div class="flex flex-col">
+<label class="text-[10px] font-mono uppercase tracking-widest text-on-surface-variant/60">Registration Metadata</label>
+<span class="text-sm font-medium text-on-surface">Oct 24, 2023 <span class="text-outline-variant/60 mx-1">via</span> System Admin</span>
+</div>
+<div class="flex gap-3 pt-2">
+<button class="flex-1 py-2 px-4 border border-outline-variant text-primary text-xs font-bold uppercase tracking-widest hover:bg-surface-container-low transition-colors duration-200">
+                                Edit Patient
+                            </button>
+<button class="flex-1 py-2 px-4 border border-error/30 text-error text-xs font-bold uppercase tracking-widest hover:bg-error-container transition-colors duration-200">
+                                Delete
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Tabs Section -->
+<div class="space-y-6">
+<nav class="flex gap-8 border-b border-outline-variant/20 overflow-x-auto pb-px">
+<button class="pb-4 text-xs font-bold uppercase tracking-widest text-primary border-b-2 border-primary relative">
+                        Appointments
+                    </button>
+<button class="pb-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant/50 hover:text-primary transition-colors border-b-2 border-transparent">
+                        Billing
+                    </button>
+<button class="pb-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant/50 hover:text-primary transition-colors border-b-2 border-transparent whitespace-nowrap">
+                        Medical Conditions
+                    </button>
+<button class="pb-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant/50 hover:text-primary transition-colors border-b-2 border-transparent">
+                        Messages
+                    </button>
+<button class="pb-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant/50 hover:text-primary transition-colors border-b-2 border-transparent whitespace-nowrap">
+                        Video Sessions
+                    </button>
+<button class="pb-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant/50 hover:text-primary transition-colors border-b-2 border-transparent whitespace-nowrap">
+                        Access Log
+                    </button>
+</nav>
+<!-- Active Tab: Appointments Content -->
+<div class="bg-surface-container-lowest rounded-lg shadow-[0px_12px_32px_rgba(26,26,46,0.02)] overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-[10px] font-mono uppercase tracking-[0.2em] text-on-surface-variant/70">Date</th>
+<th class="px-6 py-4 text-[10px] font-mono uppercase tracking-[0.2em] text-on-surface-variant/70">Doctor</th>
+<th class="px-6 py-4 text-[10px] font-mono uppercase tracking-[0.2em] text-on-surface-variant/70">Status</th>
+<th class="px-6 py-4 text-[10px] font-mono uppercase tracking-[0.2em] text-on-surface-variant/70">Notes</th>
+<th class="px-6 py-4 text-right text-[10px] font-mono uppercase tracking-[0.2em] text-on-surface-variant/70">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface transition-colors">
+<td class="px-6 py-5">
+<p class="text-sm font-medium text-on-surface">May 12, 2024</p>
+<p class="text-[10px] font-mono text-outline-variant">09:30 AM</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-[10px] font-bold text-on-secondary-container">DA</div>
+<span class="text-sm text-on-surface">Dr. Dawit Alemu</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-0.5 rounded-full bg-[#1B4332]/10 text-[#1B4332] text-[10px] font-bold uppercase tracking-wider">Confirmed</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-xs text-on-surface-variant max-w-xs truncate">Quarterly cardiovascular assessment and BP monitoring...</p>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-lg" data-icon="visibility">visibility</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-lg" data-icon="edit">edit</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface transition-colors bg-surface-container-low/20">
+<td class="px-6 py-5">
+<p class="text-sm font-medium text-on-surface">Apr 05, 2024</p>
+<p class="text-[10px] font-mono text-outline-variant">02:15 PM</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-[10px] font-bold text-on-secondary-container">KT</div>
+<span class="text-sm text-on-surface">Dr. Kebede Tekle</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-wider">Completed</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-xs text-on-surface-variant max-w-xs truncate">Routine physical examination. Labs within normal range.</p>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-lg" data-icon="visibility">visibility</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-lg" data-icon="edit">edit</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface transition-colors">
+<td class="px-6 py-5">
+<p class="text-sm font-medium text-on-surface">Mar 18, 2024</p>
+<p class="text-[10px] font-mono text-outline-variant">11:00 AM</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-[10px] font-bold text-on-secondary-container">TB</div>
+<span class="text-sm text-on-surface">Dr. Tigist Bekele</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container text-[10px] font-bold uppercase tracking-wider">Cancelled</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-xs text-on-surface-variant max-w-xs truncate">Patient requested reschedule due to work travel.</p>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-lg" data-icon="visibility">visibility</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-lg" data-icon="edit">edit</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface transition-colors bg-surface-container-low/20">
+<td class="px-6 py-5">
+<p class="text-sm font-medium text-on-surface">Jan 22, 2024</p>
+<p class="text-[10px] font-mono text-outline-variant">08:45 AM</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-[10px] font-bold text-on-secondary-container">MA</div>
+<span class="text-sm text-on-surface">Dr. Meron Asrat</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-wider">Completed</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-xs text-on-surface-variant max-w-xs truncate">Follow-up on surgical recovery. Incision site clean.</p>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-lg" data-icon="visibility">visibility</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-lg" data-icon="edit">edit</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface transition-colors">
+<td class="px-6 py-5">
+<p class="text-sm font-medium text-on-surface">Dec 12, 2023</p>
+<p class="text-[10px] font-mono text-outline-variant">04:00 PM</p>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-[10px] font-bold text-on-secondary-container">EM</div>
+<span class="text-sm text-on-surface">Dr. Elias Melaku</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-wider">Completed</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-xs text-on-surface-variant max-w-xs truncate">Initial consultation and medical history review.</p>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-lg" data-icon="visibility">visibility</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors text-lg" data-icon="edit">edit</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Footer Metric / Bottom Bar -->
+<footer class="mt-auto p-8 border-t border-outline-variant/10 flex justify-between items-center bg-surface-container-low/30">
+<div class="flex gap-12">
+<div>
+<p class="text-[10px] font-mono uppercase tracking-[0.2em] text-on-surface-variant/50">Total Sessions</p>
+<p class="text-lg font-headline font-semibold text-primary">24</p>
+</div>
+<div>
+<p class="text-[10px] font-mono uppercase tracking-[0.2em] text-on-surface-variant/50">Last Visit</p>
+<p class="text-lg font-headline font-semibold text-primary">May 12, 2024</p>
+</div>
+<div>
+<p class="text-[10px] font-mono uppercase tracking-[0.2em] text-on-surface-variant/50">Account Standing</p>
+<p class="text-lg font-headline font-semibold text-on-tertiary-container">Golden Tier</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[10px] font-mono text-outline-variant">System Latency: 22ms</span>
+<div class="w-px h-4 bg-outline-variant/30"></div>
+<span class="text-[10px] font-mono text-outline-variant">v2.4.0-Sovereign</span>
+</div>
+</footer>
+</main>
+</body></html>

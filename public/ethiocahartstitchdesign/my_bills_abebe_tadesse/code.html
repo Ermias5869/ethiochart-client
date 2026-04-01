@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EthioChart - Patient Billing Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fcf8ff",
+                        "secondary-fixed-dim": "#b5ccc0",
+                        "secondary-container": "#cee5d9",
+                        "on-secondary-fixed": "#0b1f18",
+                        "tertiary-container": "#4e3800",
+                        "inverse-on-surface": "#f2efff",
+                        "on-surface": "#1a1a2e",
+                        "surface-container": "#efecff",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdf9f",
+                        "surface-container-high": "#e8e5ff",
+                        "outline": "#717973",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-secondary-container": "#52675e",
+                        "primary-container": "#1b4332",
+                        "on-background": "#1a1a2e",
+                        "surface-container-low": "#f5f2ff",
+                        "surface-dim": "#dad7f3",
+                        "on-tertiary-container": "#cba03b",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "surface-tint": "#3f6653",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c1c8c2",
+                        "on-secondary-fixed-variant": "#374b42",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#414844",
+                        "inverse-primary": "#a5d0b9",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "inverse-surface": "#2f2e43",
+                        "background": "#fcf8ff",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "error": "#ba1a1a",
+                        "secondary": "#4e635a",
+                        "on-primary-fixed": "#002114",
+                        "surface": "#fcf8ff",
+                        "tertiary": "#332400",
+                        "secondary-fixed": "#d1e8dc",
+                        "tertiary-fixed-dim": "#eec058",
+                        "surface-variant": "#e2e0fc",
+                        "primary": "#012d1d",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-container-highest": "#e2e0fc"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .flag-gradient {
+            background: linear-gradient(to right, #1B4332 0%, #1B4332 33.33%, #D4A843 33.33%, #D4A843 66.66%, #C1292E 66.66%, #C1292E 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .mono-text { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="fixed top-0 left-0 w-full h-[3px] flag-gradient z-[100]"></div>
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-[#081C15] dark:bg-black shadow-2xl flex flex-col py-6 z-50">
+<div class="px-6 mb-10">
+<h1 class="text-[#D4A843] font-semibold tracking-tighter uppercase font-headline text-xl">EthioChart</h1>
+<p class="text-white/40 text-[10px] uppercase tracking-widest font-mono">Sovereign Ledger</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded text-white/70 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200 font-public-sans text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-white/70 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200 font-public-sans text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                Appointments
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-white/70 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200 font-public-sans text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="prescriptions">prescriptions</span>
+                Prescriptions
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-white/70 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200 font-public-sans text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+                Lab Results
+            </a>
+<a class="bg-[#1B4332] text-[#D4A843] border-l-4 border-[#D4A843] flex items-center gap-3 px-4 py-3 font-public-sans text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                Bills
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-white/70 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200 font-public-sans text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+                Messages
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-white/70 hover:text-white hover:bg-[#1B4332]/50 transition-colors duration-200 font-public-sans text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+                Profile
+            </a>
+</nav>
+<div class="px-6 mt-auto">
+<div class="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10">
+<img alt="Patient Profile Avatar" class="w-8 h-8 rounded-full border border-[#D4A843]" data-alt="portrait of a confident ethiopian man with short hair and professional demeanor against a soft studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD81Vn1cICOQLCIo0N6J0EDdj9x8KHEDyqEm1mqGxOcRdtXZUGRcNIDyyzWY3NGMLGzWFsdBiDM2dCARn-bkFFwmFG-9aHip8TU0QRvgC-QZdzgWkkmztNSAorGy3Qfz3Bmh1rIoIqLZZa30-6vHvAEOKjo0w6aOV8r1jgQ8rJvisHbh2rWdRZqd_TdDPjpL-SHMdMEW0SKAecOHWKfdttdfmBngQ3IBZKrPe4L2raNeLwBJgWhsBgb8rloUue9l0Pej9tmAL-Zrnst"/>
+<div class="overflow-hidden">
+<p class="text-white text-xs font-semibold truncate">Abebe Tadesse</p>
+<p class="text-white/40 text-[10px] mono-text uppercase">ID: ETH-9928-X</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="ml-64 min-h-screen">
+<header class="sticky top-0 z-40 w-full h-16 bg-white/80 backdrop-blur-md border-t-[3px] border-transparent flex justify-between items-center px-8 shadow-sm">
+<div class="flex items-center gap-4">
+<h2 class="font-inter text-lg font-semibold text-[#012D1D]">Billing History</h2>
+<span class="px-2 py-0.5 bg-primary-container text-[#D4A843] text-[10px] font-bold uppercase tracking-widest rounded">Patient</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="text-gray-500 hover:text-primary transition-colors duration-300 font-inter text-base font-semibold">Support</button>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-container transition-all">Download Report</button>
+</div>
+<div class="flex items-center gap-3 border-l border-outline-variant pl-6">
+<img alt="Patient Profile" class="w-10 h-10 rounded-full" data-alt="portrait of a confident ethiopian man with short hair and professional demeanor against a soft studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsPsYnLpNW95WTyp75t2GWlapMSl5gN-U8H9-O2ZkWwL_zDSEGURd15TR2RWUnSyPGLvmYbeXvFukA6cuE2BDCq6fuckGctXr3JEkXvjaKPPmD2eisy8s1sSsZh60qrJoh_dqyYKJN1i18RVXmnLKZ112sjPVlmVJRQYigkzu9HuUgusF5YV7UCFuC0ypVR4dMXexalC90jTglpj8LbPfu-lPfIGbr23d6dRYc6MUxDjq99xK-vVeeauekFBxkHWguVqhkEQ0umtXX"/>
+</div>
+</div>
+</header>
+<div class="p-10 max-w-6xl mx-auto space-y-12">
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-white p-8 rounded shadow-sm border-l-4 border-[#C1292E] relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium uppercase tracking-widest mb-2">Total Due</p>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-4xl font-extrabold text-[#C1292E]">1,500</span>
+<span class="font-mono text-xl text-[#C1292E] opacity-70">ETB</span>
+</div>
+<div class="mt-4 flex items-center gap-2 text-xs text-error font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span>
+                        Immediate settlement requested
+                    </div>
+</div>
+<div class="bg-[#1B4332] p-8 rounded shadow-sm border-l-4 border-[#D4A843] relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 text-white">
+<span class="material-symbols-outlined text-6xl" data-icon="verified">verified</span>
+</div>
+<p class="text-white/60 text-sm font-medium uppercase tracking-widest mb-2">Total Paid</p>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-4xl font-extrabold text-[#D4A843]">12,400</span>
+<span class="font-mono text-xl text-[#D4A843] opacity-70">ETB</span>
+</div>
+<div class="mt-4 flex items-center gap-2 text-xs text-[#D4A843] font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                        Verified Institutional Credits
+                    </div>
+</div>
+</section>
+<section class="space-y-6">
+<div class="flex items-end justify-between border-b-2 border-outline-variant/30 pb-4">
+<div>
+<h3 class="font-headline text-2xl font-bold text-primary uppercase tracking-tight">Financial Ledger</h3>
+<p class="text-on-surface-variant text-sm mt-1">Institutional record of medical services and settlements.</p>
+</div>
+<div class="text-right">
+<span class="mono-text text-[10px] text-on-surface-variant uppercase tracking-widest">Sort: Latest First</span>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Bill Card 1 (Pending) -->
+<div class="bg-surface-container-lowest p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-md transition-shadow">
+<div class="flex gap-6 items-center">
+<div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="medical_information">medical_information</span>
+</div>
+<div>
+<h4 class="font-headline text-lg font-semibold text-primary">Lipid Panel Lab Work</h4>
+<div class="flex items-center gap-4 mt-1">
+<span class="mono-text text-[11px] text-on-surface-variant">ISSUED: 2023.10.14</span>
+<span class="mono-text text-[11px] text-on-surface-variant">REF: INV-8821</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8 md:text-right">
+<div class="space-y-1">
+<div class="flex items-baseline gap-1 md:justify-end">
+<span class="font-headline text-2xl font-bold">1,500.00</span>
+<span class="font-mono text-xs font-semibold opacity-60">ETB</span>
+</div>
+<span class="inline-flex items-center px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold uppercase rounded-full">
+                                    Pending
+                                </span>
+</div>
+</div>
+</div>
+<!-- Bill Card 2 (Paid) -->
+<div class="bg-surface-container-lowest p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-md transition-shadow">
+<div class="flex gap-6 items-center">
+<div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="stethoscope">stethoscope</span>
+</div>
+<div>
+<h4 class="font-headline text-lg font-semibold text-primary">General Consultation Fee</h4>
+<div class="flex items-center gap-4 mt-1">
+<span class="mono-text text-[11px] text-on-surface-variant">ISSUED: 2023.09.28</span>
+<span class="mono-text text-[11px] text-on-surface-variant">REF: INV-8790</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8 md:text-right">
+<div class="space-y-1">
+<div class="flex items-baseline gap-1 md:justify-end">
+<span class="font-headline text-2xl font-bold">450.00</span>
+<span class="font-mono text-xs font-semibold opacity-60">ETB</span>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="inline-flex items-center px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase rounded-full">
+                                        Paid
+                                    </span>
+<div class="flex items-center gap-1 text-[10px] text-secondary font-medium uppercase mono-text">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                        Paid on 2023.09.30
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bill Card 3 (Paid) -->
+<div class="bg-surface-container-lowest p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-md transition-shadow">
+<div class="flex gap-6 items-center">
+<div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="vaccines">vaccines</span>
+</div>
+<div>
+<h4 class="font-headline text-lg font-semibold text-primary">Insulin Prescription Refill</h4>
+<div class="flex items-center gap-4 mt-1">
+<span class="mono-text text-[11px] text-on-surface-variant">ISSUED: 2023.09.12</span>
+<span class="mono-text text-[11px] text-on-surface-variant">REF: INV-8742</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8 md:text-right">
+<div class="space-y-1">
+<div class="flex items-baseline gap-1 md:justify-end">
+<span class="font-headline text-2xl font-bold">2,100.00</span>
+<span class="font-mono text-xs font-semibold opacity-60">ETB</span>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="inline-flex items-center px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase rounded-full">
+                                        Paid
+                                    </span>
+<div class="flex items-center gap-1 text-[10px] text-secondary font-medium uppercase mono-text">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                        Paid on 2023.09.12
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bill Card 4 (Paid) -->
+<div class="bg-surface-container-lowest p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-md transition-shadow">
+<div class="flex gap-6 items-center">
+<div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="radiology">radiology</span>
+</div>
+<div>
+<h4 class="font-headline text-lg font-semibold text-primary">Chest X-Ray Imaging</h4>
+<div class="flex items-center gap-4 mt-1">
+<span class="mono-text text-[11px] text-on-surface-variant">ISSUED: 2023.08.05</span>
+<span class="mono-text text-[11px] text-on-surface-variant">REF: INV-8611</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8 md:text-right">
+<div class="space-y-1">
+<div class="flex items-baseline gap-1 md:justify-end">
+<span class="font-headline text-2xl font-bold">1,850.00</span>
+<span class="font-mono text-xs font-semibold opacity-60">ETB</span>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="inline-flex items-center px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase rounded-full">
+                                        Paid
+                                    </span>
+<div class="flex items-center gap-1 text-[10px] text-secondary font-medium uppercase mono-text">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                        Paid on 2023.08.05
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bill Card 5 (Paid) -->
+<div class="bg-surface-container-lowest p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-md transition-shadow">
+<div class="flex gap-6 items-center">
+<div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="medication">medication</span>
+</div>
+<div>
+<h4 class="font-headline text-lg font-semibold text-primary">Antibiotic Treatment Course</h4>
+<div class="flex items-center gap-4 mt-1">
+<span class="mono-text text-[11px] text-on-surface-variant">ISSUED: 2023.07.19</span>
+<span class="mono-text text-[11px] text-on-surface-variant">REF: INV-8552</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8 md:text-right">
+<div class="space-y-1">
+<div class="flex items-baseline gap-1 md:justify-end">
+<span class="font-headline text-2xl font-bold">600.00</span>
+<span class="font-mono text-xs font-semibold opacity-60">ETB</span>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="inline-flex items-center px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase rounded-full">
+                                        Paid
+                                    </span>
+<div class="flex items-center gap-1 text-[10px] text-secondary font-medium uppercase mono-text">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                        Paid on 2023.07.19
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bill Card 6 (Paid) -->
+<div class="bg-surface-container-lowest p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-md transition-shadow">
+<div class="flex gap-6 items-center">
+<div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="emergency">emergency</span>
+</div>
+<div>
+<h4 class="font-headline text-lg font-semibold text-primary">Emergency Triage &amp; Observation</h4>
+<div class="flex items-center gap-4 mt-1">
+<span class="mono-text text-[11px] text-on-surface-variant">ISSUED: 2023.06.30</span>
+<span class="mono-text text-[11px] text-on-surface-variant">REF: INV-8491</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8 md:text-right">
+<div class="space-y-1">
+<div class="flex items-baseline gap-1 md:justify-end">
+<span class="font-headline text-2xl font-bold">7,400.00</span>
+<span class="font-mono text-xs font-semibold opacity-60">ETB</span>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="inline-flex items-center px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase rounded-full">
+                                        Paid
+                                    </span>
+<div class="flex items-center gap-1 text-[10px] text-secondary font-medium uppercase mono-text">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                        Paid on 2023.07.05
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="pt-8 border-t border-outline-variant/30 text-center">
+<div class="inline-flex items-center gap-2 px-6 py-3 bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="info">info</span>
+<p class="text-on-surface-variant text-xs font-medium italic">
+                        This is a read-only view. Contact the hospital administrator for payment inquiries or ledger disputes.
+                    </p>
+</div>
+<div class="mt-12 mb-8 opacity-20">
+<img alt="Institutional Branding Pattern" class="mx-auto h-8 grayscale contrast-125" data-alt="abstract flowing vertical lines of subtle green and gold on white background representing digital ledger records" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzdB9LGcyncktOEAk3UvXgcrzLApALCYHzzeSD_E0CB2t9_C3Er8G__MpRtTCuIZ45qyRaZ0lW6-JwiWMs29r68HqRM1KPk0j0STShhdvXd3ECFpmDya9DOs0bbARxkiMqa_Oji4lNYStaBhBJ6N0zxMDkIKwlkr6KDr_XxRsyYQafkPH0vJtIHU3UWK0wEwSx6erHq752Pkt7H5Rpa2Qz5G7zE_z5bW4Si5dRybYnKf-0uJX_hi3lR9MiwR0IPdp6mXziGBwMlrli"/>
+</div>
+</footer>
+</div>
+</main>
+</body></html>

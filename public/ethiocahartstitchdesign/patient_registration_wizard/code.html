@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EthioChart - Patient Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=Poppins:wght@500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#eec058",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#4e3800",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "surface-dim": "#dad7f3",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-secondary-container": "#52675e",
+                        "on-surface": "#1a1a2e",
+                        "secondary-fixed": "#d1e8dc",
+                        "on-background": "#1a1a2e",
+                        "background": "#fcf8ff",
+                        "surface-container": "#efecff",
+                        "outline": "#717973",
+                        "tertiary-fixed": "#ffdf9f",
+                        "primary": "#012d1d",
+                        "on-surface-variant": "#414844",
+                        "surface-bright": "#fcf8ff",
+                        "surface-container-low": "#f5f2ff",
+                        "on-secondary-fixed-variant": "#374b42",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e8e5ff",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e2e0fc",
+                        "secondary-fixed-dim": "#b5ccc0",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-error": "#ffffff",
+                        "tertiary": "#332400",
+                        "surface-variant": "#e2e0fc",
+                        "on-tertiary-container": "#cba03b",
+                        "inverse-surface": "#2f2e43",
+                        "outline-variant": "#c1c8c2",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#a5d0b9",
+                        "secondary": "#4e635a",
+                        "inverse-on-surface": "#f2efff",
+                        "surface": "#fcf8ff",
+                        "secondary-container": "#cee5d9",
+                        "on-primary-fixed": "#002114",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "surface-tint": "#3f6653",
+                        "on-secondary-fixed": "#0b1f18",
+                        "primary-container": "#1b4332"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .flag-gradient {
+            background: linear-gradient(to right, #1B4332, #D4A843, #C1292E);
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low font-body text-on-surface">
+<!-- Signature Flag Stripe -->
+<div class="fixed top-0 left-0 w-full h-[3px] flag-gradient z-[60]"></div>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-emerald-950 dark:bg-black shadow-2xl flex flex-col pt-20 pb-6">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h2 class="font-['Poppins'] font-semibold text-emerald-50 tracking-tight leading-tight">Sovereign Ledger</h2>
+<p class="text-[10px] uppercase tracking-widest text-emerald-200/40">Institutional Authority</p>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto">
+<ul class="space-y-1">
+<li><a class="text-emerald-200/60 hover:text-white py-3 px-6 flex items-center gap-3 hover:bg-emerald-900/50 transition-all duration-200" href="#"><span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard</a></li>
+<li><a class="text-emerald-200/60 hover:text-white py-3 px-6 flex items-center gap-3 hover:bg-emerald-900/50 transition-all duration-200" href="#"><span class="material-symbols-outlined" data-icon="domain">domain</span> Hospitals</a></li>
+<li><a class="text-emerald-200/60 hover:text-white py-3 px-6 flex items-center gap-3 hover:bg-emerald-900/50 transition-all duration-200" href="#"><span class="material-symbols-outlined" data-icon="group">group</span> Users</a></li>
+<li><a class="text-emerald-200/60 hover:text-white py-3 px-6 flex items-center gap-3 hover:bg-emerald-900/50 transition-all duration-200" href="#"><span class="material-symbols-outlined" data-icon="medical_services">medical_services</span> Doctors</a></li>
+<!-- Active Tab: Patients -->
+<li><a class="bg-emerald-800 text-white rounded-r-full font-medium py-3 px-6 flex items-center gap-3" href="#"><span class="material-symbols-outlined" data-icon="person">person</span> Patients</a></li>
+<li><a class="text-emerald-200/60 hover:text-white py-3 px-6 flex items-center gap-3 hover:bg-emerald-900/50 transition-all duration-200" href="#"><span class="material-symbols-outlined" data-icon="event">event</span> Appointments</a></li>
+<li><a class="text-emerald-200/60 hover:text-white py-3 px-6 flex items-center gap-3 hover:bg-emerald-900/50 transition-all duration-200" href="#"><span class="material-symbols-outlined" data-icon="payments">payments</span> Billing</a></li>
+<li><a class="text-emerald-200/60 hover:text-white py-3 px-6 flex items-center gap-3 hover:bg-emerald-900/50 transition-all duration-200" href="#"><span class="material-symbols-outlined" data-icon="chat">chat</span> Messages</a></li>
+</ul>
+</nav>
+<div class="mt-auto px-6 space-y-2">
+<a class="text-emerald-200/60 hover:text-white flex items-center gap-3 py-2" href="#"><span class="material-symbols-outlined" data-icon="settings">settings</span> Settings</a>
+<a class="text-emerald-200/60 hover:text-white flex items-center gap-3 py-2" href="#"><span class="material-symbols-outlined" data-icon="logout">logout</span> Logout</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-4 min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="fixed top-[3px] left-64 right-0 h-16 bg-white dark:bg-emerald-950 flex items-center justify-between px-8 z-30 shadow-sm">
+<div class="flex items-center gap-4">
+<nav class="flex items-center text-xs font-['JetBrains_Mono'] text-outline tracking-tight">
+<span class="hover:text-primary cursor-pointer transition-colors">Patients</span>
+<span class="mx-2 text-outline-variant">/</span>
+<span class="text-primary font-semibold">Register New Patient</span>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="material-symbols-outlined text-outline cursor-pointer" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</div>
+<div class="flex items-center gap-3 border-l pl-6 border-outline-variant/30">
+<div class="text-right">
+<p class="text-sm font-semibold text-emerald-900">Admin Badge</p>
+<p class="text-[10px] text-outline">System Director</p>
+</div>
+<img alt="Administrator Profile" class="w-9 h-9 rounded bg-surface-container-highest object-cover" data-alt="portrait of a professional medical administrator in a clinical environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpgOU1XS7xQMxKlHNShIax90h4U6JugHnMQxTd5f525zol-57lSFHEhe7jEqJfoW170XnDOAGaeni46AaPps6gj6TTIWxKhK5yDvrC2U8qVG5fxLXbdzmrJZ6JKHMcjA9n99HR6Kit22Vofwx4u4QlQd-7tpfHSuGnoGkebL56EScDCoFgLZwX8XqvzHL9uKTmOReHeRYp9bFi0dSD7u0Q9bXUv9qWxzukAfV2BCseex8jDU06ZeG4HMqDk_g8wU0UuYa8wZPsSzK1"/>
+</div>
+</div>
+</header>
+<!-- Institutional Header Section -->
+<section class="mt-16 bg-primary-container text-emerald-50 px-12 py-10 shadow-lg">
+<div class="max-w-4xl mx-auto">
+<h1 class="text-4xl font-headline font-bold tracking-tight mb-2">New Patient Enrollment</h1>
+<p class="text-on-primary-container text-sm max-w-xl opacity-90 leading-relaxed">Initiate the sovereign identity protocol for clinical admission. Ensure all national documentation is verified before proceeding.</p>
+</div>
+</section>
+<!-- Step Progress Bar -->
+<section class="max-w-4xl mx-auto -mt-8 relative z-10 px-4 md:px-0">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-xl flex items-center justify-between border border-outline-variant/10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs">1</div>
+<span class="text-xs font-semibold text-primary">Verify ID</span>
+</div>
+<div class="flex-1 h-[2px] mx-4 bg-outline-variant/20"></div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-outline flex items-center justify-center font-bold text-xs">2</div>
+<span class="text-xs font-medium text-outline">Patient Info</span>
+</div>
+<div class="flex-1 h-[2px] mx-4 bg-outline-variant/20"></div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-outline flex items-center justify-center font-bold text-xs">3</div>
+<span class="text-xs font-medium text-outline">Payment</span>
+</div>
+<div class="flex-1 h-[2px] mx-4 bg-outline-variant/20"></div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-outline flex items-center justify-center font-bold text-xs">4</div>
+<span class="text-xs font-medium text-outline">Review</span>
+</div>
+<div class="flex-1 h-[2px] mx-4 bg-outline-variant/20"></div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-outline flex items-center justify-center font-bold text-xs">5</div>
+<span class="text-xs font-medium text-outline">Complete</span>
+</div>
+</div>
+</section>
+<!-- Step 1 Content: National ID Verification -->
+<section class="max-w-4xl mx-auto py-12 px-4 md:px-0">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Main Input Card -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="mb-8">
+<h2 class="text-2xl font-headline font-semibold text-primary mb-2">Verify National ID</h2>
+<p class="text-on-surface-variant text-sm">Enter the patient's national identification number to verify their identity through the Sovereign Registry.</p>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider block">Identification Number</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="badge">badge</span>
+<input class="w-full pl-12 pr-4 py-4 bg-transparent border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors font-['JetBrains_Mono'] text-lg placeholder:font-body placeholder:text-sm placeholder:text-outline-variant" placeholder="Enter National ID (e.g., ET-1234567890)" type="text"/>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-4 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-emerald-900 transition-shadow shadow-md">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+                            Verify Identity
+                        </button>
+</div>
+</div>
+<!-- Result & Info Section -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Verification Result Card -->
+<div class="bg-surface-container-lowest border-2 border-primary/20 p-6 rounded-xl shadow-lg">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-700" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<h3 class="font-bold text-emerald-900">Identity Verified</h3>
+<p class="text-[10px] text-emerald-700/70 font-mono tracking-tighter">REF: SEC-99120-ETH</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-2">
+<span class="text-xs text-outline uppercase font-medium">Full Legal Name</span>
+<span class="text-sm font-semibold text-primary">Abebe Tadesse</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-2">
+<span class="text-xs text-outline uppercase font-medium">Date of Birth</span>
+<span class="text-sm font-semibold text-primary">January 15, 1990</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-xs text-outline uppercase font-medium">Registry Status</span>
+<span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded">VALID</span>
+</div>
+</div>
+</div>
+<!-- Side Note -->
+<div class="bg-tertiary-fixed/10 p-5 rounded-lg border-l-4 border-tertiary">
+<h4 class="text-xs font-bold text-tertiary uppercase mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="info">info</span>
+                            Privacy Notice
+                        </h4>
+<p class="text-[11px] text-tertiary-container/80 leading-relaxed">Identity verification is conducted through the Ministry of Health's centralized ledger. This action is logged for security auditing.</p>
+</div>
+</div>
+</div>
+<!-- Sticky Footer Actions -->
+<div class="mt-12 pt-8 border-t border-outline-variant/20 flex items-center justify-between">
+<button class="flex items-center gap-2 px-6 py-3 text-outline-variant font-semibold cursor-not-allowed border border-outline-variant/20 rounded-lg" disabled="">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                    Back
+                </button>
+<button class="flex items-center gap-2 px-10 py-3 bg-emerald-900 text-white font-semibold rounded-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
+                    Next Step
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Decorative Background Element -->
+<div class="fixed bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+</main>
+</body></html>

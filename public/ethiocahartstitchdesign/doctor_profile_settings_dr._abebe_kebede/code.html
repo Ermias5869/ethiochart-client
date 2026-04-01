@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Doctor Profile | EthioChart Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Poppins:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-primary-container": "#86af99",
+                        "on-secondary-fixed-variant": "#374b42",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#a5d0b9",
+                        "on-tertiary-container": "#cba03b",
+                        "on-surface-variant": "#414844",
+                        "on-secondary-fixed": "#0b1f18",
+                        "secondary-fixed-dim": "#b5ccc0",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#717973",
+                        "inverse-on-surface": "#f2efff",
+                        "surface": "#fcf8ff",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "background": "#fcf8ff",
+                        "surface-dim": "#dad7f3",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1a2e",
+                        "tertiary-container": "#4e3800",
+                        "surface-container-low": "#f5f2ff",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fcf8ff",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-container": "#efecff",
+                        "on-surface": "#1a1a2e",
+                        "tertiary-fixed-dim": "#eec058",
+                        "primary": "#012d1d",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c1c8c2",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#3f6653",
+                        "secondary-container": "#cee5d9",
+                        "surface-container-highest": "#e2e0fc",
+                        "secondary": "#4e635a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "surface-container-high": "#e8e5ff",
+                        "on-primary-fixed": "#002114",
+                        "inverse-surface": "#2f2e43",
+                        "on-tertiary-fixed": "#261a00",
+                        "surface-variant": "#e2e0fc",
+                        "secondary-fixed": "#d1e8dc",
+                        "primary-container": "#1b4332",
+                        "tertiary": "#332400",
+                        "on-secondary-container": "#52675e"
+                    },
+                    fontFamily: {
+                        "headline": ["Poppins", "Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ethiopian-flag-bar {
+            height: 3px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background: linear-gradient(to right, #1B4332 33.33%, #D4A843 33.33%, #D4A843 66.66%, #C1292E 66.66%);
+        }
+        .sidebar-gradient {
+            background: linear-gradient(to bottom, #081C15, #012D1D);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background">
+<!-- Brand Identity: Flag Bar -->
+<div class="ethiopian-flag-bar"></div>
+<!-- Side Navigation -->
+<nav class="sidebar-gradient w-[260px] h-full fixed left-0 top-0 flex flex-col py-6 z-50 shadow-xl">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-bold text-tertiary-fixed-dim tracking-tight font-headline">The Sovereign Ledger</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-primary-container font-mono">Medical Authority</p>
+</div>
+<div class="flex-1 space-y-1">
+<!-- Nav Item: Dashboard -->
+<a class="text-emerald-100/70 hover:text-white px-4 py-3 flex items-center gap-3 hover:bg-[#1B4332]/50 transition-colors mx-4 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<!-- Nav Item: Appointments -->
+<a class="text-emerald-100/70 hover:text-white px-4 py-3 flex items-center gap-3 hover:bg-[#1B4332]/50 transition-colors mx-4 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-sm">My Appointments</span>
+</a>
+<!-- Nav Item: Patients -->
+<a class="text-emerald-100/70 hover:text-white px-4 py-3 flex items-center gap-3 hover:bg-[#1B4332]/50 transition-colors mx-4 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="text-sm">My Patients</span>
+</a>
+<!-- Nav Item: Prescriptions -->
+<a class="text-emerald-100/70 hover:text-white px-4 py-3 flex items-center gap-3 hover:bg-[#1B4332]/50 transition-colors mx-4 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="prescriptions">prescriptions</span>
+<span class="text-sm">Prescriptions</span>
+</a>
+<!-- Nav Item: Lab Results -->
+<a class="text-emerald-100/70 hover:text-white px-4 py-3 flex items-center gap-3 hover:bg-[#1B4332]/50 transition-colors mx-4 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+<span class="text-sm">Lab Results</span>
+</a>
+<!-- Nav Item: Messages -->
+<a class="text-emerald-100/70 hover:text-white px-4 py-3 flex items-center gap-3 hover:bg-[#1B4332]/50 transition-colors mx-4 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-sm">Messages</span>
+</a>
+<!-- Nav Item: Video -->
+<a class="text-emerald-100/70 hover:text-white px-4 py-3 flex items-center gap-3 hover:bg-[#1B4332]/50 transition-colors mx-4 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+<span class="text-sm">Video Sessions</span>
+</a>
+<!-- Nav Item: AI -->
+<a class="text-emerald-100/70 hover:text-white px-4 py-3 flex items-center gap-3 hover:bg-[#1B4332]/50 transition-colors mx-4 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="text-sm">AI Assistant</span>
+</a>
+<!-- ACTIVE Nav Item: Profile -->
+<a class="bg-[#1B4332] text-[#D4A843] font-semibold rounded-r-full mr-4 px-4 py-3 flex items-center gap-3 scale-95 duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span class="text-sm">Profile</span>
+</a>
+</div>
+<div class="px-6 mt-auto">
+<div class="flex items-center gap-3 pt-6 border-t border-emerald-900/30">
+<img alt="Doctor Portrait" class="w-10 h-10 rounded-full bg-emerald-800 object-cover" data-alt="professional portrait of a senior male doctor with kind eyes and short graying hair wearing a white medical coat in a bright studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATADgurGe3KhtqAx3nYTZoKaAPaRtxKhB2OxWbf1Yp4UaN3paEU8kS52C6mINNQS4Lqb5ILWmXPrBOrKB_XIgd22WTTLcj7D9x6jOuskMPTdYXncmsJLpVW_YEtXz59jUGAXR-7Q8t9Bj8C_QS2kkIKAD_tcP0PPMvxHYYAN6n29XgeyinA74Y2f1JgdYO6itqFdD1ZoOlzAXkxrCYZFCjp2MtePHBViXjGzDTUewqyA5ww78EgtYf6Z3kH54Tf8gTi2QTggBO-UhL"/>
+<div>
+<p class="text-xs font-semibold text-white">Dr. Abebe Kebede</p>
+<p class="text-[10px] text-emerald-100/50 font-mono">ID: ETH-4421-MD</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-[260px] min-h-screen">
+<!-- Top Navigation -->
+<header class="fixed top-0 right-0 left-[260px] h-16 bg-white/80 backdrop-blur-md flex items-center justify-between px-8 z-40 border-b-2 border-emerald-900/5">
+<div class="flex items-center gap-4">
+<nav class="flex items-center gap-2 text-xs font-mono text-slate-500">
+<span class="hover:text-primary cursor-pointer">Sovereign Health</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">Profile</span>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-slate-500 hover:text-primary transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<div class="flex items-center gap-3 pl-6 border-l border-slate-100">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold text-primary">Dr. Abebe Kebede</p>
+<span class="text-[10px] px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full font-bold uppercase tracking-tighter">Doctor</span>
+</div>
+<img alt="Dr. Profile" class="w-10 h-10 rounded-full bg-surface-container-highest" data-alt="close up headshot of a distinguished Ethiopian doctor in professional medical attire with a clean clinical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtlbofDeg2bAGxGpYdreA_gWGRXCVUpJvmnKGoQ00OhLbZpkNL3MQKcLtbnfL8_Em-opT0lr6L5hr6bGkcCXg9W7JjkREy6pG9TYL5XzOU_X8yxjdKI1Q9OsBJ1r4Eao_W0Rzw8z4cxnMTcom6WeOq1H2Dsfmqp8IS1Q504U_AJijRKR8E0fUTAejfJVl2lw8lXcqJzB82P6ofvEKEgANQMpQVL7IuSHSU-f9EEPhm7HQJXfvuVg7GPjVNpL4d3uwfqyba5H4dsXwb"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="pt-24 pb-12 px-8 max-w-4xl mx-auto">
+<div class="mb-8">
+<h2 class="text-3xl font-headline font-semibold text-primary">Doctor Profile</h2>
+<p class="text-slate-500 mt-1">Manage your institutional identity and security credentials.</p>
+</div>
+<!-- Profile Card -->
+<div class="bg-surface-container-lowest shadow-sm rounded-lg overflow-hidden">
+<div class="p-10">
+<!-- Avatar Upload -->
+<div class="flex flex-col items-center mb-12">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-surface-container shadow-inner">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="a professional studio headshot of a middle aged man with a warm smile wearing medical scrubs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeAPv1hOEqVRfrBJWqS5-7HM9m7CobwSb9spfflYJYtIh87rSmO95OHLuV6WRBP8XsdRg-Wey9qq1V71HS75UWE4FFVXOsAypIYy3ObGiY1KX72EPK8TmBAAhZY9onFiBycRKGDSht4M7CyBlIFEureksz-85atxowrcmzHv315RbARxHaWw4PoXzmZNkPj4i8wg0NsGLMYFitt9GHFM-lNDIHcL7SB1sQ1jGDqIvSFihQ5KylKa0A95CckUVjZsC_2164PKe-U6DS"/>
+</div>
+<button class="absolute inset-0 bg-primary/40 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-full">
+<span class="material-symbols-outlined">photo_camera</span>
+</button>
+</div>
+<button class="mt-4 text-sm font-semibold text-primary underline underline-offset-4 hover:text-primary-container transition-colors">Change Photo</button>
+</div>
+<!-- Personal Information -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-400">Full Name</label>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 font-medium text-primary bg-transparent transition-all" type="text" value="Dr. Abebe Kebede"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1">
+                                Email Address <span class="material-symbols-outlined text-[14px]">lock</span>
+</label>
+<input class="w-full border-0 border-b-2 border-outline-variant/30 px-0 py-2 font-mono text-sm text-slate-400 bg-transparent cursor-not-allowed" readonly="" type="email" value="a.kebede@health.et"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-400">Phone Number</label>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 font-mono text-primary bg-transparent transition-all" type="tel" value="+251 911 112 233"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-400">Specialty Field</label>
+<select class="w-full border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 font-medium text-primary bg-transparent transition-all">
+<option>Cardiologist</option>
+<option>Neurologist</option>
+<option>Pediatrician</option>
+<option>General Surgeon</option>
+</select>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1">
+                                Primary Hospital <span class="material-symbols-outlined text-[14px]">lock</span>
+</label>
+<div class="w-full bg-surface-container-low px-4 py-3 rounded text-secondary font-semibold text-sm border-l-4 border-primary">
+                                Addis Ababa General Hospital
+                            </div>
+</div>
+</div>
+<!-- Security Section -->
+<div class="mt-16 pt-10 border-t border-surface-container">
+<div class="mb-8">
+<h3 class="text-xl font-headline font-semibold text-primary">Security</h3>
+<p class="text-sm text-slate-500">Update your access credentials to maintain ledger security.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-400">Current Password</label>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 font-mono text-primary bg-transparent transition-all" placeholder="••••••••••••" type="password"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-400">New Password</label>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 font-mono text-primary bg-transparent transition-all" placeholder="••••••••••••" type="password"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-400">Confirm Password</label>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 font-mono text-primary bg-transparent transition-all" placeholder="••••••••••••" type="password"/>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="mt-16 flex justify-end">
+<button class="bg-[#1B4332] text-white px-10 py-4 rounded font-bold uppercase tracking-widest text-sm flex items-center gap-3 border-2 border-[#D4A843] hover:bg-[#012d1d] transition-all active:scale-95 shadow-lg shadow-primary/10">
+                            Update Profile
+                            <span class="material-symbols-outlined text-sm">verified_user</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Contextual Support Info -->
+<div class="mt-8 flex items-center gap-4 p-4 bg-surface-container-low rounded-lg border border-outline-variant/10">
+<span class="material-symbols-outlined text-tertiary-fixed-dim bg-primary p-2 rounded-full">info</span>
+<div>
+<p class="text-xs font-bold text-primary uppercase tracking-tighter">Identity Verification</p>
+<p class="text-xs text-slate-500">Locked fields require administrative authorization to change. Contact Hospital Administration for updates.</p>
+</div>
+<button class="ml-auto text-xs font-bold text-primary hover:underline">Contact Admin</button>
+</div>
+</div>
+</main>
+</body></html>

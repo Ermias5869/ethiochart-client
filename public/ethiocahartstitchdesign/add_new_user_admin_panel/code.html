@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EthioChart | Add New User</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#eec058",
+                        "secondary-container": "#cee5d9",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "on-primary-fixed": "#002114",
+                        "background": "#fcf8ff",
+                        "tertiary-container": "#4e3800",
+                        "on-secondary-fixed-variant": "#374b42",
+                        "tertiary-fixed": "#ffdf9f",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "surface-container-high": "#e8e5ff",
+                        "outline": "#717973",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#2f2e43",
+                        "on-secondary-fixed": "#0b1f18",
+                        "on-background": "#1a1a2e",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#b5ccc0",
+                        "primary-fixed": "#c1ecd4",
+                        "secondary": "#4e635a",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#332400",
+                        "surface-container-low": "#f5f2ff",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#3f6653",
+                        "on-primary-container": "#86af99",
+                        "surface": "#fcf8ff",
+                        "primary": "#012d1d",
+                        "on-tertiary-container": "#cba03b",
+                        "inverse-primary": "#a5d0b9",
+                        "surface-container": "#efecff",
+                        "surface-container-highest": "#e2e0fc",
+                        "outline-variant": "#c1c8c2",
+                        "on-surface": "#1a1a2e",
+                        "primary-container": "#1b4332",
+                        "on-surface-variant": "#414844",
+                        "surface-bright": "#fcf8ff",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e2e0fc",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "inverse-on-surface": "#f2efff",
+                        "secondary-fixed": "#d1e8dc",
+                        "on-tertiary-fixed": "#261a00",
+                        "surface-dim": "#dad7f3",
+                        "on-secondary-container": "#52675e"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .flag-stripe {
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #1B4332, #D4A843, #C1292E);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background antialiased overflow-x-hidden">
+<!-- Brand Anchor: Ethiopian Flag Stripe -->
+<div class="flag-stripe"></div>
+<div class="flex min-h-screen">
+<!-- Shared Component: SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-[#081C15] shadow-[0px_12px_32px_rgba(26,26,46,0.06)] flex flex-col py-8 z-40">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-bold text-white tracking-widest font-headline">EthioChart</h1>
+<p class="text-xs text-white/50 font-mono tracking-wider mt-1 uppercase">Institutional Admin</p>
+</div>
+<nav class="flex-grow space-y-1">
+<!-- Dashboard Tab -->
+<a class="text-white/70 hover:text-white px-6 py-3 flex items-center gap-4 transition-colors hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-['Public_Sans'] font-semibold tracking-tight text-sm">Dashboard</span>
+</a>
+<!-- Hospitals Tab -->
+<a class="text-white/70 hover:text-white px-6 py-3 flex items-center gap-4 transition-colors hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="apartment">apartment</span>
+<span class="font-['Public_Sans'] font-semibold tracking-tight text-sm">Hospitals</span>
+</a>
+<!-- Users Tab (Active State) -->
+<a class="bg-[#1B4332] text-[#D4A843] rounded-r-full mr-4 px-6 py-3 flex items-center gap-4 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-['Public_Sans'] font-semibold tracking-tight text-sm">Users</span>
+</a>
+<!-- Doctors Tab -->
+<a class="text-white/70 hover:text-white px-6 py-3 flex items-center gap-4 transition-colors hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="medical_services">medical_services</span>
+<span class="font-['Public_Sans'] font-semibold tracking-tight text-sm">Doctors</span>
+</a>
+<!-- Patients Tab -->
+<a class="text-white/70 hover:text-white px-6 py-3 flex items-center gap-4 transition-colors hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+<span class="font-['Public_Sans'] font-semibold tracking-tight text-sm">Patients</span>
+</a>
+<!-- Settings Tab -->
+<a class="text-white/70 hover:text-white px-6 py-3 flex items-center gap-4 transition-colors hover:bg-[#1B4332]/50 mt-auto" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-['Public_Sans'] font-semibold tracking-tight text-sm">Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-10 pt-8 border-t border-white/5 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-primary-container flex items-center justify-center border border-[#D4A843]/20">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="portrait of a high-ranking Ethiopian government official in a professional business suit with neutral office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKTZXz6g7BHm6fLzLS09PcT0_jT5C0BXjsVBn7X_I5U-njtMF8KySjsVWwxght6jsTx_St6zk0-go1ydkm2-nD17hxHvXCqy5QqbjqZhTHwGBygP87esnCk6FEHUD0s32aA760-jrY624HqrJd5cu0TYGMMhJUA5TDyoJxfLC4X8ftaIeFw6KsJ2YhLdfbUVvDLUILCqIQ4pg0C5eNm1Gr1SCw1QCRPm5MAlNyma9JLRn9ke8UuVysaXTvWhIrNXqbd4lAlp111_v5"/>
+</div>
+<div class="overflow-hidden">
+<p class="text-white text-xs font-semibold truncate">Dr. Abebe Bekele</p>
+<p class="text-white/40 text-[10px] font-mono uppercase">ID: EC-ADM-001</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-grow ml-[260px] relative">
+<!-- Shared Component: TopNavBar -->
+<header class="sticky top-0 w-full z-30 bg-white/80 backdrop-blur-md flex items-center justify-between px-8 py-4 before:content-[''] before:block before:h-[3px] before:w-full before:bg-gradient-to-r before:from-[#1B4332] before:via-[#D4A843] before:to-[#C1292E] before:absolute before:top-0 before:left-0">
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg text-[10px] font-mono tracking-wider focus:ring-1 focus:ring-[#D4A843] w-64 placeholder:text-on-surface-variant/50" placeholder="SEARCH SYSTEM RECORDS..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-6 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-2">
+<span class="font-['JetBrains_Mono'] uppercase tracking-tighter text-xs text-primary font-bold">Administrator</span>
+</div>
+</div>
+</header>
+<!-- Institutional Header Module -->
+<section class="bg-primary-container text-white px-10 py-12">
+<nav class="mb-4">
+<ol class="flex items-center gap-2 font-mono text-[10px] tracking-widest text-on-primary-container">
+<li class="hover:text-tertiary-fixed transition-colors cursor-pointer uppercase">Users</li>
+<li>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+</li>
+<li class="text-on-primary uppercase font-bold tracking-[0.2em]">Add New User</li>
+</ol>
+</nav>
+<h2 class="text-4xl font-headline font-bold tracking-tight mb-2">Create Administrative Identity</h2>
+<p class="text-on-primary-container text-sm max-w-2xl font-body leading-relaxed">Establish a new credential within the EthioChart ecosystem. Ensure all data conforms to federal health data standards.</p>
+</section>
+<!-- Form Content Canvas -->
+<div class="px-10 -mt-8 pb-20 flex justify-center">
+<!-- Centered Ledger Card -->
+<div class="w-full max-w-3xl bg-surface-container-lowest shadow-[0px_12px_32px_rgba(26,26,46,0.06)] rounded-lg p-10 relative overflow-hidden">
+<!-- Form Header -->
+<div class="mb-10 border-b-2 border-surface-container-low pb-6 flex justify-between items-end">
+<div>
+<h3 class="text-xl font-headline font-semibold text-primary">User Information</h3>
+<p class="text-xs text-on-surface-variant font-body">All fields marked with an asterisk are mandatory.</p>
+</div>
+<span class="text-[10px] font-mono text-[#D4A843] bg-[#D4A843]/10 px-3 py-1 rounded tracking-tighter font-bold uppercase">System Record: FORM-9912</span>
+</div>
+<form class="space-y-8">
+<!-- Name & Email Group -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-2">
+<label class="text-[11px] font-mono font-bold uppercase text-on-surface-variant tracking-wider">Full Name *</label>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 transition-all font-body text-sm placeholder:text-outline/40" placeholder="Enter formal legal name" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[11px] font-mono font-bold uppercase text-on-surface-variant tracking-wider">Email Address *</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-outline-variant text-[18px]" data-icon="mail">mail</span>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 pl-7 py-2 transition-all font-body text-sm placeholder:text-outline/40" placeholder="official.name@ethiochart.gov.et" type="email"/>
+</div>
+</div>
+</div>
+<!-- Phone & Password Group -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-2">
+<label class="text-[11px] font-mono font-bold uppercase text-on-surface-variant tracking-wider">Phone Number *</label>
+<div class="flex">
+<div class="border-b-2 border-outline-variant px-2 py-2 flex items-center gap-1 bg-surface-container-low/50">
+<img alt="Ethiopia Flag" class="w-4 h-3 object-cover rounded-sm" data-alt="small icon of the flag of Ethiopia with horizontal stripes of green, yellow, and red and the national emblem" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN7xF3870lSNSPGAhHVpRL4EwTrgXQZX7Snf6_ik3279jG8V_7VWvQiinzauXEKiJHlRcolcerWULDN4b4LXFDXnHyyb1NYkJni_3BPs27xWo_rIlg0xUJGlEaVn6lQ330O2CcNcsNY2Hle8MiU8utmi6OD_E8KxY5L4-6uocl6IY7h381l_a0nQOnmoVCzDpIc1FKrcddQTAukssHaOyp2WHkHKuHtZVoS7HdgHk2gjryuePHhiraT88uO64schF7kE0qxzjFLWd8"/>
+<span class="text-xs font-mono font-bold">+251</span>
+</div>
+<input class="flex-grow border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 px-4 py-2 transition-all font-body text-sm placeholder:text-outline/40" placeholder="911 234 567" type="tel"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[11px] font-mono font-bold uppercase text-on-surface-variant tracking-wider">System Password *</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-outline-variant text-[18px]" data-icon="lock">lock</span>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 pl-7 pr-10 py-2 transition-all font-mono text-sm" type="password" value="secret_password"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Role & Hospital Group -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-2">
+<label class="text-[11px] font-mono font-bold uppercase text-on-surface-variant tracking-wider">Staff Role *</label>
+<div class="relative group">
+<select class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 transition-all font-body text-sm bg-transparent appearance-none relative z-10">
+<option disabled="" selected="" value="">Select defined role</option>
+<option value="admin">Hospital Admin</option>
+<option value="doctor">Doctor</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 text-outline z-0">unfold_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[11px] font-mono font-bold uppercase text-on-surface-variant tracking-wider">Assigned Hospital *</label>
+<div class="relative">
+<select class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 transition-all font-body text-sm bg-transparent appearance-none relative z-10">
+<option disabled="" selected="" value="">Select medical institution</option>
+<option>Addis Ababa General Hospital</option>
+<option>St. Paul's Hospital Millennium Medical College</option>
+<option>Black Lion (Tikur Anbessa) Hospital</option>
+<option>Zewditu Memorial Hospital</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 text-outline z-0">apartment</span>
+</div>
+</div>
+</div>
+<!-- Info Banner -->
+<div class="bg-primary/5 border-l-4 border-[#D4A843] p-6 flex gap-4">
+<span class="material-symbols-outlined text-[#D4A843]" data-icon="info">info</span>
+<p class="text-xs text-primary font-body leading-relaxed italic">
+                                Selecting <strong class="font-semibold">'Doctor'</strong> will automatically trigger a secondary workflow to create a linked medical practitioner profile, including MD registration number and clinical department assignment within the sovereign database.
+                            </p>
+</div>
+<!-- Footer Actions -->
+<div class="pt-10 flex items-center justify-end gap-4 border-t border-surface-container-low">
+<button class="px-8 py-3 border border-outline-variant text-on-surface-variant font-headline font-bold text-xs uppercase tracking-widest hover:bg-surface-container transition-all rounded-lg" type="button">
+                                Cancel
+                            </button>
+<button class="px-10 py-3 bg-primary-container text-white border-2 border-[#D4A843] font-headline font-bold text-xs uppercase tracking-widest shadow-xl hover:scale-[1.02] transition-all rounded-lg flex items-center gap-2" type="submit">
+                                Create User
+                                <span class="material-symbols-outlined text-[18px]">verified_user</span>
+</button>
+</div>
+</form>
+<!-- Decorative watermark for Institutional feel -->
+<div class="absolute -bottom-10 -right-10 opacity-[0.03] pointer-events-none">
+<span class="material-symbols-outlined text-[300px] text-primary" data-icon="account_balance">account_balance</span>
+</div>
+</div>
+</div>
+<!-- Secondary Information Section (Asymmetric) -->
+<div class="px-10 py-10 grid grid-cols-12 gap-8 items-start">
+<div class="col-span-8 p-8 bg-surface-container-low rounded-lg">
+<h4 class="text-xs font-mono font-bold text-primary uppercase tracking-widest mb-4">Security Protocol AD-01</h4>
+<ul class="space-y-4">
+<li class="flex gap-3 text-xs text-on-surface-variant leading-relaxed">
+<span class="w-1.5 h-1.5 rounded-full bg-[#C1292E] mt-1 shrink-0"></span>
+                            Passwords must be at least 12 characters and contain a mix of alphanumeric identifiers and symbols.
+                        </li>
+<li class="flex gap-3 text-xs text-on-surface-variant leading-relaxed">
+<span class="w-1.5 h-1.5 rounded-full bg-[#C1292E] mt-1 shrink-0"></span>
+                            Institutional email addresses are subject to audit trail logging for all clinical interactions.
+                        </li>
+</ul>
+</div>
+<div class="col-span-4 bg-[#D4A843]/10 p-8 rounded-lg">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-tertiary text-lg">shield</span>
+<h4 class="text-xs font-headline font-bold text-tertiary uppercase tracking-widest">Compliance</h4>
+</div>
+<p class="text-[11px] text-tertiary-container leading-relaxed font-body">
+                        Creating this account signifies administrative authorization under the Digital Health Framework Section 4.2. Access logs will be generated for ETH-FED-SEC.
+                    </p>
+</div>
+</div>
+</main>
+</div>
+</body></html>

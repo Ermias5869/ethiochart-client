@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EthioChart Admin Settings</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-container": "#86af99",
+              "tertiary-container": "#4e3800",
+              "surface-bright": "#fcf8ff",
+              "inverse-primary": "#a5d0b9",
+              "surface-container-highest": "#e2e0fc",
+              "error-container": "#ffdad6",
+              "primary-fixed-dim": "#a5d0b9",
+              "on-surface": "#1a1a2e",
+              "primary-fixed": "#c1ecd4",
+              "tertiary-fixed": "#ffdf9f",
+              "outline": "#717973",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f2efff",
+              "secondary-fixed": "#d1e8dc",
+              "primary-container": "#1b4332",
+              "on-secondary-fixed-variant": "#374b42",
+              "on-secondary": "#ffffff",
+              "on-error": "#ffffff",
+              "tertiary": "#332400",
+              "primary": "#012d1d",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#002114",
+              "on-tertiary-fixed-variant": "#5b4300",
+              "on-secondary-container": "#52675e",
+              "on-tertiary-fixed": "#261a00",
+              "inverse-surface": "#2f2e43",
+              "tertiary-fixed-dim": "#eec058",
+              "secondary": "#4e635a",
+              "secondary-container": "#cee5d9",
+              "on-background": "#1a1a2e",
+              "on-tertiary-container": "#cba03b",
+              "surface-variant": "#e2e0fc",
+              "secondary-fixed-dim": "#b5ccc0",
+              "outline-variant": "#c1c8c2",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f5f2ff",
+              "surface-dim": "#dad7f3",
+              "on-surface-variant": "#414844",
+              "surface-container-high": "#e8e5ff",
+              "surface-container": "#efecff",
+              "surface-tint": "#3f6653",
+              "on-secondary-fixed": "#0b1f18",
+              "error": "#ba1a1a",
+              "background": "#fcf8ff",
+              "on-primary-fixed-variant": "#274e3d",
+              "surface": "#fcf8ff",
+              "on-error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["Public Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .flag-stripe {
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #1B4332 33.33%, #D4A843 33.33%, #D4A843 66.66%, #C1292E 66.66%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 50;
+        }
+        .tonal-shift-only {
+            background-color: #fcf8ff;
+        }
+        .no-borders {
+            border: none !important;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<div class="flag-stripe"></div>
+<!-- SideNavBar Component -->
+<aside class="bg-emerald-950 dark:bg-black font-headline tracking-tight h-screen w-64 fixed left-0 top-0 shadow-2xl flex flex-col py-6 z-30">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-bold text-emerald-50 dark:text-emerald-50">EthioChart</h1>
+<p class="text-xs text-emerald-200/50 uppercase tracking-widest mt-1">Institutional Admin</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 text-emerald-200/70 hover:text-white hover:bg-emerald-900/30 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="person">person</span>
+<span class="text-sm">Profile</span>
+</a>
+<a class="flex items-center px-6 py-3 text-emerald-200/70 hover:text-white hover:bg-emerald-900/30 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="security">security</span>
+<span class="text-sm">Security</span>
+</a>
+<a class="flex items-center px-6 py-3 text-emerald-200/70 hover:text-white hover:bg-emerald-900/30 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="apartment">apartment</span>
+<span class="text-sm">Hospital Settings</span>
+</a>
+<a class="flex items-center px-6 py-3 text-emerald-200/70 hover:text-white hover:bg-emerald-900/30 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="notifications">notifications</span>
+<span class="text-sm">Notifications</span>
+</a>
+</nav>
+<div class="mt-auto px-4 space-y-1">
+<a class="flex items-center px-4 py-3 text-emerald-50 font-bold border-l-4 border-amber-500 bg-emerald-900/50 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+<a class="flex items-center px-4 py-3 text-emerald-200/70 hover:text-white hover:bg-emerald-900/30 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="logout">logout</span>
+<span class="text-sm">Logout</span>
+</a>
+<div class="mt-6 px-2">
+<button class="w-full py-2 px-4 bg-tertiary text-on-tertiary text-xs font-bold rounded shadow-sm hover:opacity-90 transition-opacity">
+                    System Status
+                </button>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Component -->
+<header class="bg-white/80 dark:bg-emerald-950/80 backdrop-blur-md font-inter text-sm sticky top-0 z-40 ml-64 flex items-center justify-between px-8 h-16 w-[calc(100%-16rem)] border-b-4 border-emerald-900/10">
+<div class="flex items-center gap-8">
+<span class="font-mono text-emerald-900 dark:text-emerald-400 uppercase tracking-widest font-bold">Sovereign Ledger Admin</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-200" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-200" href="#">Analytics</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-200" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center bg-surface-container px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-outline-variant mr-2 text-lg" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs w-48" placeholder="Search ledger..." type="text"/>
+</div>
+<button class="p-2 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="bg-primary text-white px-4 py-2 rounded font-semibold text-xs hover:opacity-90 transition-opacity">
+                Save Changes
+            </button>
+<div class="h-8 w-8 rounded-full bg-primary-container overflow-hidden ml-2 ring-2 ring-outline-variant/20">
+<img alt="Admin Profile" data-alt="close up professional headshot of a mature business leader with a neutral expression against a clean office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ryw8ULVkuMDIdrsNNNz5M0jddQyhqUhgbd0dE1OtDOpB7UTGxQliCOhuFSPCZPECt_bmh8GgmPcaEMgSQvlbyjcVNX-BCwGh-MWQI4N7vI0g7XNMK_nug48mENwWYR_8EBdGFuKo-VTJtTqFPzcryVEiNItPdbMAJDYp-hIvmXJQa8MDvOuU--GJTEFWNl-deTTMDesjLywseuCMThYWH9CmKxnkIVD4I_ZHTl7t9kq_DEn5AmTDl0fGGjtNGd5FVJiz-hhq-6Kv"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-8 min-h-screen">
+<div class="max-w-6xl mx-auto space-y-8">
+<!-- Institutional Header -->
+<div class="bg-primary-container p-8 rounded-xl shadow-sm text-white relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
+<div class="relative z-10">
+<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-primary-container mb-2">System // Configuration // Admin</div>
+<h2 class="text-3xl font-headline font-semibold">Account &amp; Hospital Settings</h2>
+<p class="text-emerald-100/70 text-sm mt-2 max-w-md">Manage your administrative credentials, security protocols, and institutional metadata for the sovereign ledger.</p>
+</div>
+</div>
+<!-- Bento Grid - Row 1 -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Profile Settings Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-8 flex flex-col">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-lg font-headline font-semibold text-primary flex items-center">
+<span class="material-symbols-outlined mr-2 text-tertiary" data-icon="person_outline">person_outline</span>
+                            Profile Settings
+                        </h3>
+</div>
+<div class="flex items-center gap-6 mb-8">
+<div class="relative group">
+<div class="w-24 h-24 rounded-full bg-surface-container-high border-2 border-dashed border-outline-variant flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-outline text-3xl" data-icon="add_a_photo">add_a_photo</span>
+</div>
+<button class="absolute bottom-0 right-0 bg-tertiary text-white p-1.5 rounded-full shadow-lg hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Administrator Identity</p>
+<p class="text-xs text-on-surface-variant">JPG, GIF or PNG. Max size of 2MB.</p>
+</div>
+</div>
+<div class="space-y-6 flex-1">
+<div>
+<label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Full Name</label>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 bg-transparent py-2 px-0 text-sm font-medium" type="text" value="Abebe Bikila"/>
+</div>
+<div>
+<label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Email Address</label>
+<div class="relative">
+<input class="w-full border-0 border-b-2 border-outline-variant bg-surface-container-low/50 py-2 px-0 text-sm font-medium text-on-surface-variant cursor-not-allowed" readonly="" type="email" value="admin@ethiochart.gov.et"/>
+<span class="material-symbols-outlined absolute right-0 top-2 text-outline-variant text-sm" data-icon="lock">lock</span>
+</div>
+</div>
+<div>
+<label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Phone Number</label>
+<div class="flex items-center">
+<span class="font-mono text-sm text-on-surface-variant mr-3 border-b-2 border-outline-variant py-2">+251</span>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 bg-transparent py-2 px-0 text-sm font-medium" type="text" value="911 234 567"/>
+</div>
+</div>
+</div>
+<button class="mt-8 bg-primary text-white py-3 px-6 rounded font-semibold text-sm hover:opacity-90 transition-all flex items-center justify-center gap-2">
+                        Update Profile
+                    </button>
+</section>
+<!-- Security Settings Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-8 flex flex-col">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-lg font-headline font-semibold text-primary flex items-center">
+<span class="material-symbols-outlined mr-2 text-tertiary" data-icon="verified_user">verified_user</span>
+                            Security Settings
+                        </h3>
+</div>
+<div class="space-y-6 flex-1">
+<div>
+<label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Current Password</label>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 bg-transparent py-2 px-0 text-sm font-medium" placeholder="••••••••••••" type="password"/>
+</div>
+<div>
+<label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">New Password</label>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 bg-transparent py-2 px-0 text-sm font-medium" placeholder="Enter new password" type="password"/>
+</div>
+<div>
+<label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Confirm New Password</label>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 bg-transparent py-2 px-0 text-sm font-medium" placeholder="Confirm new password" type="password"/>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg mt-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="info">info</span>
+<div>
+<p class="text-xs font-semibold text-primary">Password Policy</p>
+<p class="text-[10px] text-on-surface-variant mt-1 leading-relaxed">Minimum 12 characters, including one uppercase, one number, and one institutional special character.</p>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-8 bg-primary text-white py-3 px-6 rounded font-semibold text-sm hover:opacity-90 transition-all flex items-center justify-center gap-2">
+                        Change Password
+                    </button>
+</section>
+</div>
+<!-- Full-width Middle Card - Hospital Settings -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-8 border-l-4 border-tertiary">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-lg font-headline font-semibold text-primary flex items-center">
+<span class="material-symbols-outlined mr-2 text-tertiary" data-icon="local_hospital">local_hospital</span>
+                        Hospital Settings
+                    </h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-6">
+<div>
+<label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Hospital Name</label>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 bg-transparent py-2 px-0 text-sm font-medium" type="text" value="Black Lion Specialized Hospital"/>
+</div>
+<div>
+<label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Institutional Admin Email</label>
+<input class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 bg-transparent py-2 px-0 text-sm font-medium" type="email" value="contact@blacklion.gov.et"/>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-2">Physical Address</label>
+<textarea class="w-full border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 bg-transparent py-2 px-0 text-sm font-medium resize-none" rows="3">Zewditu St, Addis Ababa, Ethiopia. Medical District Area 4.</textarea>
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-end">
+<button class="bg-primary text-white py-3 px-8 rounded font-semibold text-sm hover:opacity-90 transition-all">
+                        Update Settings
+                    </button>
+</div>
+</section>
+<!-- Full-width Bottom Card - Notification Preferences -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-8">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-lg font-headline font-semibold text-primary flex items-center">
+<span class="material-symbols-outlined mr-2 text-tertiary" data-icon="notifications_active">notifications_active</span>
+                        Notification Preferences
+                    </h3>
+<span class="font-mono text-[10px] text-tertiary bg-tertiary/10 px-2 py-1 rounded">PRIORITY_ALERTS_ONLY</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Notification Item -->
+<div class="flex items-center justify-between p-4 bg-surface-container rounded-lg border-b-2 border-outline-variant/30">
+<div>
+<p class="text-sm font-semibold text-primary">Email notifications</p>
+<p class="text-[10px] text-on-surface-variant">System logs &amp; reports</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container rounded-lg border-b-2 border-outline-variant/30">
+<div>
+<p class="text-sm font-semibold text-primary">SMS notifications</p>
+<p class="text-[10px] text-on-surface-variant">Urgent security alerts</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container rounded-lg border-b-2 border-outline-variant/30">
+<div>
+<p class="text-sm font-semibold text-primary">Appointment reminders</p>
+<p class="text-[10px] text-on-surface-variant">Patient flow updates</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container rounded-lg border-b-2 border-outline-variant/30">
+<div>
+<p class="text-sm font-semibold text-primary">Billing alerts</p>
+<p class="text-[10px] text-on-surface-variant">Revenue cycle tracking</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+</div>
+<footer class="max-w-6xl mx-auto mt-12 pb-8 flex justify-between items-center text-[10px] font-mono text-on-surface-variant uppercase tracking-widest opacity-60">
+<div>© 2024 Sovereign Ledger - Ministry of Health, Ethiopia</div>
+<div class="flex gap-4">
+<span>Inst-ID: ET-BH-9921-X</span>
+<span>Security Level: Tier 4</span>
+</div>
+</footer>
+</main>
+</body></html>

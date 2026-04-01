@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EthioChart | Appointment Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700&amp;family=Inter:wght@400;500;600&amp;family=Poppins:wght@600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#fcf8ff",
+              "on-primary-fixed": "#002114",
+              "tertiary-container": "#4e3800",
+              "on-secondary-container": "#52675e",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#b5ccc0",
+              "outline": "#717973",
+              "inverse-on-surface": "#f2efff",
+              "on-tertiary-fixed-variant": "#5b4300",
+              "primary-container": "#1b4332",
+              "on-primary-fixed-variant": "#274e3d",
+              "primary": "#012d1d",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#eec058",
+              "surface-variant": "#e2e0fc",
+              "surface-container": "#efecff",
+              "secondary": "#4e635a",
+              "on-primary-container": "#86af99",
+              "on-tertiary": "#ffffff",
+              "surface-container-high": "#e8e5ff",
+              "on-tertiary-container": "#cba03b",
+              "tertiary-fixed": "#ffdf9f",
+              "on-tertiary-fixed": "#261a00",
+              "on-surface": "#1a1a2e",
+              "inverse-primary": "#a5d0b9",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#0b1f18",
+              "on-secondary": "#ffffff",
+              "surface-bright": "#fcf8ff",
+              "secondary-container": "#cee5d9",
+              "primary-fixed": "#c1ecd4",
+              "inverse-surface": "#2f2e43",
+              "surface-tint": "#3f6653",
+              "on-primary": "#ffffff",
+              "on-background": "#1a1a2e",
+              "surface-container-highest": "#e2e0fc",
+              "surface": "#fcf8ff",
+              "on-surface-variant": "#414844",
+              "surface-container-low": "#f5f2ff",
+              "on-secondary-fixed-variant": "#374b42",
+              "secondary-fixed": "#d1e8dc",
+              "tertiary": "#332400",
+              "primary-fixed-dim": "#a5d0b9",
+              "outline-variant": "#c1c8c2",
+              "surface-dim": "#dad7f3",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Public Sans", "Poppins"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .flag-stripe {
+            background: linear-gradient(to right, #1B4332 33.3%, #D4A843 33.3%, #D4A843 66.6%, #C1292E 66.6%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-overlay {
+            background: rgba(252, 248, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased overflow-x-hidden">
+<!-- Brand Anchor: Top Status Bar (Flag Stripe) -->
+<div class="flag-stripe h-[3px] w-full fixed top-0 left-0 z-[60]"></div>
+<!-- SideNavBar (Sovereign Ledger) -->
+<nav class="h-screen w-64 fixed left-0 top-0 z-40 bg-emerald-950 flex flex-col pt-20 pb-6 shadow-[0px_12px_32px_rgba(26,26,46,0.06)] border-r border-emerald-900/20">
+<div class="px-6 mb-8">
+<h1 class="text-lg font-semibold text-white font-headline">Sovereign Ledger</h1>
+<p class="text-[10px] uppercase tracking-widest text-emerald-100/50 font-medium">Institutional Authority</p>
+</div>
+<div class="flex flex-col gap-1 px-2">
+<a class="text-emerald-100/70 px-4 py-3 flex items-center gap-3 hover:bg-emerald-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-sm tracking-wide">Dashboard</span>
+</a>
+<!-- Active Navigation -->
+<a class="bg-emerald-800 text-amber-400 border-r-4 border-amber-400 px-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="text-sm tracking-wide font-medium">My Appointments</span>
+</a>
+<a class="text-emerald-100/70 px-4 py-3 flex items-center gap-3 hover:bg-emerald-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+<span class="text-sm tracking-wide">My Patients</span>
+</a>
+<a class="text-emerald-100/70 px-4 py-3 flex items-center gap-3 hover:bg-emerald-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">prescriptions</span>
+<span class="text-sm tracking-wide">Prescriptions</span>
+</a>
+<a class="text-emerald-100/70 px-4 py-3 flex items-center gap-3 hover:bg-emerald-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">biotech</span>
+<span class="text-sm tracking-wide">Lab Results</span>
+</a>
+<a class="text-emerald-100/70 px-4 py-3 flex items-center gap-3 hover:bg-emerald-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span class="text-sm tracking-wide">Messages</span>
+</a>
+<a class="text-emerald-100/70 px-4 py-3 flex items-center gap-3 hover:bg-emerald-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">videocam</span>
+<span class="text-sm tracking-wide">Video Sessions</span>
+</a>
+<a class="text-emerald-100/70 px-4 py-3 flex items-center gap-3 hover:bg-emerald-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span class="text-sm tracking-wide">AI Assistant</span>
+</a>
+<div class="mt-auto">
+<a class="text-emerald-100/70 px-4 py-3 flex items-center gap-3 hover:bg-emerald-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+<span class="text-sm tracking-wide">Profile</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-[3px] min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-[3px] left-64 right-0 z-30 bg-white shadow-sm px-8 py-3 flex justify-between items-center border-b border-slate-100">
+<div class="flex items-center gap-4">
+<span class="text-emerald-900 font-bold tracking-tight text-xl font-headline">EthioChart</span>
+<div class="h-6 w-[1px] bg-slate-200"></div>
+<nav class="flex gap-6 text-sm">
+<a class="text-emerald-900 font-bold border-b-2 border-emerald-900 px-1" href="#">Case Manager</a>
+<a class="text-slate-500 hover:text-emerald-900 transition-colors" href="#">History</a>
+<a class="text-slate-500 hover:text-emerald-900 transition-colors" href="#">Directory</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined text-slate-400 hover:text-emerald-900 cursor-pointer p-2 rounded-full transition-transform active:scale-90">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</div>
+<span class="material-symbols-outlined text-slate-400 hover:text-emerald-900 cursor-pointer p-2 rounded-full transition-transform active:scale-90">settings</span>
+<img alt="Dr. Gebremariam" class="w-9 h-9 rounded-full object-cover border-2 border-emerald-900/10" data-alt="professional portrait of a middle-aged male Ethiopian doctor in a clinical setting with warm lighting and a confident expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQY1oX_AsWTUG1dfWQ0Lrrv16mwvtbv5vLvDOUMoajd9FqMknhxg7UvsoT7_enXXSaqnq3HW2jSeUK5nsPaOngnDo_32Mc4470Slcy1GsQqpO2pKvbD1sKJ1N8KsrRLjqiQ9lZMFxZj1xCDfwwBmpKd-028TnC6w7M_mTrgdxf1z97Ctpijq3QUyNdj6TgvDUyFyj9GwvXRiDhOGMzIYFzjMqNro8Ww1vH1TY64p_bsm1L09AfGjv2WjS-k94AtpaGaRj_fv603KpB"/>
+</div>
+</header>
+<!-- Institutional Patient Header -->
+<section class="mt-16 bg-primary-container text-white px-10 py-10">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="font-mono text-xs uppercase tracking-[0.2em] text-on-primary-container">Patient Identification</span>
+<span class="h-[1px] w-12 bg-on-primary-container/30"></span>
+</div>
+<h2 class="text-4xl font-headline font-semibold mb-2">Abebe Tadesse</h2>
+<div class="flex flex-wrap items-center gap-x-8 gap-y-2">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-on-primary-container/70 font-bold">Registry ID</span>
+<span class="font-mono text-amber-400 tracking-tight">EC-M5K2XRPA-A1B2C3</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-on-primary-container/70 font-bold">Phone Contact</span>
+<span class="font-medium">+251 911 112 233</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-on-primary-container/70 font-bold">Email Ledger</span>
+<span class="font-medium">abebe.t@gmail.com</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-3">
+<div class="bg-[#2E7D32] px-4 py-1.5 rounded-full flex items-center gap-2 border border-white/20">
+<div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+<span class="text-xs font-bold uppercase tracking-widest">Scheduled</span>
+</div>
+<div class="flex items-center gap-3 text-on-primary-container">
+<span class="material-symbols-outlined text-lg">event</span>
+<span class="font-headline font-medium text-lg">Oct 27, 2023 | 09:00 AM</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Module Content Section -->
+<section class="max-w-6xl mx-auto px-10 py-8">
+<!-- Navigation Tabs -->
+<div class="flex gap-8 mb-10 border-b border-outline-variant/30">
+<button class="pb-4 border-b-2 border-primary text-primary font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">prescriptions</span>
+                    Prescriptions
+                </button>
+<button class="pb-4 border-b-2 border-transparent text-secondary hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">biotech</span>
+                    Lab Results
+                </button>
+<button class="pb-4 border-b-2 border-transparent text-secondary hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">notes</span>
+                    Notes
+                </button>
+</div>
+<!-- Active Content: Prescriptions -->
+<div class="space-y-8">
+<!-- Prescription Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Prescription Card 1 -->
+<div class="bg-surface-container-lowest p-6 shadow-[0px_4px_24px_rgba(26,26,46,0.04)] rounded-lg border-l-4 border-primary">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-semibold text-primary mb-1">Amoxicillin</h3>
+<p class="text-xs font-mono text-tertiary uppercase tracking-wider">Dosage Protocol</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant">medication</span>
+</div>
+<div class="grid grid-cols-3 gap-4 py-4 border-y border-outline-variant/10">
+<div>
+<p class="text-[10px] uppercase font-bold text-outline">Dosage</p>
+<p class="font-medium text-on-surface">500mg</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline">Frequency</p>
+<p class="font-medium text-on-surface">3x Daily</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline">Duration</p>
+<p class="font-medium text-on-surface">7 Days</p>
+</div>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<span class="text-[10px] font-mono bg-surface-container px-2 py-1">RX-0092-A</span>
+<button class="text-error text-xs font-bold flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-sm">delete</span>
+                                Remove
+                            </button>
+</div>
+</div>
+<!-- Prescription Card 2 -->
+<div class="bg-surface-container-lowest p-6 shadow-[0px_4px_24px_rgba(26,26,46,0.04)] rounded-lg border-l-4 border-primary">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-semibold text-primary mb-1">Paracetamol</h3>
+<p class="text-xs font-mono text-tertiary uppercase tracking-wider">Dosage Protocol</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant">pill</span>
+</div>
+<div class="grid grid-cols-3 gap-4 py-4 border-y border-outline-variant/10">
+<div>
+<p class="text-[10px] uppercase font-bold text-outline">Dosage</p>
+<p class="font-medium text-on-surface">1g</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline">Frequency</p>
+<p class="font-medium text-on-surface">As Needed</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline">Duration</p>
+<p class="font-medium text-on-surface">5 Days</p>
+</div>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<span class="text-[10px] font-mono bg-surface-container px-2 py-1">RX-0093-B</span>
+<button class="text-error text-xs font-bold flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-sm">delete</span>
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+<!-- Add Prescription Ledger -->
+<div class="bg-white p-8 rounded-lg border-2 border-dashed border-outline-variant/50">
+<h3 class="text-lg font-headline font-semibold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">add_circle</span>
+                        Add New Prescription
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase font-bold text-outline">Medication Name</label>
+<input class="bg-transparent border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-sm py-2 px-0 transition-all placeholder:text-outline/40" placeholder="e.g. Metformin" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase font-bold text-outline">Dosage (mg/ml)</label>
+<input class="bg-transparent border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-sm py-2 px-0 transition-all placeholder:text-outline/40" placeholder="e.g. 250mg" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase font-bold text-outline">Duration (Days)</label>
+<input class="bg-transparent border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-sm py-2 px-0 transition-all placeholder:text-outline/40" placeholder="e.g. 10" type="text"/>
+</div>
+<button class="bg-primary text-white py-3 px-6 rounded shadow-sm hover:shadow-md active:scale-95 transition-all font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                            Add Prescription
+                        </button>
+</div>
+</div>
+</div>
+<!-- Asymmetric Grid for Vitals/Summary -->
+<div class="mt-12 grid grid-cols-12 gap-8">
+<div class="col-span-12 lg:col-span-8">
+<div class="bg-surface-container-low p-8 rounded-lg">
+<h4 class="text-[10px] uppercase tracking-widest font-bold text-tertiary mb-4">Patient Summary Ledger</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Patient presents with mild recurring febrile symptoms over the past 48 hours. Lungs clear on auscultation. Recommended hydration and monitored rest period. Previous history of penicillin allergy noted in master ledger.
+                        </p>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 bg-tertiary-fixed p-6 rounded-lg border border-on-tertiary-container/10">
+<h4 class="text-[10px] uppercase tracking-widest font-bold text-on-tertiary-fixed mb-4">Session Highlights</h4>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant text-lg">check_circle</span>
+<span class="text-xs font-medium text-on-tertiary-fixed">Physical examination completed</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant text-lg">check_circle</span>
+<span class="text-xs font-medium text-on-tertiary-fixed">Prescription protocol updated</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer Action Bar -->
+<div class="mt-16 pt-8 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-6 pb-12">
+<p class="text-xs font-mono text-outline italic">
+                    Digitally Signed by: Dr. Gebremariam | ETH-MED-22019
+                </p>
+<div class="flex gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none border border-error text-error py-3 px-8 rounded-lg font-bold hover:bg-error/5 transition-colors active:scale-95">
+                        Cancel Appointment
+                    </button>
+<button class="flex-1 md:flex-none bg-[#2E7D32] text-white py-3 px-10 rounded-lg font-bold shadow-lg hover:shadow-xl active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">verified</span>
+                        Mark as Completed
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Global Action (Restricted Suppression) - Only for main canvas contexts -->
+<button class="fixed bottom-8 right-8 bg-amber-400 text-primary w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-90 transition-transform z-50">
+<span class="material-symbols-outlined text-3xl font-bold">help</span>
+</button>
+</body></html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Appointment | Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#274e3d",
+              "error": "#ba1a1a",
+              "error-container": "#ffdad6",
+              "outline-variant": "#c1c8c2",
+              "tertiary-fixed-dim": "#eec058",
+              "surface": "#fcf8ff",
+              "secondary-container": "#cee5d9",
+              "primary-container": "#1b4332",
+              "on-surface-variant": "#414844",
+              "on-secondary-fixed-variant": "#374b42",
+              "secondary": "#4e635a",
+              "on-surface": "#1a1a2e",
+              "primary-fixed": "#c1ecd4",
+              "tertiary-fixed": "#ffdf9f",
+              "surface-container-highest": "#e2e0fc",
+              "on-tertiary": "#ffffff",
+              "surface-variant": "#e2e0fc",
+              "surface-container-high": "#e8e5ff",
+              "inverse-primary": "#a5d0b9",
+              "secondary-fixed-dim": "#b5ccc0",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#002114",
+              "primary-fixed-dim": "#a5d0b9",
+              "on-primary-container": "#86af99",
+              "inverse-surface": "#2f2e43",
+              "on-secondary-fixed": "#0b1f18",
+              "background": "#fcf8ff",
+              "on-tertiary-fixed-variant": "#5b4300",
+              "on-secondary": "#ffffff",
+              "tertiary-container": "#4e3800",
+              "surface-tint": "#3f6653",
+              "surface-dim": "#dad7f3",
+              "tertiary": "#332400",
+              "on-background": "#1a1a2e",
+              "surface-container-low": "#f5f2ff",
+              "secondary-fixed": "#d1e8dc",
+              "on-error-container": "#93000a",
+              "surface-bright": "#fcf8ff",
+              "inverse-on-surface": "#f2efff",
+              "primary": "#012d1d",
+              "surface-container": "#efecff",
+              "outline": "#717973",
+              "on-tertiary-container": "#cba03b",
+              "on-secondary-container": "#52675e",
+              "on-tertiary-fixed": "#261a00",
+              "on-error": "#ffffff",
+              "surface-container-lowest": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Public Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .flag-gradient {
+        background: linear-gradient(90deg, #1B4332 0%, #D4A843 50%, #C1292E 100%);
+      }
+      .ledger-input {
+        border: none;
+        border-bottom: 2px solid #c1c8c2;
+        border-radius: 0;
+        background: transparent;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .ledger-input:focus {
+        outline: none;
+        box-shadow: none;
+        border-bottom-color: #012d1d;
+      }
+    </style>
+</head>
+<body class="bg-surface-container-low font-body text-on-surface">
+<!-- Brand Signature Bar -->
+<div class="fixed top-0 left-0 right-0 h-[3px] flag-gradient z-[60]"></div>
+<!-- Side Navigation -->
+<aside class="fixed left-0 top-0 bottom-0 w-[260px] bg-[#081C15] z-50 flex flex-col h-full py-6 shadow-2xl shadow-emerald-950/50">
+<div class="px-8 mb-10">
+<h1 class="font-headline font-bold text-white text-lg tracking-tight">Federal Medical</h1>
+<p class="font-body text-xs tracking-wide text-emerald-100/60 uppercase">Institutional Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-8 py-3 text-emerald-100/60 hover:text-white hover:bg-emerald-800/30 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="dashboard">dashboard</span>
+<span class="font-body text-sm tracking-wide">Dashboard</span>
+</a>
+<!-- Active State for Appointments -->
+<a class="flex items-center px-8 py-3 bg-emerald-900/40 text-[#D4A843] border-r-4 border-[#D4A843] transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="calendar_today">calendar_today</span>
+<span class="font-body text-sm tracking-wide">Appointments</span>
+</a>
+<a class="flex items-center px-8 py-3 text-emerald-100/60 hover:text-white hover:bg-emerald-800/30 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="clinical_notes">clinical_notes</span>
+<span class="font-body text-sm tracking-wide">Patient Records</span>
+</a>
+<a class="flex items-center px-8 py-3 text-emerald-100/60 hover:text-white hover:bg-emerald-800/30 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="group">group</span>
+<span class="font-body text-sm tracking-wide">Staff Directory</span>
+</a>
+<a class="flex items-center px-8 py-3 text-emerald-100/60 hover:text-white hover:bg-emerald-800/30 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="inventory_2">inventory_2</span>
+<span class="font-body text-sm tracking-wide">Inventory</span>
+</a>
+<a class="flex items-center px-8 py-3 text-emerald-100/60 hover:text-white hover:bg-emerald-800/30 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="payments">payments</span>
+<span class="font-body text-sm tracking-wide">Billing</span>
+</a>
+</nav>
+<div class="px-8 pt-6 mt-auto space-y-1">
+<a class="flex items-center py-3 text-emerald-100/60 hover:text-white transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="help">help</span>
+<span class="font-body text-sm tracking-wide">Help Center</span>
+</a>
+<a class="flex items-center py-3 text-emerald-100/60 hover:text-white transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="logout">logout</span>
+<span class="font-body text-sm tracking-wide">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="pl-[260px] pt-[3px]">
+<!-- Top Bar -->
+<header class="fixed top-[3px] right-0 left-[260px] h-16 bg-white z-40 flex justify-between items-center px-10 shadow-sm border-t-4 border-t-primary-container">
+<div class="flex items-center space-x-2 text-sm text-on-surface-variant font-body">
+<span class="font-medium">Appointments</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface font-semibold">New Appointment</span>
+</div>
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="h-8 w-px bg-outline-variant/30"></div>
+<div class="flex items-center space-x-3">
+<div class="text-right">
+<p class="text-xs font-bold text-primary tracking-tight">Chief Medical Officer</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-mono tracking-widest">DR. K. TADESSE</p>
+</div>
+<img alt="Chief Medical Officer Profile" class="h-9 w-9 rounded-lg object-cover" data-alt="Close-up portrait of a professional African doctor in a white lab coat with a serious and authoritative expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApKsT0vMdp77UWiMdI9rDnjTfU1zjBFmNuWbAwgG8iJNc5k-gZuV6a1f999p1UzuBczh-Lm43eTjDSlxe-1rhlg9vbnmpPAxiHSNzgBO5M1T44MGd-0w9_PhLgZD5GyJUVmG4MbN6P0M7CY9HtnprBGWykWp06u4xVwh7fPZDt9nqNNBO-IGiawUCRhW-L7Du0qUR9T1TTY4mm9ceAYPzyzyYPlh3ZhEaGpspe8yj7wnOC9lzMhrHwk3qKxmMY09oeh3wJOeSy-epf"/>
+</div>
+</div>
+</header>
+<!-- Form Content Container -->
+<div class="mt-24 px-10 pb-20 max-w-4xl mx-auto">
+<!-- Institutional Header -->
+<div class="bg-primary-container p-8 rounded-t-xl text-white shadow-lg relative overflow-hidden">
+<div class="absolute right-[-10%] top-[-20%] opacity-10">
+<span class="material-symbols-outlined text-[160px]" data-icon="calendar_add_on">calendar_add_on</span>
+</div>
+<div class="relative z-10">
+<p class="font-mono text-[10px] tracking-[0.2em] text-on-primary-container mb-2">INTERNAL FORM // APP-092-2024</p>
+<h2 class="font-headline text-3xl font-semibold tracking-tight">Schedule New Consultation</h2>
+<p class="text-on-primary-container text-sm mt-2 max-w-lg leading-relaxed">
+                        Register a new medical encounter within the sovereign ledger. Ensure all patient and practitioner data is verified before submission.
+                    </p>
+</div>
+</div>
+<!-- Main Form Card -->
+<div class="bg-surface-container-lowest p-10 rounded-b-xl shadow-sm space-y-12">
+<!-- Patient Selection Section -->
+<section>
+<div class="flex items-center space-x-3 mb-6">
+<div class="h-6 w-1 bg-tertiary"></div>
+<h3 class="font-headline font-semibold text-primary text-lg">Patient Information</h3>
+</div>
+<div class="relative">
+<label class="block text-xs font-semibold text-on-surface-variant mb-1 uppercase tracking-wider">Search Patient Record</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-0 text-outline" data-icon="person_search">person_search</span>
+<input class="ledger-input w-full pl-8 py-3 text-on-surface placeholder:text-outline-variant font-body" placeholder="Start typing patient name or ID..." type="text"/>
+</div>
+<!-- Mock Dropdown Results -->
+<div class="mt-2 bg-white border border-outline-variant/30 shadow-xl rounded-lg overflow-hidden">
+<div class="px-4 py-3 bg-surface-container-low hover:bg-secondary-container/30 cursor-pointer flex justify-between items-center transition-colors">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-white text-xs font-bold">AT</div>
+<div>
+<p class="text-sm font-semibold">Abebe Tadesse</p>
+<p class="font-mono text-[10px] text-on-surface-variant">DOB: 12-05-1984</p>
+</div>
+</div>
+<span class="font-mono text-xs px-2 py-1 bg-primary text-white rounded">EC-M5K2XRPA</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Medical Practitioner Section -->
+<section>
+<div class="flex items-center space-x-3 mb-6">
+<div class="h-6 w-1 bg-tertiary"></div>
+<h3 class="font-headline font-semibold text-primary text-lg">Assigned Medical Officer</h3>
+</div>
+<div class="relative">
+<label class="block text-xs font-semibold text-on-surface-variant mb-1 uppercase tracking-wider">Practitioner Directory</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-0 text-outline" data-icon="medical_services">medical_services</span>
+<input class="ledger-input w-full pl-8 py-3 text-on-surface placeholder:text-outline-variant font-body" placeholder="Search by name or specialization..." type="text"/>
+</div>
+<!-- Selected Doctor State -->
+<div class="mt-4 p-4 border-l-4 border-tertiary bg-tertiary-fixed/10 flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<img alt="Dr. Selamawit Bekele" class="h-12 w-12 rounded object-cover grayscale contrast-125" data-alt="Professional medical headshot of a female doctor in scrubs with a focused and trustworthy look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnQrTF3IeupNbzOoiVM26zoA833VJq1n0-2886Av3EDK3tfEhRJgqsZUMnSHMrp-yQ_oahoDvPTzJ498VQodexifQx3RvWv-hWdSCD3Gg3DOxOmgarEqIqgl0DNbYP1P2jiLihzsgNa563fIebhUE-H5Bn6xpzTpGpT-JhyOxk20xQDeUtRoLK5dYHUEr3GW1aMREOz3pwE4gwUUQnPeDk0h6ksOCbQ6xVQHFnor-kEBlGppCSKchcA0xt-QmgJiu70KgbrMiXto6c"/>
+<div>
+<p class="font-bold text-primary">Dr. Selamawit Bekele</p>
+<p class="text-xs text-on-surface-variant">Cardiology Specialist</p>
+<p class="text-[10px] font-medium text-tertiary-container mt-1 uppercase tracking-tighter">Addis Ababa General Hospital</p>
+</div>
+</div>
+<button class="text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Scheduling Grid -->
+<section>
+<div class="flex items-center space-x-3 mb-6">
+<div class="h-6 w-1 bg-tertiary"></div>
+<h3 class="font-headline font-semibold text-primary text-lg">Logistical Details</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="space-y-4">
+<label class="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Date of Appointment</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-0 top-3 text-outline" data-icon="calendar_month">calendar_month</span>
+<input class="ledger-input w-full pl-8 py-3 appearance-none" type="date"/>
+</div>
+</div>
+<div class="space-y-4">
+<label class="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Consultation Time</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-0 top-3 text-outline" data-icon="schedule">schedule</span>
+<input class="ledger-input w-full pl-8 py-3 appearance-none" type="time"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Consultation Notes -->
+<section>
+<div class="flex items-center space-x-3 mb-6">
+<div class="h-6 w-1 bg-tertiary"></div>
+<h3 class="font-headline font-semibold text-primary text-lg">Preliminary Clinical Notes</h3>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Internal Observations (Optional)</label>
+<textarea class="w-full border-2 border-outline-variant/30 rounded-lg p-4 font-body text-sm focus:border-primary focus:ring-0 transition-all placeholder:text-outline-variant" placeholder="Enter reason for visit, referred symptoms, or preliminary requirements..." rows="4"></textarea>
+</div>
+</section>
+<!-- Action Footer -->
+<div class="pt-10 flex items-center justify-between">
+<button class="px-8 py-3 text-primary font-bold text-sm hover:bg-emerald-50 rounded transition-colors duration-150 active:scale-95">
+                        Cancel &amp; Discard
+                    </button>
+<div class="flex items-center space-x-4">
+<button class="px-6 py-3 border-2 border-outline text-primary font-bold text-sm hover:bg-surface-container transition-all duration-150 active:scale-95">
+                            Save as Draft
+                        </button>
+<button class="px-10 py-3 bg-primary-container text-on-tertiary font-bold text-sm shadow-md hover:bg-primary transition-all duration-150 active:scale-95 flex items-center space-x-2">
+<span class="material-symbols-outlined text-lg" data-icon="task_alt">task_alt</span>
+<span>Schedule Appointment</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Compliance -->
+<div class="mt-8 flex justify-between items-center px-4">
+<div class="flex items-center space-x-4">
+<img alt="Institution Seal" class="h-10 w-10 opacity-30 grayscale" data-alt="Emblematic seal representing a medical federation, subtle gold and green tones, architectural and official style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA59H3nsWKKLZheAYRM6OMCtMt6Dtmb6JkBJcoSMXv5pUqNY73DOLqXa57yilvF_Syb94mXRqZL4o_ZgYImttuVModcJxyBu3MnPrxGc0vPbGihlINoUP1lThYZlKe2y-1N6Kx-r7ctYdCuS0xXd8YwKD3QteHo_XmZyaiMh6nUr8DaOpN9u5C-bQ-4841usEycvogjE-k75BfC3TQKBSgt3TpltuyURCxseSiB6FFw-bTyPd5zLFtpROg9Ejs-HlkTmMziTHab6iMY"/>
+<p class="text-[10px] text-on-surface-variant/60 font-mono">
+                        SOVEREIGN LEDGER SYSTEM v4.2.0<br/>
+                        DATA ENCRYPTION ACTIVE [AES-256]
+                    </p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-on-surface-variant/60 font-mono tracking-widest uppercase">Federal Democratic Republic of Ethiopia</p>
+<p class="text-[10px] text-on-surface-variant/60 font-mono">Ministry of Health Institutional Portal</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Security Action (Contextual FAB Suppression) -->
+<!-- Suppressed on Form page as per UX Goal -->
+</body></html>

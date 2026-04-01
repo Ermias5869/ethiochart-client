@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EthioChart - Patient Messaging</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#fcf8ff",
+                        "on-background": "#1a1a2e",
+                        "background": "#fcf8ff",
+                        "outline": "#717973",
+                        "on-error": "#ffffff",
+                        "tertiary": "#332400",
+                        "surface-container": "#efecff",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#cba03b",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "tertiary-fixed-dim": "#eec058",
+                        "on-surface-variant": "#414844",
+                        "surface-dim": "#dad7f3",
+                        "inverse-surface": "#2f2e43",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#0b1f18",
+                        "primary": "#012d1d",
+                        "secondary-fixed": "#d1e8dc",
+                        "outline-variant": "#c1c8c2",
+                        "primary-container": "#1b4332",
+                        "surface-bright": "#fcf8ff",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#4e3800",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-secondary-container": "#52675e",
+                        "surface-container-low": "#f5f2ff",
+                        "inverse-on-surface": "#f2efff",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e8e5ff",
+                        "secondary": "#4e635a",
+                        "on-primary-container": "#86af99",
+                        "surface-container-highest": "#e2e0fc",
+                        "on-surface": "#1a1a2e",
+                        "inverse-primary": "#a5d0b9",
+                        "surface-variant": "#e2e0fc",
+                        "primary-fixed": "#c1ecd4",
+                        "secondary-fixed-dim": "#b5ccc0",
+                        "secondary-container": "#cee5d9",
+                        "on-secondary-fixed-variant": "#374b42",
+                        "surface-tint": "#3f6653",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "on-secondary": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .flag-gradient {
+            background: linear-gradient(to right, #1B4332, #D4A843, #C1292E);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c1c8c2;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background font-body antialiased h-screen overflow-hidden">
+<!-- Signature Brand Mark -->
+<div class="flag-gradient h-[3px] fixed top-0 w-full z-[60]"></div>
+<!-- TopNavBar Implementation -->
+<header class="bg-white dark:bg-emerald-950 fixed top-0 w-full z-50 flex justify-between items-center h-16 px-6 w-full border-t-[3px] border-transparent">
+<div class="flex items-center gap-4">
+<span class="text-lg font-bold text-emerald-900 dark:text-emerald-50 font-headline">EthioChart</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="font-['Public_Sans'] font-semibold text-sm text-emerald-900 dark:text-emerald-50">Patient</span>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container">
+<img alt="Abebe Tadesse Profile" class="w-full h-full object-cover" data-alt="Professional portrait of an Ethiopian man in business casual attire with a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVEEfir4tIp0tymA1A5II0fj9H1ftgT5c1o8aGLpLunHQlbxCH6kNVsQxmWISwyjt7VVIgzJQB0iUBFooOsXG0qfZ07jUbP-9Ve_vENs49kKdCIM7VAbqasbcSyRlhpE1iVy01nlkqUcVBmdgIo_wPJ2xIPm0PxGUa0qSzcsS_uoS8MG2wU7h-c_YF_3N536ce1l6h78qRIWfW82vC9J0coTkDyJRy3I9hJzpGpJM-jWrHPu9sX461WSrKr7ggW98VMWqqU5A5NXOW"/>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-emerald-900 dark:text-emerald-50 cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-emerald-900 dark:text-emerald-50 cursor-pointer">account_circle</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar Implementation -->
+<nav class="h-screen w-64 fixed left-0 top-0 z-40 bg-emerald-950 flex flex-col py-8 shadow-xl">
+<div class="px-6 mb-8 mt-12">
+<h2 class="font-['JetBrains_Mono'] text-xs text-gold-400 mb-1">SYSTEM ACCESS</h2>
+<div class="flex items-center gap-3 py-2">
+<div class="w-10 h-10 rounded bg-emerald-900 flex items-center justify-center border border-emerald-800">
+<span class="material-symbols-outlined text-emerald-50">health_and_safety</span>
+</div>
+<div>
+<p class="text-emerald-50 font-semibold text-sm">Abebe Tadesse</p>
+<p class="font-mono text-[10px] text-emerald-400">ID: ETH-2024-88A</p>
+</div>
+</div>
+</div>
+<div class="flex-1 space-y-1 px-4">
+<a class="flex items-center gap-3 px-3 py-2.5 text-emerald-200 hover:text-white hover:bg-emerald-800/50 transition-all text-sm rounded" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-emerald-200 hover:text-white hover:bg-emerald-800/50 transition-all text-sm rounded" href="#">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+                Appointments
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-emerald-200 hover:text-white hover:bg-emerald-800/50 transition-all text-sm rounded" href="#">
+<span class="material-symbols-outlined text-lg">prescriptions</span>
+                Prescriptions
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-emerald-200 hover:text-white hover:bg-emerald-800/50 transition-all text-sm rounded" href="#">
+<span class="material-symbols-outlined text-lg">biotech</span>
+                Lab Results
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-emerald-200 hover:text-white hover:bg-emerald-800/50 transition-all text-sm rounded" href="#">
+<span class="material-symbols-outlined text-lg">payments</span>
+                Bills
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-emerald-900 text-gold-400 border-r-4 border-gold-400 transition-all text-sm rounded" href="#">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">chat</span>
+                Messages
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-emerald-200 hover:text-white hover:bg-emerald-800/50 transition-all text-sm rounded" href="#">
+<span class="material-symbols-outlined text-lg">video_chat</span>
+                Video Sessions
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-emerald-200 hover:text-white hover:bg-emerald-800/50 transition-all text-sm rounded" href="#">
+<span class="material-symbols-outlined text-lg">person</span>
+                Profile
+            </a>
+</div>
+<div class="px-4 pt-4 border-t border-emerald-900/50 mt-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 text-emerald-200 hover:text-white hover:bg-emerald-800/50 transition-all text-sm rounded" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+                Support
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-emerald-200 hover:text-white hover:bg-emerald-800/50 transition-all text-sm rounded" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+                Logout
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-64 mt-16 h-[calc(100vh-64px)] flex overflow-hidden">
+<!-- Left Panel: Conversation List (30%) -->
+<aside class="w-[30%] bg-surface-container-low flex flex-col border-r border-transparent">
+<!-- Institutional Search Header -->
+<div class="p-6 bg-white border-b border-surface-container">
+<h1 class="font-headline text-xl font-bold text-primary mb-4">Patient Communications</h1>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface text-sm border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all font-body outline-none" placeholder="Search providers or messages..." type="text"/>
+</div>
+</div>
+<!-- List Area -->
+<div class="flex-1 overflow-y-auto custom-scrollbar">
+<!-- Active Conversation -->
+<div class="p-4 bg-white border-l-4 border-primary cursor-pointer">
+<div class="flex items-start gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-primary-container flex-shrink-0">
+<img alt="Dr. Abebe Kebede" class="w-full h-full object-cover" data-alt="Experienced Ethiopian doctor with glasses wearing a white lab coat in a medical office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBESXODEJ4NbyYqLw5mE8ezUyUGCO9FbiG1dT2SwHf6dPG_UZND_QdKXrQLqvQN6Q-56NT_7Ymbeclk_HRpm9uERs2vKsoftJ7f_CoAuTNGSgRmYV0TAT4PMofaSu_GLICy9GzjgFhR-HemsdKMqFIybftzHcIqB8lBKARC5slYX2D2cKxgumGLUQlb-Iuyue0PekmBE8OGVpABAzTM8UnbTVEN92RDUQJb6jrh6KPSjSu2qLXjLV2SiBWrSVaJU1iFvKfbnW8AtyBF"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="text-sm font-semibold text-primary truncate">Dr. Abebe Kebede</h3>
+<span class="text-[10px] font-mono text-outline uppercase">10:24 AM</span>
+</div>
+<p class="text-[11px] font-medium text-on-tertiary-container uppercase tracking-wider mb-1">Cardiologist</p>
+<p class="text-xs text-on-surface-variant line-clamp-1">That can be a common side effect initially. Please keep...</p>
+</div>
+</div>
+</div>
+<!-- Unread Conversation -->
+<div class="p-4 hover:bg-white transition-colors cursor-pointer group">
+<div class="flex items-start gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container flex-shrink-0">
+<img alt="Dr. Selamawit Yilma" class="w-full h-full object-cover" data-alt="Female Ethiopian healthcare professional in a clinic setting, friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQZAcX0_v1IpmnOxeLwDoSWvo6hK6H2dS2dqsney4wezks_Y_9tF7JqZfgJArh-CJB5iX5J1KLN32tJLZbZWt6PeItkvsrPqOLMw8tzm_X517GSq63FxD9bG94e0HcjYpDNsBmuA-AtPj3sAurO7DQqOpyCTgO8qo_InaKXJuisfmeaGTL-FwjNhXZl3RG4UssxLGH0TNY0I-7LnqFUSzmmTSmPJmBSVDccM7ylwk1XpMMe2e5wRYwwMACfgYuNw9xfebH2dXlo82P"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="text-sm font-semibold text-primary truncate group-hover:text-primary-container transition-colors">Dr. Selamawit Yilma</h3>
+<span class="w-2 h-2 rounded-full bg-error mt-1.5"></span>
+</div>
+<p class="text-[11px] font-medium text-outline uppercase tracking-wider mb-1">Internal Medicine</p>
+<p class="text-xs font-semibold text-on-background line-clamp-1">Your blood test results are ready for review...</p>
+</div>
+</div>
+</div>
+<!-- Zebra Row 1 -->
+<div class="p-4 bg-surface-container-lowest/50 hover:bg-white transition-colors cursor-pointer">
+<div class="flex items-start gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container flex-shrink-0">
+<img alt="Dr. Dawit Tadesse" class="w-full h-full object-cover" data-alt="Doctor portrait, sterile hospital background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjXYuhaZTJXWMhOHf_8JJqwwQ8ym3rOT4-D9z2CB30hajlG1cXWyZOx6EciqE7RM0aoHUfrBaKB-IUpdg5xYXOGgGKXjDmBcFMys3B1Cj7-UgcIRHtEepObiqJcxk6tlU0yBoFeIJ-sKEuhCAY5-8c0iBZohBZi3McwXxnl6iXolxY1-ZnoTXoGVm6XaSh0KW41FW-ned_CzjQsHi-9vB-aOhdxyA5hXsh7ZrEMXHZuSotpV9kYAxenhpcaH7br15nlzrC8Ks6WAwx"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="text-sm font-semibold text-primary truncate">Dr. Dawit Tadesse</h3>
+<span class="text-[10px] font-mono text-outline uppercase">Yesterday</span>
+</div>
+<p class="text-[11px] font-medium text-outline uppercase tracking-wider mb-1">Orthopedist</p>
+<p class="text-xs text-on-surface-variant line-clamp-1">The imaging looks consistent with a minor sprain.</p>
+</div>
+</div>
+</div>
+<!-- More Doctors Placeholder -->
+<div class="p-4 hover:bg-white transition-colors cursor-pointer">
+<div class="flex items-start gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container flex-shrink-0">
+<img alt="Dr. Meron Bekele" class="w-full h-full object-cover" data-alt="Female doctor smiling professionally" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7HQ8B4klvYoiHtO595f6rmxqiVRa4zIULe-_Q5yfVSobYkMpc_YoXC9lI1v5syKQCIdPgqpBzt1roypTtwkh42_1F7tvPaWq6l82ppmvJqfSWXXq5VsRHxJcKczsdxb3u8jDaJYdq9UNFFXYy5rW5w39cpkpCy8Ob1xeWDMqocEMOaZEySB1llTosB306RKUt_wl_ZQNzvsIlZRP6MxWOaRKErFib-plgqIMDRZqpCjwAUPVHO_RigtGSutV2WNpBQ2GcL3PWtf27"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="text-sm font-semibold text-primary truncate">Dr. Meron Bekele</h3>
+<span class="text-[10px] font-mono text-outline uppercase">Oct 12</span>
+</div>
+<p class="text-[11px] font-medium text-outline uppercase tracking-wider mb-1">Dermatologist</p>
+<p class="text-xs text-on-surface-variant line-clamp-1">Please apply the ointment twice daily.</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Right Panel: Chat Interface (70%) -->
+<section class="flex-1 flex flex-col bg-white">
+<!-- Chat Header -->
+<div class="h-20 px-8 flex items-center justify-between border-b border-surface-container bg-surface-container-lowest">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-10 h-10 rounded-lg overflow-hidden ring-2 ring-primary-fixed">
+<img alt="Dr. Abebe Kebede" class="w-full h-full object-cover" data-alt="Doctor portrait thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBxQa5uULSCOoHYnImQLQmyXezUSI4gaC355pY0DKADMXGKrk-5B87ACbnM4IzWxzoFcYNMJyiiLfK6bAYNxh8zXGhBZLy3qbHLOUdwSiNc_BnG_UITn0-RaK_YtQ8QtLf-2if5nXv0Am8lhDkGGS62f-SvgOzRp7GWMeJfHkXh1NM0DfT0oOnLgkCJqadK4tl0bZeKtrouRoarpxyu9-mTbTry7QIeULo8lCFEhlGljLp-U5o1nH65uyeOdD9I-d3i3-NiNPTwYTw"/>
+</div>
+<span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<h2 class="text-base font-bold text-primary leading-tight">Dr. Abebe Kebede <span class="text-outline font-normal text-sm ml-2">— Cardiologist</span></h2>
+<p class="font-mono text-[10px] text-on-tertiary-container mt-0.5">PROVIDER ID: ETH-DOC-4421</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container rounded-lg transition-colors text-primary">
+<span class="material-symbols-outlined">call</span>
+</button>
+<button class="p-2 hover:bg-surface-container rounded-lg transition-colors text-primary">
+<span class="material-symbols-outlined">videocam</span>
+</button>
+<button class="p-2 hover:bg-surface-container rounded-lg transition-colors text-primary">
+<span class="material-symbols-outlined">info</span>
+</button>
+</div>
+</div>
+<!-- Conversation Flow -->
+<div class="flex-1 overflow-y-auto p-8 custom-scrollbar bg-surface/30">
+<div class="flex flex-col space-y-8">
+<!-- Date Divider -->
+<div class="flex justify-center items-center">
+<div class="h-px flex-1 bg-outline-variant opacity-30"></div>
+<span class="px-4 text-[10px] font-mono text-outline uppercase tracking-widest">Today, Oct 14</span>
+<div class="h-px flex-1 bg-outline-variant opacity-30"></div>
+</div>
+<!-- Doctor Message -->
+<div class="flex items-end gap-3 max-w-[80%]">
+<div class="w-8 h-8 rounded bg-surface-container flex-shrink-0 overflow-hidden">
+<img alt="Dr. Abebe" class="w-full h-full object-cover" data-alt="Doctor thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATS-XzmknnhBY9x14yM-2EWcoSclXxILOVkGdubJz1XINssysJfYdbpj3vakKHr1Jb45J2-hDZOENkF_JUiA_Pn860UxL0fX4_lQHyCA9PEInmXImLABa703F8MrGU8KXh9HXe0CydGDQ_na2SkXwMWxsHExleeL8peX3griko_TAJEHT6MhRaX3rE6p-U5KK4tGkqPgMhem_OSUDLZG3DgkSl72lSy4bHlHm00OGzD2JNoN6TvuUlS0rWeLPeEv6iTya5YAFybdWh"/>
+</div>
+<div class="group">
+<div class="bg-white border border-surface-container px-5 py-4 rounded-xl rounded-bl-none shadow-sm text-sm text-on-surface leading-relaxed">
+                                Good morning Abebe. How are you feeling after starting the new dosage of Lisinopril?
+                            </div>
+<span class="text-[10px] font-mono text-outline mt-1 block px-1">09:12 AM</span>
+</div>
+</div>
+<!-- Patient Message -->
+<div class="flex flex-col items-end max-w-[80%] self-end">
+<div class="bg-primary text-white px-5 py-4 rounded-xl rounded-br-none shadow-md text-sm leading-relaxed">
+                            Good morning Doctor. I feel much better, but I had a slight headache yesterday.
+                        </div>
+<span class="text-[10px] font-mono text-outline mt-1 block px-1">09:15 AM · Read</span>
+</div>
+<!-- Doctor Message -->
+<div class="flex items-end gap-3 max-w-[80%]">
+<div class="w-8 h-8 rounded bg-surface-container flex-shrink-0 overflow-hidden">
+<img alt="Dr. Abebe" class="w-full h-full object-cover" data-alt="Doctor thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-jWRq-FtTYP5_TWSVKTMxtcRBy8OcFSb2iUSPTxm_zLw-nU2ldLFuXsayN8YJWYVpi3lIIBSOhGD7CYrKFhhCsTd6fsQOuCJaAIX6YVEYC3Mdga198HZ77V495RG5WMlPn6SOcP9vTP4WpN2TjTCzOHMGIMiszMac9k7xguN8RF3FIdiq-Gfi0Go1J_RGcY8MYS8vl4p0wTlpP_eSJ9cVtFg4vEB3b-rIK7ZqTMcN8IQ1Zla3AZKFoeVdgeo_ZeP9KRtSRt76gU3Z"/>
+</div>
+<div class="group">
+<div class="bg-white border border-surface-container px-5 py-4 rounded-xl rounded-bl-none shadow-sm text-sm text-on-surface leading-relaxed">
+                                That can be a common side effect initially. Please keep monitoring your blood pressure and let me know if it persists for more than 3 days.
+                            </div>
+<span class="text-[10px] font-mono text-outline mt-1 block px-1">10:24 AM</span>
+</div>
+</div>
+<!-- Patient Message -->
+<div class="flex flex-col items-end max-w-[80%] self-end">
+<div class="bg-primary text-white px-5 py-4 rounded-xl rounded-br-none shadow-md text-sm leading-relaxed">
+                            Thank you, I will do that.
+                        </div>
+<span class="text-[10px] font-mono text-outline mt-1 block px-1">10:26 AM · Read</span>
+</div>
+</div>
+</div>
+<!-- Message Input Ledger Style -->
+<div class="p-6 bg-white border-t border-surface-container">
+<div class="flex items-center gap-4 bg-surface-container-low p-2 rounded-lg">
+<button class="p-2 text-primary hover:bg-white rounded transition-colors" title="Attach Document">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<button class="p-2 text-primary hover:bg-white rounded transition-colors" title="Image">
+<span class="material-symbols-outlined">image</span>
+</button>
+<div class="h-8 w-px bg-outline-variant opacity-30"></div>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm py-2 placeholder:text-outline" placeholder="Type your message here..." type="text"/>
+<button class="flex items-center gap-2 bg-primary text-white px-6 py-2.5 rounded-lg hover:bg-primary-container transition-all shadow-md group">
+<span class="text-sm font-semibold">Send</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">send</span>
+</button>
+</div>
+<p class="text-[10px] text-outline mt-3 text-center font-mono opacity-60">ETHIOCHART SECURE ENCRYPTED COMMUNICATION CHANNEL</p>
+</div>
+</section>
+</main>
+<!-- Floating Action Button - Only for Primary Actions (Suppressed here as per guidelines for Details/Chat screens) -->
+</body></html>

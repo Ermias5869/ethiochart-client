@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EthioChart Admin - Institutional Network</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Poppins:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#c1c8c2",
+              "primary-container": "#1b4332",
+              "on-surface-variant": "#414844",
+              "tertiary-fixed-dim": "#eec058",
+              "on-primary-container": "#86af99",
+              "outline": "#717973",
+              "background": "#fcf8ff",
+              "surface-variant": "#e2e0fc",
+              "tertiary": "#332400",
+              "on-tertiary-fixed-variant": "#5b4300",
+              "primary-fixed-dim": "#a5d0b9",
+              "tertiary-container": "#4e3800",
+              "on-tertiary-fixed": "#261a00",
+              "on-error-container": "#93000a",
+              "surface-dim": "#dad7f3",
+              "on-tertiary-container": "#cba03b",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "surface-tint": "#3f6653",
+              "inverse-primary": "#a5d0b9",
+              "on-surface": "#1a1a2e",
+              "surface-container-highest": "#e2e0fc",
+              "surface-container": "#efecff",
+              "secondary": "#4e635a",
+              "inverse-on-surface": "#f2efff",
+              "on-secondary-container": "#52675e",
+              "primary-fixed": "#c1ecd4",
+              "secondary-fixed": "#d1e8dc",
+              "surface-bright": "#fcf8ff",
+              "error-container": "#ffdad6",
+              "primary": "#012d1d",
+              "surface-container-low": "#f5f2ff",
+              "secondary-container": "#cee5d9",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#e8e5ff",
+              "on-secondary-fixed": "#0b1f18",
+              "tertiary-fixed": "#ffdf9f",
+              "on-secondary-fixed-variant": "#374b42",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2f2e43",
+              "on-primary-fixed": "#002114",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#1a1a2e",
+              "surface": "#fcf8ff",
+              "secondary-fixed-dim": "#b5ccc0",
+              "on-primary-fixed-variant": "#274e3d",
+              "error": "#ba1a1a"
+            },
+            fontFamily: {
+              "headline": ["Poppins", "Public Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .border-image-gradient-flag {
+            border-image: linear-gradient(to right, #1B4332, #D4A843, #C1292E) 1;
+        }
+        .tonal-depth-shift {
+            background: linear-gradient(180deg, #081C15 0%, #012D1D 100%);
+        }
+        body {
+            background-color: #F8F9FA;
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Signature Brand Mark -->
+<div class="fixed top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#1B4332] via-[#D4A843] to-[#C1292E] z-[100]"></div>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-[60] flex flex-col py-6 bg-gradient-to-b from-[#081C15] to-[#012D1D] shadow-2xl">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-white rounded flex items-center justify-center">
+<img class="w-8 h-8 object-contain" data-alt="Stylized institutional logo for Federal Health EthioChart with geometric patterns in deep green and gold" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKXSnursymXxQ8liB30jsIzzTi94mRpz0Keduvd9J78QllJWYzAXQcE1wl_XT-WLdbv5JAYpsZiKC4o_aW6mlrgssvNBFo7Uku7LhAbRUufJvmTPTDVLF1TTIjv67w4p3zW51N17n_On_xiZkJYnGRp6knsyvsuoOuWswGxhvL-PcYqcCK0YjmUUpyUQbGWBGSg4ZK_3YSPcWCpP301teRKIBb5li1qqlzTx_PgkjRNoR5_Abnk61wfbnIeyLdp_NlvdKd-ionvk-x"/>
+</div>
+<div>
+<h1 class="text-lg font-semibold text-white tracking-tight leading-none">Federal Health</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-[#D4A843] mt-1 font-mono">Admin Portal</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard -->
+<a class="text-slate-300/70 hover:text-white flex items-center px-6 py-4 transition-all duration-300 hover:bg-[#1B4332]/50 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="dashboard">dashboard</span>
+<span class="font-['Inter'] text-sm tracking-wide">Dashboard</span>
+</a>
+<!-- Hospitals (ACTIVE) -->
+<a class="bg-[#1B4332] text-[#D4A843] font-semibold rounded-r-full mr-4 flex items-center px-6 py-4 transition-all duration-300 translate-x-1" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="domain">domain</span>
+<span class="font-['Inter'] text-sm tracking-wide">Hospitals</span>
+</a>
+<!-- Medical Staff -->
+<a class="text-slate-300/70 hover:text-white flex items-center px-6 py-4 transition-all duration-300 hover:bg-[#1B4332]/50 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="medical_services">medical_services</span>
+<span class="font-['Inter'] text-sm tracking-wide">Medical Staff</span>
+</a>
+<!-- Patient Records -->
+<a class="text-slate-300/70 hover:text-white flex items-center px-6 py-4 transition-all duration-300 hover:bg-[#1B4332]/50 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="folder_shared">folder_shared</span>
+<span class="font-['Inter'] text-sm tracking-wide">Patient Records</span>
+</a>
+<!-- Financials -->
+<a class="text-slate-300/70 hover:text-white flex items-center px-6 py-4 transition-all duration-300 hover:bg-[#1B4332]/50 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="payments">payments</span>
+<span class="font-['Inter'] text-sm tracking-wide">Financials</span>
+</a>
+</nav>
+<div class="mt-auto px-6 space-y-4">
+<button class="w-full bg-[#D4A843] text-primary font-bold py-3 rounded-lg text-xs uppercase tracking-widest flex items-center justify-center gap-2 active:opacity-90">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+                New Entry
+            </button>
+<div class="pt-6 border-t border-white/10 space-y-2">
+<a class="text-slate-300/70 hover:text-white flex items-center gap-3 py-2 text-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="help">help</span>
+                    Support
+                </a>
+<a class="text-slate-300/70 hover:text-white flex items-center gap-3 py-2 text-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="logout">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen pt-[3px]">
+<!-- Top Navigation / Header Area -->
+<header class="bg-white sticky top-0 z-40 border-b border-slate-100 flex items-center h-16 px-10 justify-between">
+<div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
+<span class="hover:text-primary cursor-pointer">Admin</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-semibold">Hospitals</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer transition-colors" data-icon="notifications">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer transition-colors" data-icon="settings">settings</span>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a hospital administrator in a suit, clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_oczp7jcxm3MnrCsweErxTTeJOhZRtlC1eoQIGmewTlJKuAnIkQTi-6lImf8tHWZ5EaRX8U27djfBVCRd151A270t9IkWAmRrmyNoGJU23WWdq8pWQyjasGs09V70vV9saiMjViDq8fWBRLLGzS1VYAKKgOrMq8Kqo2YL6IjfTjvsMudoNQC_B_Hvdwpf7NQThR-aFMvxcSWIawQf_gA0aPcSvFMGUeBBliou7yyB92YnRk3c_qoXgnV8SWQ6hHVxH5nsXbCFeU5n"/>
+</div>
+</div>
+</header>
+<!-- Page Header Section -->
+<section class="bg-primary-container text-white py-12 px-10 flex justify-between items-end">
+<div>
+<h2 class="font-headline text-3xl font-bold tracking-tight mb-2">Institutional Network</h2>
+<p class="text-on-primary-container font-body max-w-lg text-sm leading-relaxed">
+                    Overview and management of sovereign health facilities within the EthioChart ecosystem. Access critical staffing and patient load metrics for the federal directory.
+                </p>
+</div>
+<button class="bg-[#D4A843] text-primary px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:brightness-110 transition-all shadow-lg active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Add Hospital
+            </button>
+</section>
+<!-- Content Grid -->
+<div class="p-10">
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<div class="bg-white border-t-[3px] border-[#1B4332] shadow-sm p-8 flex flex-col relative group hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline text-xl font-bold text-primary">Addis Ababa General Hospital</h3>
+<span class="text-[10px] font-mono bg-surface-container-low px-2 py-1 text-slate-500 rounded">ID: ETH-AAGH-01</span>
+</div>
+<div class="flex items-center text-slate-500 mb-8">
+<span class="material-symbols-outlined text-lg mr-2" data-icon="location_on">location_on</span>
+<span class="text-sm">Kirkos Sub-city, Addis Ababa</span>
+</div>
+<div class="flex gap-3 mb-10">
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/30 px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="stethoscope" data-weight="fill" style="font-variation-settings: 'FILL' 1;">stethoscope</span>
+<span class="text-xs font-medium text-on-surface-variant">Doctors: <span class="font-mono text-primary">12</span></span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/30 px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="patient_list" data-weight="fill" style="font-variation-settings: 'FILL' 1;">patient_list</span>
+<span class="text-xs font-medium text-on-surface-variant">Patients: <span class="font-mono text-primary">340</span></span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/30 px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="groups" data-weight="fill" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-xs font-medium text-on-surface-variant">Staff: <span class="font-mono text-primary">55</span></span>
+</div>
+</div>
+<div class="mt-auto flex justify-end border-t border-slate-50 pt-6">
+<a class="text-primary font-semibold flex items-center gap-1 group-hover:underline underline-offset-4 text-sm" href="#">
+                            View Details
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white border-t-[3px] border-[#1B4332] shadow-sm p-8 flex flex-col relative group hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline text-xl font-bold text-primary">St. Paul's Hospital Millennium</h3>
+<span class="text-[10px] font-mono bg-surface-container-low px-2 py-1 text-slate-500 rounded">ID: ETH-SPHM-02</span>
+</div>
+<div class="flex items-center text-slate-500 mb-8">
+<span class="material-symbols-outlined text-lg mr-2" data-icon="location_on">location_on</span>
+<span class="text-sm">Gullele, Addis Ababa</span>
+</div>
+<div class="flex gap-3 mb-10">
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/30 px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="stethoscope" data-weight="fill" style="font-variation-settings: 'FILL' 1;">stethoscope</span>
+<span class="text-xs font-medium text-on-surface-variant">Doctors: <span class="font-mono text-primary">48</span></span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/30 px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="patient_list" data-weight="fill" style="font-variation-settings: 'FILL' 1;">patient_list</span>
+<span class="text-xs font-medium text-on-surface-variant">Patients: <span class="font-mono text-primary">1,205</span></span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/30 px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="groups" data-weight="fill" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-xs font-medium text-on-surface-variant">Staff: <span class="font-mono text-primary">230</span></span>
+</div>
+</div>
+<div class="mt-auto flex justify-end border-t border-slate-50 pt-6">
+<a class="text-primary font-semibold flex items-center gap-1 group-hover:underline underline-offset-4 text-sm" href="#">
+                            View Details
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white border-t-[3px] border-[#1B4332] shadow-sm p-8 flex flex-col relative group hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline text-xl font-bold text-primary">Black Lion Specialized Hospital</h3>
+<span class="text-[10px] font-mono bg-surface-container-low px-2 py-1 text-slate-500 rounded">ID: ETH-BLSH-03</span>
+</div>
+<div class="flex items-center text-slate-500 mb-8">
+<span class="material-symbols-outlined text-lg mr-2" data-icon="location_on">location_on</span>
+<span class="text-sm">Arada, Addis Ababa</span>
+</div>
+<div class="flex gap-3 mb-10">
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/30 px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="stethoscope" data-weight="fill" style="font-variation-settings: 'FILL' 1;">stethoscope</span>
+<span class="text-xs font-medium text-on-surface-variant">Doctors: <span class="font-mono text-primary">76</span></span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/30 px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="patient_list" data-weight="fill" style="font-variation-settings: 'FILL' 1;">patient_list</span>
+<span class="text-xs font-medium text-on-surface-variant">Patients: <span class="font-mono text-primary">2,440</span></span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/30 px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="groups" data-weight="fill" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-xs font-medium text-on-surface-variant">Staff: <span class="font-mono text-primary">412</span></span>
+</div>
+</div>
+<div class="mt-auto flex justify-end border-t border-slate-50 pt-6">
+<a class="text-primary font-semibold flex items-center gap-1 group-hover:underline underline-offset-4 text-sm" href="#">
+                            View Details
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-white border-t-[3px] border-[#1B4332] shadow-sm p-8 flex flex-col relative group hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline text-xl font-bold text-primary">Jimma University Medical Center</h3>
+<span class="text-[10px] font-mono bg-surface-container-low px-2 py-1 text-slate-500 rounded">ID: ETH-JUMC-04</span>
+</div>
+<div class="flex items-center text-slate-500 mb-8">
+<span class="material-symbols-outlined text-lg mr-2" data-icon="location_on">location_on</span>
+<span class="text-sm">Jimma, Oromia</span>
+</div>
+<div class="flex gap-3 mb-10">
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/30 px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="stethoscope" data-weight="fill" style="font-variation-settings: 'FILL' 1;">stethoscope</span>
+<span class="text-xs font-medium text-on-surface-variant">Doctors: <span class="font-mono text-primary">31</span></span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/30 px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="patient_list" data-weight="fill" style="font-variation-settings: 'FILL' 1;">patient_list</span>
+<span class="text-xs font-medium text-on-surface-variant">Patients: <span class="font-mono text-primary">890</span></span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/30 px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="groups" data-weight="fill" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-xs font-medium text-on-surface-variant">Staff: <span class="font-mono text-primary">165</span></span>
+</div>
+</div>
+<div class="mt-auto flex justify-end border-t border-slate-50 pt-6">
+<a class="text-primary font-semibold flex items-center gap-1 group-hover:underline underline-offset-4 text-sm" href="#">
+                            View Details
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Contextual Information / Footer Support -->
+<div class="mt-12 p-8 bg-surface-container-low rounded-lg border border-outline-variant/20">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-[#D4A843]" data-icon="verified_user">verified_user</span>
+<h4 class="font-headline font-semibold text-primary">Administrative Oversight</h4>
+</div>
+<p class="text-sm text-slate-600 leading-relaxed">
+                    This directory is synchronized with the Ministry of Health's central registry. Any discrepancies in institutional data should be reported to the federal systems administrator immediately. All modifications to hospital capacities are audited under the Sovereign Ledger protocol.
+                </p>
+</div>
+</div>
+</main>
+</body></html>

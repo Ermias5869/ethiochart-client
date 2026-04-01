@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Clinical Assistant | EthioChart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed": "#002114",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-background": "#1a1a2e",
+                        "inverse-primary": "#a5d0b9",
+                        "on-surface": "#1a1a2e",
+                        "tertiary-fixed": "#ffdf9f",
+                        "tertiary-container": "#4e3800",
+                        "surface-tint": "#3f6653",
+                        "tertiary-fixed-dim": "#eec058",
+                        "surface-container-low": "#f5f2ff",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-variant": "#e2e0fc",
+                        "background": "#fcf8ff",
+                        "secondary-container": "#cee5d9",
+                        "secondary-fixed": "#d1e8dc",
+                        "surface-container-highest": "#e2e0fc",
+                        "surface-container-high": "#e8e5ff",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#414844",
+                        "secondary-fixed-dim": "#b5ccc0",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fcf8ff",
+                        "on-secondary-container": "#52675e",
+                        "on-secondary-fixed-variant": "#374b42",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "inverse-on-surface": "#f2efff",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "primary-container": "#1b4332",
+                        "outline-variant": "#c1c8c2",
+                        "surface-dim": "#dad7f3",
+                        "secondary": "#4e635a",
+                        "primary": "#012d1d",
+                        "inverse-surface": "#2f2e43",
+                        "tertiary": "#332400",
+                        "surface-container": "#efecff",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#cba03b",
+                        "outline": "#717973",
+                        "on-secondary-fixed": "#0b1f18",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "surface": "#fcf8ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .flag-gradient {
+            background: linear-gradient(90deg, #1B4332 0%, #D4A843 50%, #C1292E 100%);
+        }
+        .glass-panel {
+            background: rgba(252, 248, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface overflow-hidden">
+<!-- Signature Brand Mark -->
+<div class="fixed top-0 left-0 w-full h-[3px] z-[100] flag-gradient"></div>
+<div class="flex h-screen pt-[3px]">
+<!-- SideNavBar (JSON Component Mapping) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#012D1D] dark:bg-[#081C15] flex flex-col py-6 shadow-2xl z-50 bg-gradient-to-b from-[#081C15] to-[#012D1D]">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-[#D4A843] flex items-center justify-center">
+<span class="material-symbols-outlined text-[#012D1D] font-bold">account_balance</span>
+</div>
+<div>
+<h1 class="text-xl font-semibold text-white tracking-tight">Dr. Sovereign</h1>
+<p class="text-[10px] text-slate-400 font-label uppercase tracking-widest">Institutional Medical Board</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Navigation Items -->
+<a class="flex items-center px-6 py-3 text-slate-400 hover:text-white transition-colors hover:bg-[#1B4332]/50 font-['Public_Sans'] font-medium text-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center px-6 py-3 text-slate-400 hover:text-white transition-colors hover:bg-[#1B4332]/50 font-['Public_Sans'] font-medium text-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">calendar_today</span> Calendar
+                </a>
+<a class="flex items-center px-6 py-3 text-slate-400 hover:text-white transition-colors hover:bg-[#1B4332]/50 font-['Public_Sans'] font-medium text-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">group</span> Patients
+                </a>
+<a class="flex items-center px-6 py-3 text-slate-400 hover:text-white transition-colors hover:bg-[#1B4332]/50 font-['Public_Sans'] font-medium text-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">medication</span> Medication
+                </a>
+<a class="flex items-center px-6 py-3 text-slate-400 hover:text-white transition-colors hover:bg-[#1B4332]/50 font-['Public_Sans'] font-medium text-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">biotech</span> Diagnostics
+                </a>
+<a class="flex items-center px-6 py-3 text-slate-400 hover:text-white transition-colors hover:bg-[#1B4332]/50 font-['Public_Sans'] font-medium text-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">chat</span> Records
+                </a>
+<a class="flex items-center px-6 py-3 text-slate-400 hover:text-white transition-colors hover:bg-[#1B4332]/50 font-['Public_Sans'] font-medium text-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">video_call</span> Telemedicine
+                </a>
+<!-- Active AI Assistant Tab -->
+<a class="flex items-center px-6 py-3 bg-[#1B4332] text-[#D4A843] font-bold rounded-l-none border-r-4 border-[#D4A843] font-['Public_Sans'] text-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3">psychology</span> AI Assistant
+                </a>
+</nav>
+<div class="px-6 mt-auto border-t border-white/10 pt-6">
+<div class="flex items-center gap-3">
+<img alt="Doctor Profile" class="w-10 h-10 rounded-full object-cover grayscale brightness-110" data-alt="professional portrait of an Ethiopian male doctor in a white lab coat with a warm and confident expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGJsnZM8Vb8BEf7mzA3iEUHUHDgtILqio2MRlxNrui2Crm1SwEATfaqIdok5kDZr0H2xAfH4p7u3kZWlZEFt9iEaE2lsCTMmlTK9lIxRJRzDEj8bU5Z5Nek15lXjP8GisdpKAmkRQOUNAYAu-BVCgMAbzHrir-T5guiUJi3rDXQvkaqT_levuypC8_r0SkiJ0pTc26J71k7VZQMMBHy1Jr0bVWoqeFbhVxY2fINYszLFFxEHxDBwNLXmjJQCyOvwsttv4zb_QP-ktQ"/>
+<div class="overflow-hidden">
+<p class="text-white text-xs font-semibold truncate">Dr. Abebe Kebede</p>
+<p class="text-slate-400 text-[10px] truncate">Senior Clinician</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 flex flex-col h-full bg-surface-container-low overflow-hidden">
+<!-- TopNavBar (JSON Component Mapping) -->
+<header class="flex justify-between items-center px-8 h-16 bg-white/80 dark:bg-[#012D1D]/80 backdrop-blur-md sticky top-0 w-full z-40 shadow-[0px_12px_32px_rgba(26,26,46,0.06)] border-b-0">
+<div class="flex items-center gap-6">
+<span class="font-['JetBrains_Mono'] font-bold text-[#012D1D] text-lg">Sovereign Ledger AI</span>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="font-['Inter'] font-semibold uppercase tracking-wider text-xs text-slate-500 hover:text-[#012D1D] transition-opacity duration-150" href="#">Patient Overview</a>
+<a class="font-['Inter'] font-semibold uppercase tracking-wider text-xs text-slate-500 hover:text-[#012D1D] transition-opacity duration-150" href="#">Clinical Notes</a>
+<a class="font-['Inter'] font-semibold uppercase tracking-wider text-xs text-slate-500 hover:text-[#012D1D] transition-opacity duration-150" href="#">Lab Results</a>
+<a class="font-['Inter'] font-semibold uppercase tracking-wider text-xs text-slate-500 hover:text-[#012D1D] transition-opacity duration-150" href="#">Imaging</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-500 hover:opacity-80 transition-opacity duration-150">notifications</button>
+<button class="material-symbols-outlined text-slate-500 hover:opacity-80 transition-opacity duration-150">settings</button>
+<button class="bg-[#012D1D] text-white px-4 py-2 text-xs font-semibold rounded-lg hover:opacity-90">Finalize Record</button>
+</div>
+</header>
+<!-- Split Panel Workspace -->
+<div class="flex flex-1 overflow-hidden">
+<!-- Left Panel: Context & History (35%) -->
+<section class="w-[35%] border-r-0 bg-surface-container-low p-8 flex flex-col gap-8 overflow-y-auto">
+<!-- Patient Selector -->
+<div>
+<label class="block text-[10px] font-label font-bold text-on-surface-variant uppercase tracking-widest mb-3">Select Patient</label>
+<div class="relative">
+<div class="w-full bg-white px-4 py-4 rounded-lg flex items-center justify-between shadow-sm cursor-pointer border-b-2 border-primary">
+<span class="text-sm font-semibold text-primary">Abebe Tadesse <span class="font-['JetBrains_Mono'] text-xs ml-2 opacity-60 text-black">[EC-M5K2XRPA]</span></span>
+<span class="material-symbols-outlined text-primary">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Query History -->
+<div class="flex-1 flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Query History</h3>
+<span class="material-symbols-outlined text-sm text-outline">history</span>
+</div>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container-lowest rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer border-l-4 border-transparent hover:border-primary group">
+<p class="text-sm font-medium text-on-surface group-hover:text-primary">Drug Contraindication</p>
+<p class="font-['JetBrains_Mono'] text-[10px] text-outline mt-1 uppercase">Oct 24, 2023</p>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer border-l-4 border-transparent hover:border-primary group">
+<p class="text-sm font-medium text-on-surface group-hover:text-primary">Lab Result Analysis</p>
+<p class="font-['JetBrains_Mono'] text-[10px] text-outline mt-1 uppercase">Oct 22, 2023</p>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer border-l-4 border-transparent hover:border-primary group">
+<p class="text-sm font-medium text-on-surface group-hover:text-primary">Treatment Protocol</p>
+<p class="font-['JetBrains_Mono'] text-[10px] text-outline mt-1 uppercase">Oct 15, 2023</p>
+</div>
+</div>
+</div>
+<!-- Quick Insight Metric (Decorative Authority) -->
+<div class="mt-auto p-6 bg-primary-container rounded-xl text-on-primary-container">
+<p class="text-[10px] font-label font-bold uppercase tracking-widest mb-2 opacity-70">Model Reliability</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-headline font-semibold text-white">99.4%</span>
+<span class="text-[10px] pb-1">Verified</span>
+</div>
+</div>
+</section>
+<!-- Right Panel: AI Clinical Assistant (65%) -->
+<section class="w-[65%] flex flex-col bg-surface-container-lowest">
+<!-- AI Status Header -->
+<div class="px-8 py-6 flex items-center justify-between bg-surface-container-lowest border-b-0">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[#D4A843]">smart_toy</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-primary font-headline">AI Clinical Assistant</h2>
+<p class="text-[10px] text-outline font-label">Active Session: <span class="font-['JetBrains_Mono'] text-primary">Abebe Tadesse [EC-M5K2XRPA]</span></p>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-secondary-container rounded-full">
+<div class="w-2 h-2 rounded-full bg-[#1B4332] animate-pulse"></div>
+<span class="text-[10px] font-bold text-[#1B4332] uppercase tracking-tighter">System Live</span>
+</div>
+</div>
+<!-- Warning Banner -->
+<div class="mx-8 mt-4 p-4 bg-tertiary-container/10 rounded-lg flex items-start gap-3 border-l-4 border-tertiary">
+<span class="material-symbols-outlined text-tertiary">warning</span>
+<p class="text-xs text-on-tertiary-container font-medium">
+                            AI-assisted analysis. This tool is designed for clinical decision support. Always apply independent clinical judgment and verify results against official protocols.
+                        </p>
+</div>
+<!-- Chat Area -->
+<div class="flex-1 overflow-y-auto px-8 py-8 space-y-8">
+<!-- User Query -->
+<div class="flex justify-end">
+<div class="max-w-[80%] bg-surface-container-high p-4 rounded-xl shadow-sm">
+<p class="text-sm text-on-surface leading-relaxed italic">
+                                    "Check for contraindications between Metformin and his new prescription for Lisinopril."
+                                </p>
+</div>
+</div>
+<!-- AI Response Card -->
+<div class="flex justify-start">
+<div class="max-w-[90%] bg-white rounded-xl shadow-[0px_12px_32px_rgba(26,26,46,0.06)] overflow-hidden">
+<!-- Heading -->
+<div class="bg-primary px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#D4A843] text-sm">clinical_notes</span>
+<h4 class="text-white text-xs font-bold uppercase tracking-widest">Clinical Interaction Analysis</h4>
+</div>
+<span class="font-['JetBrains_Mono'] text-[10px] text-on-primary-container">ID: REF-0092-X</span>
+</div>
+<div class="p-6 space-y-6">
+<!-- Body -->
+<p class="text-sm text-on-surface leading-relaxed">
+                                        No direct major contraindication found between <span class="font-bold text-primary">Metformin</span> and <span class="font-bold text-primary">Lisinopril</span> for this patient. However, concurrent use requires monitoring for potential additive hypotensive effects or changes in renal function.
+                                    </p>
+<!-- Recommendations -->
+<div class="space-y-3">
+<h5 class="text-[10px] font-bold text-outline uppercase tracking-widest">Clinical Recommendations</h5>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<p class="text-sm text-on-surface">Monitor serum creatinine and potassium levels within 1 week.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<p class="text-sm text-on-surface">Observe for signs of orthostatic hypotension.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<p class="text-sm text-on-surface">Continue Metformin as prescribed.</p>
+</li>
+</ul>
+</div>
+<!-- Confidence -->
+<div class="pt-4 border-t border-surface-container">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[10px] font-bold text-outline uppercase tracking-widest">Model Confidence</span>
+<span class="font-['JetBrains_Mono'] text-xs font-bold text-[#1B4332]">85%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-[#1B4332] rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="bg-surface-container-low px-6 py-4 flex items-center justify-between">
+<p class="text-[10px] text-outline font-medium italic">
+                                        Data sources: Institutional Clinical Guidelines, WHO Pharmacopeia.
+                                    </p>
+<p class="font-['JetBrains_Mono'] text-[10px] text-outline">
+                                        Timestamp: 10:45 AM
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Input Section -->
+<div class="p-8 bg-surface-container-lowest border-t-0 shadow-[0_-12px_32px_rgba(26,26,46,0.02)]">
+<div class="max-w-4xl mx-auto">
+<div class="relative group">
+<textarea class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-primary focus:ring-0 rounded-lg p-6 text-sm resize-none transition-all placeholder:text-outline/50" placeholder="Ask about this patient's condition, drug interactions, or diagnostic possibilities..." rows="3"></textarea>
+<div class="absolute bottom-4 right-4 flex items-center gap-3">
+<button class="material-symbols-outlined text-outline hover:text-primary transition-colors">attach_file</button>
+<button class="bg-primary text-white flex items-center gap-2 px-6 py-2 rounded shadow-lg hover:opacity-95 transition-all">
+<span class="text-xs font-bold uppercase tracking-widest">Ask AI</span>
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+<div class="mt-3 flex gap-4">
+<button class="text-[10px] font-bold text-primary-container hover:underline uppercase tracking-widest">Summarize History</button>
+<button class="text-[10px] font-bold text-primary-container hover:underline uppercase tracking-widest">Verify Dosages</button>
+<button class="text-[10px] font-bold text-primary-container hover:underline uppercase tracking-widest">Check Lab Trends</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Background Decorative Texture -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-[-1]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDl0uGaDmIDxnJlfS1S7bSXwOuKgcu9S0U4CFF3gzkGALWE9N076GY1tObXiL7Fvof-uuk25xVOP1Tx_vTB5LLPW4CPg4eGWX9PFiTYcmXhlN2vSQZgws3Ot_7rJ5MU0632UmUBJk__3bioYQsEMaAmk5-Yb8mPeZjmMEoFlLLqGR_tncwgK_QMr0qzHBSI5CUqQBCP8iCrdYbnuEAHK6aPbq-DdtcoAkJs3X6xT8jskv357Qu5zAwAl7ozfUSlv2tbi3Ky3c99W2A-');"></div>
+</body></html>

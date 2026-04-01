@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EthioChart Sovereign Ledger | Appointments</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#efecff",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#3f6653",
+                        "outline-variant": "#c1c8c2",
+                        "primary": "#012d1d",
+                        "background": "#fcf8ff",
+                        "tertiary-fixed-dim": "#eec058",
+                        "tertiary-fixed": "#ffdf9f",
+                        "tertiary": "#332400",
+                        "primary-container": "#1b4332",
+                        "tertiary-container": "#4e3800",
+                        "secondary": "#4e635a",
+                        "inverse-primary": "#a5d0b9",
+                        "on-tertiary-fixed": "#261a00",
+                        "surface-bright": "#fcf8ff",
+                        "inverse-surface": "#2f2e43",
+                        "outline": "#717973",
+                        "surface-variant": "#e2e0fc",
+                        "on-secondary-fixed-variant": "#374b42",
+                        "on-secondary-container": "#52675e",
+                        "on-surface-variant": "#414844",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f2efff",
+                        "surface-container-highest": "#e2e0fc",
+                        "secondary-fixed-dim": "#b5ccc0",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d1e8dc",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#0b1f18",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1a2e",
+                        "surface-dim": "#dad7f3",
+                        "on-surface": "#1a1a2e",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#cba03b",
+                        "secondary-container": "#cee5d9",
+                        "surface-container-low": "#f5f2ff",
+                        "surface": "#fcf8ff",
+                        "on-primary-fixed": "#002114",
+                        "surface-container-high": "#e8e5ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .flag-stripe {
+            background: linear-gradient(to right, #1B4332, #D4A843, #C1292E);
+            height: 3px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low font-body text-on-background min-h-screen">
+<div class="flag-stripe"></div>
+<!-- SideNavBar Component -->
+<aside class="w-72 h-screen fixed left-0 top-0 border-r-0 bg-[#081C15] dark:bg-black flex flex-col py-8 shadow-2xl z-40 transition-all duration-300 ease-in-out">
+<div class="px-8 mb-10">
+<h1 class="text-lg font-semibold text-white tracking-widest font-headline uppercase">EthioChart</h1>
+</div>
+<nav class="flex-1 flex flex-col space-y-1">
+<a class="text-slate-400 hover:text-white px-6 py-3 transition-colors hover:bg-[#1B4332]/50 flex items-center gap-4 font-headline font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<!-- Active State: My Appointments -->
+<a class="bg-[#1B4332] text-[#D4A843] border-l-4 border-[#D4A843] ml-2 rounded-l-lg px-6 py-3 flex items-center gap-4 font-headline font-medium text-sm tracking-tight transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                My Appointments
+            </a>
+<a class="text-slate-400 hover:text-white px-6 py-3 transition-colors hover:bg-[#1B4332]/50 flex items-center gap-4 font-headline font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+                My Patients
+            </a>
+<a class="text-slate-400 hover:text-white px-6 py-3 transition-colors hover:bg-[#1B4332]/50 flex items-center gap-4 font-headline font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="prescriptions">prescriptions</span>
+                Prescriptions
+            </a>
+<a class="text-slate-400 hover:text-white px-6 py-3 transition-colors hover:bg-[#1B4332]/50 flex items-center gap-4 font-headline font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+                Lab Results
+            </a>
+<a class="text-slate-400 hover:text-white px-6 py-3 transition-colors hover:bg-[#1B4332]/50 flex items-center gap-4 font-headline font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                Messages
+            </a>
+<a class="text-slate-400 hover:text-white px-6 py-3 transition-colors hover:bg-[#1B4332]/50 flex items-center gap-4 font-headline font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+                Video Sessions
+            </a>
+<a class="text-slate-400 hover:text-white px-6 py-3 transition-colors hover:bg-[#1B4332]/50 flex items-center gap-4 font-headline font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+                AI Assistant
+            </a>
+<a class="text-slate-400 hover:text-white px-6 py-3 transition-colors hover:bg-[#1B4332]/50 flex items-center gap-4 font-headline font-medium text-sm tracking-tight mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+                Profile
+            </a>
+</nav>
+<div class="px-6 pt-6 border-t border-[#1B4332]/30 flex items-center gap-3">
+<img alt="Dr. Abebe Kebede" class="w-10 h-10 rounded-full border border-[#D4A843]/30" data-alt="professional portrait of an Ethiopian male doctor in a white medical coat with a kind expression and stethoscope around neck" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjcPI6peFHdSewtJnS2G3OHZGJ2wniyK8Xw1Mugpd4H4tFPnOOB8FDcgD7kXlsUWG-DGSNt9x-4T_biii5PrmcWxZmpGf-TCw8Ojhc3HRLcfhRVddeYThxsp9eEQO53uEV_gs8OXD0-JR27U8E72yfntn0RFop5WwoR_TPZlBwjNOAfUqAL2mwCSupImAtXCRJG4OtGon2bqGggKRPIDsaWWgBHjpSgMxSXX5OhR-e5vC153a9nodMmlZa5v4Tam5y_DmsWGm3SX7Z"/>
+<div>
+<p class="text-white text-xs font-bold font-headline">Dr. Abebe Kebede</p>
+<p class="text-slate-500 text-[10px] uppercase tracking-wider">Institutional Med Officer</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="ml-72 min-h-screen">
+<!-- TopNavBar Component -->
+<header class="sticky top-0 w-full z-50 h-16 bg-white/80 dark:bg-[#012D1D]/80 backdrop-blur-md flex justify-between items-center px-12 shadow-[0px_12px_32px_rgba(26,26,46,0.06)]">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-[#012D1D] dark:text-white">
+<span class="material-symbols-outlined text-sm" data-icon="medical_services">medical_services</span>
+<span class="font-['JetBrains_Mono'] uppercase tracking-tighter text-xs">Appointments / Weekly View</span>
+</div>
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-xs focus:ring-1 focus:ring-primary placeholder:text-slate-400" placeholder="Search patient ID, name, or records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-error text-white px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-lg flex items-center gap-2 hover:bg-red-700 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-sm" data-icon="emergency">emergency</span>
+                    Emergency Alert
+                </button>
+<div class="flex items-center gap-3 border-l border-slate-200 pl-6">
+<div class="text-right">
+<p class="text-[11px] font-bold text-primary font-headline">Dr. Abebe Kebede</p>
+<span class="bg-[#D4A843]/10 text-[#D4A843] text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-widest">Doctor</span>
+</div>
+<img alt="Dr. Abebe Kebede Profile Avatar" class="w-8 h-8 rounded-full shadow-sm" data-alt="professional headshot of an Ethiopian male physician in medical scrubs, soft clinical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUR2PezWZhDWbB9XED3-6ijK1CywCFuQ01ZXm9U3bcBOY9Mfp96RR1vThQChCcu4R3igbBdnvM-s1fhyrT8-hPSa-7WV3ElmJs88JOgccMK5GdhPsTrXqtflmT5mPubTTFhpLiiMSwF-tmMDYd7Tm3AAqg8ez_RVs3bvI1LPswZSHadYqehLjtrQp77CYB1e6d7IZeRW1ctRpOTO-U1lezwUU63q1x8F_4mGQYtnKyG-6_iboSFGl7bi9gP6iPsa5Xz9QfYuxxpVTH"/>
+</div>
+<div class="flex items-center gap-4 text-slate-500">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors" data-icon="settings">settings</span>
+</div>
+</div>
+</header>
+<!-- Sovereign Ledger Body -->
+<main class="p-12 space-y-12">
+<!-- Institutional Header Block -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-4xl font-semibold font-headline text-primary tracking-tight">Appointments</h2>
+<p class="text-on-surface-variant mt-2 font-medium">Sovereign Ledger of Clinical Encounters</p>
+</div>
+<!-- Calendar Control Row -->
+<div class="flex items-center gap-6 bg-white p-2 rounded-xl shadow-sm">
+<div class="flex p-1 bg-surface-container-low rounded-lg">
+<button class="px-4 py-2 text-xs font-bold rounded-lg text-slate-500 hover:text-primary transition-colors">Day</button>
+<button class="px-4 py-2 text-xs font-bold rounded-lg bg-white text-primary shadow-sm">Week</button>
+<button class="px-4 py-2 text-xs font-bold rounded-lg text-slate-500 hover:text-primary transition-colors">Month</button>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100"><span class="material-symbols-outlined" data-icon="arrow_back_ios">arrow_back_ios</span></button>
+<span class="font-headline font-semibold text-lg text-primary">October 22 - 28, 2023</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100"><span class="material-symbols-outlined" data-icon="arrow_forward_ios">arrow_forward_ios</span></button>
+</div>
+<button class="bg-primary text-white px-6 py-2 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-primary-container transition-transform active:scale-95">Today</button>
+</div>
+</div>
+<!-- Week View Grid -->
+<div class="grid grid-cols-7 gap-1 bg-white p-4 rounded-2xl shadow-sm">
+<!-- Column Header -->
+<div class="text-center pb-4 border-b border-slate-50">
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Mon</p>
+<p class="text-xl font-headline font-bold text-primary">22</p>
+</div>
+<div class="text-center pb-4 border-b border-slate-50">
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Tue</p>
+<p class="text-xl font-headline font-bold text-primary">23</p>
+</div>
+<div class="text-center pb-4 border-b border-slate-50">
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Wed</p>
+<p class="text-xl font-headline font-bold text-primary">24</p>
+</div>
+<div class="text-center pb-4 border-b border-slate-50">
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Thu</p>
+<p class="text-xl font-headline font-bold text-primary">25</p>
+</div>
+<div class="text-center pb-4 border-b border-slate-50">
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Fri</p>
+<p class="text-xl font-headline font-bold text-primary">26</p>
+</div>
+<div class="text-center pb-4 border-b border-slate-50">
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Sat</p>
+<p class="text-xl font-headline font-bold text-primary">27</p>
+</div>
+<div class="text-center pb-4 border-b border-slate-50">
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest text-error">Sun</p>
+<p class="text-xl font-headline font-bold text-error">28</p>
+</div>
+<!-- Column Cells with Blocks -->
+<div class="min-h-[240px] pt-4 space-y-2">
+<div class="bg-primary-container p-3 rounded-lg border-l-4 border-[#D4A843]">
+<p class="text-[10px] text-[#D4A843] font-bold font-headline">09:00 AM</p>
+<p class="text-white text-xs font-medium font-headline leading-tight">Abebe Tadesse</p>
+<p class="text-[9px] text-white/60 uppercase tracking-widest mt-1">Scheduled</p>
+</div>
+</div>
+<div class="min-h-[240px] pt-4 space-y-2 border-l border-slate-50">
+<div class="bg-[#1B4332] p-3 rounded-lg border-l-4 border-[#86af99]">
+<p class="text-[10px] text-white/80 font-bold font-headline">10:30 AM</p>
+<p class="text-white text-xs font-medium font-headline leading-tight">Mulugeta Seraw</p>
+<p class="text-[9px] text-[#86af99] uppercase tracking-widest mt-1">Completed</p>
+</div>
+</div>
+<div class="min-h-[240px] pt-4 space-y-2 border-l border-slate-50">
+<div class="bg-[#C1292E] p-3 rounded-lg border-l-4 border-white/20">
+<p class="text-[10px] text-white/80 font-bold font-headline">02:00 PM</p>
+<p class="text-white text-xs font-medium font-headline leading-tight">Tsedey Wolde</p>
+<p class="text-[9px] text-white/60 uppercase tracking-widest mt-1">Cancelled</p>
+</div>
+</div>
+<div class="min-h-[240px] pt-4 space-y-2 border-l border-slate-50"></div>
+<div class="min-h-[240px] pt-4 space-y-2 border-l border-slate-50">
+<div class="bg-primary-container p-3 rounded-lg border-l-4 border-[#D4A843]">
+<p class="text-[10px] text-[#D4A843] font-bold font-headline">11:00 AM</p>
+<p class="text-white text-xs font-medium font-headline leading-tight">Binyam Haile</p>
+<p class="text-[9px] text-white/60 uppercase tracking-widest mt-1">Scheduled</p>
+</div>
+</div>
+<div class="min-h-[240px] pt-4 space-y-2 border-l border-slate-50"></div>
+<div class="min-h-[240px] pt-4 space-y-2 border-l border-slate-50"></div>
+</div>
+</section>
+<!-- Upcoming Appointments List -->
+<section class="space-y-8">
+<div class="flex items-center justify-between border-b border-slate-200 pb-4">
+<h3 class="text-xl font-medium text-primary font-headline">Upcoming Appointments</h3>
+<div class="flex gap-4">
+<span class="text-xs font-medium text-slate-500">Filter by:</span>
+<select class="bg-transparent border-none text-xs font-bold text-primary p-0 focus:ring-0">
+<option>All Status</option>
+<option>Scheduled</option>
+<option>Urgent</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<!-- Item 1 -->
+<div class="bg-white p-6 rounded-xl shadow-[0px_4px_12px_rgba(26,26,46,0.02)] flex items-center justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 bg-surface-container-low rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="patient_list">person</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-primary">Abebe Tadesse</h4>
+<p class="font-['JetBrains_Mono'] text-[#1B4332] text-xs font-medium mt-1">ID: EC-M5K2XRPA</p>
+</div>
+<div class="h-10 w-px bg-slate-100 mx-4"></div>
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Date &amp; Time</p>
+<p class="text-sm font-medium text-primary mt-1">Oct 27, 2023 | 09:00 AM</p>
+</div>
+</div>
+<div class="flex items-center gap-12">
+<div class="text-right">
+<span class="bg-[#c1ecd4] text-[#012d1d] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Scheduled</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 border border-slate-200 text-slate-500 text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-slate-50 transition-colors">View Details</button>
+<button class="px-4 py-2 bg-[#1B4332] text-white text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-primary transition-colors">Mark Complete</button>
+<button class="px-4 py-2 border border-error text-error text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-error/5 transition-colors">Cancel</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-white p-6 rounded-xl shadow-[0px_4px_12px_rgba(26,26,46,0.02)] flex items-center justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 bg-surface-container-low rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="patient_list">person</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-primary">Hirut Belay</h4>
+<p class="font-['JetBrains_Mono'] text-[#1B4332] text-xs font-medium mt-1">ID: EC-T8N1L2QM</p>
+</div>
+<div class="h-10 w-px bg-slate-100 mx-4"></div>
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Date &amp; Time</p>
+<p class="text-sm font-medium text-primary mt-1">Oct 27, 2023 | 11:30 AM</p>
+</div>
+</div>
+<div class="flex items-center gap-12">
+<div class="text-right">
+<span class="bg-[#c1ecd4] text-[#012d1d] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Scheduled</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 border border-slate-200 text-slate-500 text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-slate-50 transition-colors">View Details</button>
+<button class="px-4 py-2 bg-[#1B4332] text-white text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-primary transition-colors">Mark Complete</button>
+<button class="px-4 py-2 border border-error text-error text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-error/5 transition-colors">Cancel</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-white p-6 rounded-xl shadow-[0px_4px_12px_rgba(26,26,46,0.02)] flex items-center justify-between group hover:shadow-md transition-shadow border-l-4 border-error">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 bg-error-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-error" data-icon="warning">priority_high</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-primary">Dawit Mengistu</h4>
+<p class="font-['JetBrains_Mono'] text-[#1B4332] text-xs font-medium mt-1">ID: EC-Y2X9W5PP</p>
+</div>
+<div class="h-10 w-px bg-slate-100 mx-4"></div>
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Date &amp; Time</p>
+<p class="text-sm font-medium text-primary mt-1">Oct 27, 2023 | 01:15 PM</p>
+</div>
+</div>
+<div class="flex items-center gap-12">
+<div class="text-right">
+<span class="bg-error-container text-error text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Urgent Follow-up</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 border border-slate-200 text-slate-500 text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-slate-50 transition-colors">View Details</button>
+<button class="px-4 py-2 bg-[#1B4332] text-white text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-primary transition-colors">Mark Complete</button>
+<button class="px-4 py-2 border border-error text-error text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-error/5 transition-colors">Cancel</button>
+</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-white p-6 rounded-xl shadow-[0px_4px_12px_rgba(26,26,46,0.02)] flex items-center justify-between group hover:shadow-md transition-shadow">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 bg-surface-container-low rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="patient_list">person</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-primary">Zenebech Gezahegn</h4>
+<p class="font-['JetBrains_Mono'] text-[#1B4332] text-xs font-medium mt-1">ID: EC-R4T0Z8AA</p>
+</div>
+<div class="h-10 w-px bg-slate-100 mx-4"></div>
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Date &amp; Time</p>
+<p class="text-sm font-medium text-primary mt-1">Oct 27, 2023 | 03:00 PM</p>
+</div>
+</div>
+<div class="flex items-center gap-12">
+<div class="text-right">
+<span class="bg-[#c1ecd4] text-[#012d1d] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Scheduled</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 border border-slate-200 text-slate-500 text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-slate-50 transition-colors">View Details</button>
+<button class="px-4 py-2 bg-[#1B4332] text-white text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-primary transition-colors">Mark Complete</button>
+<button class="px-4 py-2 border border-error text-error text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-error/5 transition-colors">Cancel</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

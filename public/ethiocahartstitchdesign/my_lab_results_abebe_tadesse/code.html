@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Lab Results | EthioChart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#4e3800",
+                        "secondary-fixed": "#d1e8dc",
+                        "inverse-primary": "#a5d0b9",
+                        "primary-container": "#1b4332",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#414844",
+                        "primary": "#012d1d",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "outline": "#717973",
+                        "on-primary-container": "#86af99",
+                        "background": "#fcf8ff",
+                        "surface-variant": "#e2e0fc",
+                        "outline-variant": "#c1c8c2",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#52675e",
+                        "surface-tint": "#3f6653",
+                        "surface-container-highest": "#e2e0fc",
+                        "secondary": "#4e635a",
+                        "on-secondary-fixed-variant": "#374b42",
+                        "on-secondary-fixed": "#0b1f18",
+                        "surface": "#fcf8ff",
+                        "on-surface": "#1a1a2e",
+                        "on-tertiary-container": "#cba03b",
+                        "inverse-surface": "#2f2e43",
+                        "surface-container-low": "#f5f2ff",
+                        "surface-container-high": "#e8e5ff",
+                        "on-primary-fixed": "#002114",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#c1ecd4",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1a2e",
+                        "tertiary-fixed-dim": "#eec058",
+                        "secondary-fixed-dim": "#b5ccc0",
+                        "inverse-on-surface": "#f2efff",
+                        "surface-dim": "#dad7f3",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#cee5d9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#efecff",
+                        "surface-bright": "#fcf8ff",
+                        "tertiary": "#332400",
+                        "primary-fixed-dim": "#a5d0b9"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .flag-stripe {
+            background: linear-gradient(to right, #1B4332, #D4A843, #C1292E);
+        }
+        .glass-panel {
+            backdrop-filter: blur(24px);
+            background: rgba(252, 248, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen">
+<!-- Signature Flag Stripe -->
+<div class="fixed top-0 left-0 w-full h-[3px] z-[60] flag-stripe"></div>
+<!-- Side Navigation Shell -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#081C15] flex flex-col py-8 shadow-2xl">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<div>
+<h1 class="text-lg font-headline font-bold text-white tracking-tight">EthioChart</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-emerald-500/60 font-bold">Sovereign Ledger</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 text-emerald-100/70 hover:text-white px-6 py-3 transition-all duration-200 hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-4 text-emerald-100/70 hover:text-white px-6 py-3 transition-all duration-200 hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>My Appointments</span>
+</a>
+<a class="flex items-center gap-4 text-emerald-100/70 hover:text-white px-6 py-3 transition-all duration-200 hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined">medication</span>
+<span>My Prescriptions</span>
+</a>
+<!-- Active State -->
+<a class="flex items-center gap-4 bg-[#1B4332] text-[#D4A843] rounded-r-full mr-4 px-6 py-3 transition-transform transform-gpu scale-105" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">biotech</span>
+<span class="font-semibold">My Lab Results</span>
+</a>
+<a class="flex items-center gap-4 text-emerald-100/70 hover:text-white px-6 py-3 transition-all duration-200 hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>My Bills</span>
+</a>
+<a class="flex items-center gap-4 text-emerald-100/70 hover:text-white px-6 py-3 transition-all duration-200 hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span>Messages</span>
+</a>
+<a class="flex items-center gap-4 text-emerald-100/70 hover:text-white px-6 py-3 transition-all duration-200 hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined">video_chat</span>
+<span>Video Sessions</span>
+</a>
+<a class="flex items-center gap-4 text-emerald-100/70 hover:text-white px-6 py-3 transition-all duration-200 hover:bg-[#1B4332]/50" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>Profile</span>
+</a>
+</nav>
+<div class="mt-auto px-6 space-y-1">
+<a class="flex items-center gap-4 text-emerald-100/70 hover:text-white py-3 transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Help Center</span>
+</a>
+<a class="flex items-center gap-4 text-emerald-100/70 hover:text-white py-3 transition-colors" href="#">
+<span class="material-symbols-outlined text-error">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar (Anchor) -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-white z-30 flex justify-between items-center px-8 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-sm w-80 focus:ring-1 focus:ring-primary" placeholder="Search medical records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<p class="text-sm font-headline font-bold text-primary">Abebe Tadesse</p>
+<p class="text-[10px] text-outline font-mono">ID: ETH-4492-MK</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border-2 border-surface-container">
+<img alt="Abebe Tadesse Profile Image" class="w-full h-full object-cover" data-alt="Professional headshot of an Ethiopian man in business attire with a warm, confident expression, soft office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv7Ok1_1CDKfMD1lDcjc82QXLf3vDcrIbaWYTtsgU_2pNk5KGd_gZWjwy-9n0T5J1nRCOvsBngUqOj-fHi90lwlfxbQ5UuCJ3-tYlQ4MUdUYEOhR_xAPn1G_V78ZT3MIot2AGDfqsW1MiI0n_ULLfFsqm66NvEm3PtDiqKgaqBwPB0QMWbletMBtw5S4JCoB45UDlHdEsvuIyE9oJC_kbLsEGGA-AWcPWL2D0NbvJPNzpf5WquLOUnojeDGSFMTWmiHO0kwI8053r-"/>
+</div>
+</div>
+</header>
+<!-- Institutional Header Block -->
+<div class="mt-16 bg-primary-container text-white px-10 py-12">
+<nav class="flex items-center gap-2 mb-4 text-[10px] font-mono tracking-widest text-emerald-200/60">
+<span>PORTAL</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span>MEDICAL_RECORDS</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-[#D4A843]">LAB_RESULTS</span>
+</nav>
+<h2 class="text-4xl font-headline font-bold tracking-tight">Clinical Laboratory Results</h2>
+<p class="mt-2 text-emerald-100/70 max-w-2xl font-light">
+                A definitive chronological record of your diagnostic tests and pathological findings. Results are verified by authorized medical practitioners and stored on the sovereign medical ledger.
+            </p>
+</div>
+<!-- Content Section -->
+<div class="px-10 py-12 bg-background">
+<div class="max-w-5xl mx-auto">
+<div class="relative">
+<!-- Vertical Timeline Line -->
+<div class="absolute left-[3.25rem] top-0 bottom-0 w-[2px] bg-outline-variant/30"></div>
+<!-- Entry 1: Critical -->
+<div class="flex gap-12 mb-16 relative">
+<div class="w-24 pt-4 text-right">
+<span class="text-xs font-mono font-bold text-primary leading-none">OCT 20</span>
+<p class="text-[10px] text-outline uppercase tracking-tighter">2023</p>
+</div>
+<!-- Marker -->
+<div class="absolute left-[3.25rem] -translate-x-1/2 top-5 w-4 h-4 rounded-full bg-white border-4 border-error z-10"></div>
+<div class="flex-1 bg-surface-container-lowest shadow-[0px_12px_32px_rgba(26,26,46,0.04)] rounded-lg p-6 border-l-4 border-error">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-headline font-bold text-primary mb-1">Blood Sugar Test (HbA1c)</h3>
+<p class="text-xs text-outline font-mono">REF_ID: LAB-77291-GL</p>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-error/10 text-error rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                                    Critical Result
+                                </div>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                                Hemoglobin A1c levels indicate significantly elevated glycemic levels over the past 3 months. Immediate consultation with Dr. Yilma is advised to review diabetic management protocol.
+                            </p>
+<div class="flex justify-between items-end border-t border-outline-variant/10 pt-6">
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest mb-1">Ordered By</p>
+<p class="text-sm font-semibold text-primary">Dr. Selamawit Yilma</p>
+</div>
+<div>
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest mb-1">Verified On</p>
+<p class="text-sm font-semibold text-primary">Oct 20, 14:30 EAT</p>
+</div>
+</div>
+<button class="flex items-center gap-2 text-primary text-xs font-bold border-b-2 border-primary pb-1 hover:text-[#D4A843] hover:border-[#D4A843] transition-colors">
+                                    VIEW FULL REPORT
+                                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Entry 2: Normal -->
+<div class="flex gap-12 mb-16 relative">
+<div class="w-24 pt-4 text-right">
+<span class="text-xs font-mono font-bold text-primary leading-none">SEP 12</span>
+<p class="text-[10px] text-outline uppercase tracking-tighter">2023</p>
+</div>
+<div class="absolute left-[3.25rem] -translate-x-1/2 top-5 w-4 h-4 rounded-full bg-white border-4 border-emerald-500 z-10"></div>
+<div class="flex-1 bg-surface-container-lowest shadow-[0px_12px_32px_rgba(26,26,46,0.04)] rounded-lg p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-headline font-bold text-primary mb-1">Complete Blood Count (CBC)</h3>
+<p class="text-xs text-outline font-mono">REF_ID: LAB-66102-CB</p>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                    Normal Range
+                                </div>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                                All parameters including WBC, RBC, and Platelet counts are within normal physiological ranges. No signs of infection or anemia detected.
+                            </p>
+<div class="flex justify-between items-end border-t border-outline-variant/10 pt-6">
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest mb-1">Ordered By</p>
+<p class="text-sm font-semibold text-primary">Dr. Abebe Kebede</p>
+</div>
+<div>
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest mb-1">Verified On</p>
+<p class="text-sm font-semibold text-primary">Sep 12, 09:15 EAT</p>
+</div>
+</div>
+<button class="flex items-center gap-2 text-primary text-xs font-bold border-b-2 border-primary pb-1 hover:text-[#D4A843] hover:border-[#D4A843] transition-colors">
+                                    VIEW FULL REPORT
+                                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Entry 3: Abnormal -->
+<div class="flex gap-12 mb-16 relative">
+<div class="w-24 pt-4 text-right">
+<span class="text-xs font-mono font-bold text-primary leading-none">JUL 28</span>
+<p class="text-[10px] text-outline uppercase tracking-tighter">2023</p>
+</div>
+<div class="absolute left-[3.25rem] -translate-x-1/2 top-5 w-4 h-4 rounded-full bg-white border-4 border-[#D4A843] z-10"></div>
+<div class="flex-1 bg-surface-container-lowest shadow-[0px_12px_32px_rgba(26,26,46,0.04)] rounded-lg p-6 border-l-4 border-[#D4A843]">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-headline font-bold text-primary mb-1">Lipid Panel</h3>
+<p class="text-xs text-outline font-mono">REF_ID: LAB-55419-LP</p>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-amber-50 text-amber-700 rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-[#D4A843]"></span>
+                                    Abnormal
+                                </div>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                                Elevated LDL cholesterol levels detected (165 mg/dL). HDL and Triglycerides remain within acceptable ranges. Dietary adjustments and increased physical activity recommended.
+                            </p>
+<div class="flex justify-between items-end border-t border-outline-variant/10 pt-6">
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest mb-1">Ordered By</p>
+<p class="text-sm font-semibold text-primary">Dr. Selamawit Yilma</p>
+</div>
+<div>
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest mb-1">Verified On</p>
+<p class="text-sm font-semibold text-primary">Jul 28, 11:45 EAT</p>
+</div>
+</div>
+<button class="flex items-center gap-2 text-primary text-xs font-bold border-b-2 border-primary pb-1 hover:text-[#D4A843] hover:border-[#D4A843] transition-colors">
+                                    VIEW FULL REPORT
+                                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Entry 4: Normal -->
+<div class="flex gap-12 mb-16 relative">
+<div class="w-24 pt-4 text-right">
+<span class="text-xs font-mono font-bold text-primary leading-none">JUN 05</span>
+<p class="text-[10px] text-outline uppercase tracking-tighter">2023</p>
+</div>
+<div class="absolute left-[3.25rem] -translate-x-1/2 top-5 w-4 h-4 rounded-full bg-white border-4 border-emerald-500 z-10"></div>
+<div class="flex-1 bg-surface-container-lowest shadow-[0px_12px_32px_rgba(26,26,46,0.04)] rounded-lg p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-headline font-bold text-primary mb-1">Kidney Function Test</h3>
+<p class="text-xs text-outline font-mono">REF_ID: LAB-44023-KF</p>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                    Normal Range
+                                </div>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                                Creatinine and Blood Urea Nitrogen (BUN) levels are stable. Estimated GFR (Glomerular Filtration Rate) indicates excellent renal function.
+                            </p>
+<div class="flex justify-between items-end border-t border-outline-variant/10 pt-6">
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest mb-1">Ordered By</p>
+<p class="text-sm font-semibold text-primary">Dr. Abebe Kebede</p>
+</div>
+<div>
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest mb-1">Verified On</p>
+<p class="text-sm font-semibold text-primary">Jun 05, 10:20 EAT</p>
+</div>
+</div>
+<button class="flex items-center gap-2 text-primary text-xs font-bold border-b-2 border-primary pb-1 hover:text-[#D4A843] hover:border-[#D4A843] transition-colors">
+                                    VIEW FULL REPORT
+                                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Entry 5: Normal -->
+<div class="flex gap-12 mb-8 relative">
+<div class="w-24 pt-4 text-right">
+<span class="text-xs font-mono font-bold text-primary leading-none">MAR 14</span>
+<p class="text-[10px] text-outline uppercase tracking-tighter">2023</p>
+</div>
+<div class="absolute left-[3.25rem] -translate-x-1/2 top-5 w-4 h-4 rounded-full bg-white border-4 border-emerald-500 z-10"></div>
+<div class="flex-1 bg-surface-container-lowest shadow-[0px_12px_32px_rgba(26,26,46,0.04)] rounded-lg p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-headline font-bold text-primary mb-1">Liver Function Test</h3>
+<p class="text-xs text-outline font-mono">REF_ID: LAB-22981-LF</p>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                    Normal Range
+                                </div>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                                ALT, AST, and Bilirubin levels are all within baseline limits. Hepatic function appears consistent with prior healthy results.
+                            </p>
+<div class="flex justify-between items-end border-t border-outline-variant/10 pt-6">
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest mb-1">Ordered By</p>
+<p class="text-sm font-semibold text-primary">Dr. Selamawit Yilma</p>
+</div>
+<div>
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest mb-1">Verified On</p>
+<p class="text-sm font-semibold text-primary">Mar 14, 16:50 EAT</p>
+</div>
+</div>
+<button class="flex items-center gap-2 text-primary text-xs font-bold border-b-2 border-primary pb-1 hover:text-[#D4A843] hover:border-[#D4A843] transition-colors">
+                                    VIEW FULL REPORT
+                                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Asymmetric Secondary Insight Panel -->
+<div class="mt-20 max-w-5xl mx-auto flex flex-col md:flex-row gap-8">
+<div class="md:w-2/3 p-8 bg-primary-container text-white rounded-lg flex items-center gap-8 overflow-hidden relative">
+<div class="relative z-10">
+<h4 class="text-xl font-headline font-bold text-[#D4A843] mb-2">Long-term Health Tracking</h4>
+<p class="text-emerald-100/70 text-sm leading-relaxed max-w-md">
+                            Your lab results are integrated into our longitudinal health monitor. We track trends over time to identify subtle shifts in your metabolic profile before they become clinical issues.
+                        </p>
+<button class="mt-6 px-6 py-2 bg-[#D4A843] text-primary font-bold text-xs rounded hover:opacity-90 transition-opacity">
+                            OPEN ANALYTICS ENGINE
+                        </button>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-20 pointer-events-none">
+<img alt="Health Analytics" class="w-full h-full object-cover" data-alt="Abstract data visualization with flowing emerald and gold lines representing health trends on a dark green background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFW9-KpePxbkkYyIv6NxJjR4J4rk22APHNwUwSDG2dPWurP0NeHIvPoCYb4FjNqxhNTRFLLku1D6PK9MXXXHcNh_Zn8U4hgc9YMBYPLcZNat9JyIj82Nw--VUlR6kklKmEWWExUTHujDZW11YZ_4irNljEFkVNt4UT5EEJkAIWYFL4eZu6tm4EENyFEdrC5sqJ6KzUgVkszkPsNz0HdPS7fJp6ym-WuMovOthOZj6r5OEIDfnsfXZnwqIdHL56XsMSPVKxGZuDP-o5"/>
+</div>
+</div>
+<div class="md:w-1/3 p-8 bg-surface-container-high rounded-lg">
+<span class="material-symbols-outlined text-[#D4A843] mb-4" style="font-variation-settings: 'FILL' 1;">security</span>
+<h4 class="text-lg font-headline font-bold text-primary mb-2">Encryption &amp; Privacy</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                        These results are secured using cryptographic signatures compliant with sovereign data protection standards. Only authorized medical staff can access this ledger.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Footer Seal -->
+<footer class="mt-auto py-12 px-10 border-t border-outline-variant/10 text-center">
+<div class="flex flex-col items-center gap-4">
+<div class="flex items-center gap-2 opacity-30">
+<div class="w-8 h-[2px] bg-primary"></div>
+<span class="text-[10px] font-mono tracking-widest text-primary uppercase">Official Sovereign Record</span>
+<div class="w-8 h-[2px] bg-primary"></div>
+</div>
+<p class="text-[10px] text-outline max-w-sm mx-auto">
+                    EthioChart Medical Data Hub. All clinical data is archived for 20 years in accordance with national health policy. © 2024 EthioChart Institutional Systems.
+                </p>
+</div>
+</footer>
+</main>
+</body></html>

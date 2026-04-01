@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EthioChart | Sovereign Ledger Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-tertiary-fixed": "#261a00",
+                "tertiary": "#332400",
+                "on-tertiary-fixed-variant": "#5b4300",
+                "on-secondary-fixed": "#0b1f18",
+                "on-primary": "#ffffff",
+                "primary-container": "#1b4332",
+                "on-error": "#ffffff",
+                "outline-variant": "#c1c8c2",
+                "secondary": "#4e635a",
+                "inverse-primary": "#a5d0b9",
+                "outline": "#717973",
+                "on-primary-container": "#86af99",
+                "on-secondary-container": "#52675e",
+                "on-primary-fixed-variant": "#274e3d",
+                "surface-dim": "#dad7f3",
+                "surface": "#fcf8ff",
+                "surface-container-lowest": "#ffffff",
+                "on-primary-fixed": "#002114",
+                "on-background": "#1a1a2e",
+                "on-tertiary": "#ffffff",
+                "primary-fixed-dim": "#a5d0b9",
+                "on-tertiary-container": "#cba03b",
+                "surface-variant": "#e2e0fc",
+                "secondary-fixed": "#d1e8dc",
+                "on-error-container": "#93000a",
+                "primary-fixed": "#c1ecd4",
+                "inverse-on-surface": "#f2efff",
+                "surface-container-highest": "#e2e0fc",
+                "on-secondary-fixed-variant": "#374b42",
+                "inverse-surface": "#2f2e43",
+                "tertiary-container": "#4e3800",
+                "surface-container-low": "#f5f2ff",
+                "background": "#fcf8ff",
+                "tertiary-fixed": "#ffdf9f",
+                "surface-bright": "#fcf8ff",
+                "on-secondary": "#ffffff",
+                "error-container": "#ffdad6",
+                "secondary-container": "#cee5d9",
+                "primary": "#012d1d",
+                "on-surface-variant": "#414844",
+                "surface-container": "#efecff",
+                "secondary-fixed-dim": "#b5ccc0",
+                "surface-tint": "#3f6653",
+                "surface-container-high": "#e8e5ff",
+                "on-surface": "#1a1a2e",
+                "error": "#ba1a1a",
+                "tertiary-fixed-dim": "#eec058"
+              },
+              fontFamily: {
+                "headline": ["Public Sans"],
+                "body": ["Inter"],
+                "label": ["Inter"],
+                "system": ["JetBrains Mono"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+      </script>
+<style>
+        .ethiopian-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l5 20h20l-15 12 5 20-15-12-15 12 5-20-15-12h20z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .flag-stripe {
+            height: 3px;
+            background: linear-gradient(to right, #1B4332, #D4A843, #C1292E);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface overflow-hidden">
+<!-- Brand Signature -->
+<div class="flag-stripe"></div>
+<main class="flex h-screen w-full">
+<!-- LEFT SIDE: Institutional Authority -->
+<section class="hidden md:flex w-[45%] bg-primary-container relative flex-col items-center justify-between py-16 px-12 overflow-hidden">
+<!-- Decorative Pattern Overlay -->
+<div class="absolute inset-0 ethiopian-pattern pointer-events-none opacity-20"></div>
+<!-- Logo Section -->
+<div class="relative z-10 flex flex-col items-center text-center mt-auto">
+<div class="w-32 h-32 bg-on-primary-container rounded-lg flex items-center justify-center mb-8 shadow-2xl ring-4 ring-[#D4A843]/20">
+<span class="material-symbols-outlined text-white text-7xl" data-weight="fill">shield_with_heart</span>
+</div>
+<h1 class="font-headline text-5xl font-extrabold text-white tracking-tight mb-4">EthioChart</h1>
+<p class="text-on-primary-container font-medium text-lg max-w-sm">Ethiopia's National Hospital Management System</p>
+</div>
+<!-- Footer Institutional Label -->
+<div class="relative z-10 mt-auto">
+<p class="font-system text-[0.6875rem] uppercase tracking-[0.2em] text-[#D4A843] font-semibold">
+                    Federal Ministry of Health
+                </p>
+</div>
+</section>
+<!-- RIGHT SIDE: Authentication Gateway -->
+<section class="w-full md:w-[55%] bg-surface-container-lowest flex flex-col justify-center items-center px-6 lg:px-24">
+<div class="w-full max-w-md">
+<!-- Tabbed Navigation -->
+<nav class="flex w-full mb-12 border-b border-outline-variant/30">
+<button class="flex-1 py-4 text-center font-headline font-semibold text-primary border-b-2 border-[#D4A843] transition-colors">
+                        Admin
+                    </button>
+<button class="flex-1 py-4 text-center font-headline font-semibold text-outline hover:text-primary transition-colors">
+                        Doctor
+                    </button>
+<button class="flex-1 py-4 text-center font-headline font-semibold text-outline hover:text-primary transition-colors">
+                        Patient
+                    </button>
+</nav>
+<!-- Form Header -->
+<div class="mb-10">
+<h2 class="text-3xl font-headline font-bold text-primary mb-2">Welcome Back</h2>
+<p class="text-on-surface-variant font-medium">Please enter your sovereign credentials.</p>
+</div>
+<!-- Login Form -->
+<form class="space-y-8">
+<!-- Email Input -->
+<div class="space-y-2">
+<label class="block font-system text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-wider" for="email">
+                            Government ID / Email
+                        </label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">mail</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-4 bg-transparent border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-on-surface font-medium transition-all placeholder:text-outline/50" id="email" name="email" placeholder="name@health.gov.et" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<label class="block font-system text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-wider" for="password">
+                                Secure Password
+                            </label>
+<a class="text-xs font-semibold text-primary underline underline-offset-4 hover:text-primary-container transition-colors" href="#">Forgot Password?</a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">lock</span>
+</div>
+<input class="block w-full pl-10 pr-12 py-4 bg-transparent border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-on-surface font-medium transition-all" id="password" name="password" placeholder="••••••••••••" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-3 flex items-center text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center">
+<input class="h-4 w-4 text-primary border-outline-variant rounded focus:ring-primary" id="remember-me" name="remember-me" type="checkbox"/>
+<label class="ml-3 block text-sm font-medium text-on-surface-variant" for="remember-me">
+                            Stay authenticated for 8 hours
+                        </label>
+</div>
+<!-- Actions -->
+<button class="w-full bg-primary text-white py-5 px-4 rounded-lg font-headline font-bold text-lg shadow-lg hover:bg-primary-container hover:shadow-xl active:scale-[0.98] transition-all flex items-center justify-center gap-3" type="submit">
+                        Sign In
+                        <span class="material-symbols-outlined text-xl">login</span>
+</button>
+</form>
+<!-- Institutional Footer -->
+<div class="mt-16 text-center">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-full border border-outline-variant/10">
+<span class="material-symbols-outlined text-sm text-[#D4A843]" data-weight="fill">verified_user</span>
+<span class="font-system text-[0.625rem] font-medium text-on-surface-variant tracking-wide">
+                            Protected by EthioChart Secure Authentication
+                        </span>
+</div>
+<div class="mt-8 flex justify-center space-x-6 text-[0.75rem] font-medium text-outline">
+<a class="hover:text-primary transition-colors" href="#">Privacy Protocol</a>
+<a class="hover:text-primary transition-colors" href="#">Access Policy</a>
+<a class="hover:text-primary transition-colors" href="#">System Status</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Ambient Texture Element -->
+<div class="fixed bottom-0 right-0 w-64 h-64 opacity-[0.03] pointer-events-none select-none">
+<img alt="highly detailed subtle geometric pattern of ethiopian iconography in a technical blueprint style" class="w-full h-full object-contain" data-alt="close-up of subtle traditional ethiopian textile pattern in muted grey tones for background texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtZxbaE8CT7MSj2Z5zyyNFEO4hu0Os_XwkI8dFftfqrVYD3vwd84KW6BiXWXvDd-NnL29VjCLyzP6hEF_ETHU2PhyN0SkVCBzQ06o9rzWx-2TFpzKVGLZHN4St6FNzGxzHbrAquJZ2oUeLzak7Eu_mXi6fIo3K-cNGhxOyfSF2fqy9DFWY12HmIWn8vkRnOq7VjmThZOAgO53GfG8rIyNyq199oqlOmq5Sw4u-HdyrFDWIaoN-IPrikgxvxej3_pbQqRN49bpdUoNc"/>
+</div>
+</body></html>

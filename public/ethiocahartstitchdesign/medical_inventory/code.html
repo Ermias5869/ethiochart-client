@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Medical Inventory | EthioChart Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Poppins:wght@600;700&amp;family=Public+Sans:wght@600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#a5d0b9",
+                        "secondary-container": "#cee5d9",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#4e3800",
+                        "on-secondary-fixed-variant": "#374b42",
+                        "outline-variant": "#c1c8c2",
+                        "secondary": "#4e635a",
+                        "surface-container-high": "#e8e5ff",
+                        "on-surface": "#1a1a2e",
+                        "inverse-surface": "#2f2e43",
+                        "surface-tint": "#3f6653",
+                        "surface-variant": "#e2e0fc",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#012d1d",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fcf8ff",
+                        "outline": "#717973",
+                        "on-background": "#1a1a2e",
+                        "on-secondary-container": "#52675e",
+                        "secondary-fixed-dim": "#b5ccc0",
+                        "surface-dim": "#dad7f3",
+                        "primary-container": "#1b4332",
+                        "on-tertiary-container": "#cba03b",
+                        "on-surface-variant": "#414844",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf8ff",
+                        "surface-container": "#efecff",
+                        "tertiary": "#332400",
+                        "tertiary-fixed-dim": "#eec058",
+                        "surface": "#fcf8ff",
+                        "inverse-on-surface": "#f2efff",
+                        "primary-fixed": "#c1ecd4",
+                        "tertiary-fixed": "#ffdf9f",
+                        "surface-container-highest": "#e2e0fc",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#002114",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f5f2ff",
+                        "secondary-fixed": "#d1e8dc",
+                        "on-secondary-fixed": "#0b1f18",
+                        "danger-brand": "#C1292E"
+                    },
+                    fontFamily: {
+                        "headline": ["Poppins"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .flag-gradient {
+            background: linear-gradient(90deg, #1B4332 0%, #D4A843 50%, #C1292E 100%);
+        }
+        .sidebar-gradient {
+            background: linear-gradient(180deg, #081C15 0%, #012D1D 100%);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background antialiased overflow-x-hidden">
+<!-- Signature Flag Stripe -->
+<div class="fixed top-0 left-0 right-0 z-[60] h-[3px] flag-gradient"></div>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 bottom-0 w-[260px] z-50 sidebar-gradient shadow-2xl flex flex-col py-8">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-[#D4A843]" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h1 class="text-emerald-50 font-headline font-bold text-lg uppercase tracking-widest leading-none">Sovereign Ledger</h1>
+<p class="text-emerald-100/40 text-[10px] font-mono tracking-tighter uppercase mt-1">Federal Ministry of Health</p>
+</div>
+</div>
+<button class="w-full bg-[#D4A843] text-primary font-semibold py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-[#c4983b] transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+<span>New Patient Entry</span>
+</button>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-emerald-100/60 hover:text-emerald-50 px-8 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="text-emerald-100/60 hover:text-emerald-50 px-8 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="folder_shared">folder_shared</span>
+<span class="font-medium">Patient Records</span>
+</a>
+<a class="text-emerald-100/60 hover:text-emerald-50 px-8 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-medium">Appointments</span>
+</a>
+<!-- Active State -->
+<a class="bg-[#1B4332] text-[#D4A843] font-semibold rounded-r-full mr-4 px-8 py-3 flex items-center gap-3 border-l-4 border-[#D4A843]" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-medium">Medical Inventory</span>
+</a>
+<a class="text-emerald-100/60 hover:text-emerald-50 px-8 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-medium">Analytics</span>
+</a>
+<a class="text-emerald-100/60 hover:text-emerald-50 px-8 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-medium">Staff Directory</span>
+</a>
+</nav>
+<div class="mt-auto px-8 py-6 border-t border-emerald-900/30">
+<a class="text-emerald-100/60 hover:text-emerald-50 py-2 flex items-center gap-3 text-sm mb-2" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+<a class="text-emerald-100/60 hover:text-emerald-50 py-2 flex items-center gap-3 text-sm" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="terminal">terminal</span>
+<span class="font-mono">System Logs</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-0 ml-[260px] z-40 h-16 bg-white/80 backdrop-blur-md flex items-center justify-between px-10 shadow-sm">
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="absolute inset-y-0 left-3 flex items-center text-outline">
+<span class="material-symbols-outlined text-lg" data-icon="search">search</span>
+</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none focus:ring-1 focus:ring-primary rounded-lg text-sm w-80 placeholder:text-outline-variant" placeholder="Search institutional ledger..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1 bg-primary-container/10 rounded-full">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-[10px] font-mono font-bold text-primary tracking-widest uppercase">System Status: Active</span>
+</div>
+<button class="p-2 text-primary hover:bg-slate-50 transition-colors rounded-lg">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-primary hover:bg-slate-50 transition-colors rounded-lg">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="professional portrait of a medical director in a white coat with a neutral professional expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC76i45wqFieoN-XpgIzQs0Zovs1wiMPmLF2NKiNbAB2Njx8M0ilvDa1ImF6VGYYgJryRjvve6hHt5A5zvmXhIDb7S388QKn3zlSvuYD9LhtoiQ0tSEFYd08xzxReshW0cbNTvzfltvAHFgs2_TgVYCn6owiuRm9NyVehYLusuxuX0BD0NpsoRs_E9AUJfReHiz6erBGdGl013KuegwZPrSdAJ4hWJplj5HJSqZOVs8vC280b6rZez6sdImHrirdzh-U7HE3OVS4z8a"/>
+</div>
+</div>
+</header>
+<!-- Institutional Page Header -->
+<div class="mt-16 bg-primary-container text-on-primary-container px-10 py-12 flex flex-col justify-end">
+<nav class="flex items-center gap-2 text-on-primary-container/60 font-mono text-[11px] mb-4 uppercase tracking-widest">
+<span>Central Repository</span>
+<span class="material-symbols-outlined text-[12px]" data-icon="chevron_right">chevron_right</span>
+<span>Asset Management</span>
+<span class="material-symbols-outlined text-[12px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-primary-container">Inventory Ledger</span>
+</nav>
+<div class="flex items-end justify-between">
+<div>
+<h2 class="text-4xl font-headline font-semibold text-emerald-50 tracking-tight">Medical Inventory &amp; Supplies</h2>
+<p class="text-emerald-100/60 mt-2 max-w-2xl">Real-time oversight of national pharmaceutical stock and critical care equipment. All data is verified through the Sovereign Ledger Protocol.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2 bg-surface-container-lowest text-primary font-semibold rounded-lg flex items-center gap-2 hover:bg-emerald-50 transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="file_download">file_download</span>
+<span>Export Ledger</span>
+</button>
+<button class="px-6 py-2 bg-[#D4A843] text-primary font-semibold rounded-lg flex items-center gap-2 hover:bg-[#c4983b] transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="inventory">inventory</span>
+<span>Restock Protocol</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dashboard Stats Grid -->
+<div class="p-10 -mt-8 grid grid-cols-4 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-4 border-primary">
+<p class="text-outline text-xs font-mono uppercase tracking-widest mb-1">Total SKU Registry</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-headline font-bold text-primary">12,482</span>
+<span class="text-emerald-600 text-xs font-bold">+0.4%</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-4 border-danger-brand">
+<p class="text-outline text-xs font-mono uppercase tracking-widest mb-1">Critical Depletion</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-headline font-bold text-danger-brand">14</span>
+<span class="text-danger-brand text-[10px] font-mono font-bold px-2 py-0.5 bg-error-container rounded">REORDER REQUIRED</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-4 border-tertiary-container">
+<p class="text-outline text-xs font-mono uppercase tracking-widest mb-1">Active Shipments</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-headline font-bold text-primary">28</span>
+<span class="text-on-surface-variant text-xs">8 Due Today</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b-4 border-secondary">
+<p class="text-outline text-xs font-mono uppercase tracking-widest mb-1">Valuation (ETB)</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-headline font-bold text-primary">48.2M</span>
+<span class="material-symbols-outlined text-outline" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+</div>
+<!-- Inventory Ledger Table -->
+<div class="px-10 pb-12">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="p-6 border-b border-surface-container-low flex justify-between items-center">
+<div class="flex gap-4">
+<button class="px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg">All Assets</button>
+<button class="px-4 py-2 hover:bg-surface-container text-on-surface-variant text-sm font-medium rounded-lg transition-colors">Pharmaceuticals</button>
+<button class="px-4 py-2 hover:bg-surface-container text-on-surface-variant text-sm font-medium rounded-lg transition-colors">Equipment</button>
+<button class="px-4 py-2 hover:bg-surface-container text-on-surface-variant text-sm font-medium rounded-lg transition-colors">Consumables</button>
+</div>
+<div class="flex items-center gap-2 text-outline-variant">
+<span class="text-xs font-mono uppercase">Filter by Authority:</span>
+<select class="bg-transparent border-none text-xs font-bold text-primary focus:ring-0 cursor-pointer">
+<option>All Regional Hubs</option>
+<option>Addis Ababa Central</option>
+<option>Dire Dawa North</option>
+</select>
+</div>
+</div>
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/30">
+<th class="px-8 py-5 text-[10px] font-mono text-outline uppercase tracking-widest border-none">ID / SKU CODE</th>
+<th class="px-6 py-5 text-[10px] font-mono text-outline uppercase tracking-widest border-none">NOMENCLATURE</th>
+<th class="px-6 py-5 text-[10px] font-mono text-outline uppercase tracking-widest border-none">CATEGORY</th>
+<th class="px-6 py-5 text-[10px] font-mono text-outline uppercase tracking-widest border-none text-center">CURRENT STOCK</th>
+<th class="px-6 py-5 text-[10px] font-mono text-outline uppercase tracking-widest border-none">STATUS</th>
+<th class="px-8 py-5 text-[10px] font-mono text-outline uppercase tracking-widest border-none text-right">ACTION</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Item 1: Critical -->
+<tr class="hover:bg-surface-container-low/20 transition-colors">
+<td class="px-8 py-6 font-mono text-xs text-primary font-medium">ETH-MED-8829-X</td>
+<td class="px-6 py-6">
+<p class="text-sm font-semibold text-primary">Amoxicillin 500mg Capsules</p>
+<p class="text-[10px] text-outline">Lot: 2024-AA-992 (Exp: 10/2026)</p>
+</td>
+<td class="px-6 py-6">
+<span class="px-2 py-1 bg-emerald-100/50 text-emerald-800 text-[10px] font-bold uppercase rounded">Antibiotics</span>
+</td>
+<td class="px-6 py-6 text-center">
+<p class="text-sm font-mono font-bold text-danger-brand">420 Units</p>
+<div class="w-24 bg-surface-container-high h-1.5 rounded-full mt-2 mx-auto overflow-hidden">
+<div class="bg-danger-brand h-full w-[12%]"></div>
+</div>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-2 text-danger-brand">
+<span class="material-symbols-outlined text-lg" data-icon="warning">warning</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Critical Low</span>
+</div>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="text-primary hover:underline text-xs font-bold font-mono">ORDER_REFILL</button>
+</td>
+</tr>
+<!-- Item 2 -->
+<tr class="hover:bg-surface-container-low/20 transition-colors">
+<td class="px-8 py-6 font-mono text-xs text-primary font-medium">ETH-EQUIP-4410-Q</td>
+<td class="px-6 py-6">
+<p class="text-sm font-semibold text-primary">Phillips V60 Ventilator</p>
+<p class="text-[10px] text-outline">Model: 2023-V-Pro (Calibration: Due)</p>
+</td>
+<td class="px-6 py-6">
+<span class="px-2 py-1 bg-slate-100 text-slate-800 text-[10px] font-bold uppercase rounded">Critical Care</span>
+</td>
+<td class="px-6 py-6 text-center">
+<p class="text-sm font-mono font-bold text-primary">18 Units</p>
+<div class="w-24 bg-surface-container-high h-1.5 rounded-full mt-2 mx-auto overflow-hidden">
+<div class="bg-primary h-full w-[85%]"></div>
+</div>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-2 text-emerald-700">
+<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Sufficient</span>
+</div>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="text-primary hover:underline text-xs font-bold font-mono">MAINTENANCE_LOG</button>
+</td>
+</tr>
+<!-- Item 3: Alert -->
+<tr class="hover:bg-surface-container-low/20 transition-colors">
+<td class="px-8 py-6 font-mono text-xs text-primary font-medium">ETH-MED-1205-Z</td>
+<td class="px-6 py-6">
+<p class="text-sm font-semibold text-primary">Insulin Glargine 100 U/mL</p>
+<p class="text-[10px] text-outline">Cold Chain Protocol Required (2-8°C)</p>
+</td>
+<td class="px-6 py-6">
+<span class="px-2 py-1 bg-emerald-100/50 text-emerald-800 text-[10px] font-bold uppercase rounded">Endocrinology</span>
+</td>
+<td class="px-6 py-6 text-center">
+<p class="text-sm font-mono font-bold text-on-tertiary-container">1,250 Units</p>
+<div class="w-24 bg-surface-container-high h-1.5 rounded-full mt-2 mx-auto overflow-hidden">
+<div class="bg-on-tertiary-container h-full w-[35%]"></div>
+</div>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-2 text-on-tertiary-container">
+<span class="material-symbols-outlined text-lg" data-icon="priority_high">priority_high</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Reorder Level</span>
+</div>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="text-primary hover:underline text-xs font-bold font-mono">REVIEW_ORDER</button>
+</td>
+</tr>
+<!-- Item 4 -->
+<tr class="hover:bg-surface-container-low/20 transition-colors">
+<td class="px-8 py-6 font-mono text-xs text-primary font-medium">ETH-DISP-9002-M</td>
+<td class="px-6 py-6">
+<p class="text-sm font-semibold text-primary">Latex-Free Surgical Gloves</p>
+<p class="text-[10px] text-outline">Size: Medium (Sterile, Box of 100)</p>
+</td>
+<td class="px-6 py-6">
+<span class="px-2 py-1 bg-slate-100 text-slate-800 text-[10px] font-bold uppercase rounded">Disposables</span>
+</td>
+<td class="px-6 py-6 text-center">
+<p class="text-sm font-mono font-bold text-primary">8,500 Units</p>
+<div class="w-24 bg-surface-container-high h-1.5 rounded-full mt-2 mx-auto overflow-hidden">
+<div class="bg-primary h-full w-[92%]"></div>
+</div>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-2 text-emerald-700">
+<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Surplus</span>
+</div>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="text-primary hover:underline text-xs font-bold font-mono">DISTRIBUTE</button>
+</td>
+</tr>
+<!-- Item 5: Critical -->
+<tr class="hover:bg-surface-container-low/20 transition-colors">
+<td class="px-8 py-6 font-mono text-xs text-primary font-medium">ETH-MED-5511-K</td>
+<td class="px-6 py-6">
+<p class="text-sm font-semibold text-primary">Sodium Chloride 0.9% IV 500mL</p>
+<p class="text-[10px] text-outline">Bulk Fluid Logistics Code: FL-22</p>
+</td>
+<td class="px-6 py-6">
+<span class="px-2 py-1 bg-emerald-100/50 text-emerald-800 text-[10px] font-bold uppercase rounded">IV Fluids</span>
+</td>
+<td class="px-6 py-6 text-center">
+<p class="text-sm font-mono font-bold text-danger-brand">112 Units</p>
+<div class="w-24 bg-surface-container-high h-1.5 rounded-full mt-2 mx-auto overflow-hidden">
+<div class="bg-danger-brand h-full w-[4%]"></div>
+</div>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-2 text-danger-brand">
+<span class="material-symbols-outlined text-lg" data-icon="warning">warning</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Critical Low</span>
+</div>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="text-primary hover:underline text-xs font-bold font-mono">URGENT_PROCURE</button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="p-6 bg-surface-container-low/10 flex justify-between items-center">
+<p class="text-xs font-mono text-outline">Showing Page 1 of 248 Entries</p>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-container rounded-lg text-outline">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="px-3 py-1 bg-primary text-white text-xs font-bold rounded">1</button>
+<button class="px-3 py-1 hover:bg-surface-container text-xs font-bold rounded">2</button>
+<button class="px-3 py-1 hover:bg-surface-container text-xs font-bold rounded">3</button>
+<span class="text-outline">...</span>
+<button class="px-3 py-1 hover:bg-surface-container text-xs font-bold rounded">248</button>
+<button class="p-2 hover:bg-surface-container rounded-lg text-outline">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- System Alerts Sidebar Floating Section -->
+<div class="fixed bottom-10 right-10 flex flex-col gap-4">
+<div class="w-80 bg-white/90 backdrop-blur shadow-2xl rounded-xl border-l-[6px] border-danger-brand p-5 animate-in slide-in-from-right duration-500">
+<div class="flex items-start gap-3">
+<div class="bg-error-container p-2 rounded-lg text-danger-brand">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-primary">Critical Depletion Alert</h4>
+<p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Amoxicillin stock at Addis Central Hub is below 5% of threshold. Procurement protocol initiated automatically.</p>
+<div class="mt-4 flex gap-2">
+<button class="text-[10px] font-bold font-mono text-danger-brand uppercase tracking-widest hover:underline">Verify Entry</button>
+<button class="text-[10px] font-bold font-mono text-outline uppercase tracking-widest hover:underline">Dismiss</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer for Institutional Disclaimer -->
+<footer class="ml-[260px] bg-white border-t border-surface-container-low px-10 py-6 flex justify-between items-center">
+<p class="text-[10px] font-mono text-outline uppercase tracking-widest">© 2024 Federal Ministry of Health, Ethiopia | Sovereign Ledger Ledger Protocol v2.4.1</p>
+<div class="flex gap-6">
+<a class="text-[10px] font-mono text-outline hover:text-primary uppercase tracking-widest" href="#">Terms of Authority</a>
+<a class="text-[10px] font-mono text-outline hover:text-primary uppercase tracking-widest" href="#">Privacy Ledger</a>
+<a class="text-[10px] font-mono text-outline hover:text-primary uppercase tracking-widest" href="#">Node Status</a>
+</div>
+</footer>
+</body></html>

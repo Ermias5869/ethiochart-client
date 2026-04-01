@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EthioChart | Doctors Ledger</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600&amp;family=Inter:wght@400;500&amp;family=Poppins:wght@600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#332400",
+              "primary": "#012d1d",
+              "on-tertiary": "#ffffff",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-secondary-container": "#52675e",
+              "on-tertiary-fixed-variant": "#5b4300",
+              "on-primary-fixed": "#002114",
+              "inverse-surface": "#2f2e43",
+              "on-tertiary-fixed": "#261a00",
+              "secondary-container": "#cee5d9",
+              "on-background": "#1a1a2e",
+              "tertiary-fixed-dim": "#eec058",
+              "secondary": "#4e635a",
+              "on-primary-container": "#86af99",
+              "surface-container-highest": "#e2e0fc",
+              "inverse-primary": "#a5d0b9",
+              "tertiary-container": "#4e3800",
+              "surface-bright": "#fcf8ff",
+              "primary-fixed-dim": "#a5d0b9",
+              "on-surface": "#1a1a2e",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#d1e8dc",
+              "primary-container": "#1b4332",
+              "on-secondary-fixed-variant": "#374b42",
+              "outline": "#717973",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f2efff",
+              "tertiary-fixed": "#ffdf9f",
+              "primary-fixed": "#c1ecd4",
+              "on-primary-fixed-variant": "#274e3d",
+              "background": "#fcf8ff",
+              "surface": "#fcf8ff",
+              "on-error-container": "#93000a",
+              "secondary-fixed-dim": "#b5ccc0",
+              "outline-variant": "#c1c8c2",
+              "surface-variant": "#e2e0fc",
+              "on-tertiary-container": "#cba03b",
+              "surface-dim": "#dad7f3",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f5f2ff",
+              "surface-container-high": "#e8e5ff",
+              "surface-container": "#efecff",
+              "on-surface-variant": "#414844",
+              "surface-tint": "#3f6653",
+              "on-secondary-fixed": "#0b1f18",
+              "error": "#ba1a1a"
+            },
+            fontFamily: {
+              "headline": ["Public Sans", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"],
+              "poppins": ["Poppins", "sans-serif"],
+              "mono": ["JetBrains Mono", "monospace"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .border-image-gradient-ethiopia {
+            border-image: linear-gradient(to right, #1B4332, #D4A843, #C1292E) 1;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .doctor-card-shadow {
+            box-shadow: 0px 12px 32px rgba(26, 26, 46, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-[#F8F9FA] font-body text-on-background antialiased">
+<!-- Signature Brand Mark -->
+<div class="fixed top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#1B4332] via-[#D4A843] to-[#C1292E] z-[100]"></div>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-emerald-950 flex flex-col py-8 z-50 shadow-2xl">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-amber-400 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-950" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<div>
+<h1 class="text-amber-400 font-bold tracking-tight text-lg">The Sovereign Ledger</h1>
+<p class="text-emerald-100/50 text-[10px] font-mono tracking-widest uppercase">Institutional Authority</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 px-6 py-4 text-emerald-100/70 hover:bg-emerald-900/80 hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-mono text-sm uppercase tracking-wider">Dashboard</span>
+</a>
+<!-- Active State: Doctors -->
+<a class="flex items-center gap-4 px-6 py-4 bg-emerald-800 text-amber-400 font-semibold border-r-4 border-amber-400 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="font-mono text-sm uppercase tracking-wider">Doctors</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-emerald-100/70 hover:bg-emerald-900/80 hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-mono text-sm uppercase tracking-wider">Patients</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-emerald-100/70 hover:bg-emerald-900/80 hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">event</span>
+<span class="font-mono text-sm uppercase tracking-wider">Appointments</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-emerald-100/70 hover:bg-emerald-900/80 hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-mono text-sm uppercase tracking-wider">Reports</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-emerald-900/50">
+<a class="flex items-center gap-4 px-6 py-4 text-emerald-100/70 hover:bg-emerald-900/80 hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-mono text-sm uppercase tracking-wider">Settings</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-emerald-100/70 hover:bg-emerald-900/80 hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined text-red-400">logout</span>
+<span class="font-mono text-sm uppercase tracking-wider">Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-white dark:bg-emerald-950 z-40 px-6 flex justify-between items-center shadow-sm">
+<div class="flex items-center gap-8 flex-1">
+<h2 class="text-xl font-semibold text-emerald-900 dark:text-emerald-50 font-poppins">Doctors</h2>
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 border-none rounded-lg text-sm focus:ring-2 focus:ring-emerald-800 placeholder:text-slate-400" placeholder="Search by name, specialization, or ID" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex bg-slate-100 rounded-lg p-1">
+<button class="p-1.5 rounded-md bg-white shadow-sm text-emerald-900 flex items-center justify-center">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="p-1.5 rounded-md text-slate-500 hover:text-emerald-900 flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">view_list</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<button class="text-slate-500 hover:text-emerald-900 transition-colors">
+<span class="material-symbols-outlined">tune</span>
+</button>
+<div class="flex items-center gap-3 ml-4">
+<div class="text-right hidden lg:block">
+<p class="text-xs font-semibold text-emerald-900">Administrator</p>
+<p class="text-[10px] text-slate-500 font-mono">SYS-ROOT-01</p>
+</div>
+<img alt="Administrator profile" class="w-10 h-10 rounded-full border-2 border-emerald-100" data-alt="Close up portrait of a professional male administrator in a modern office setting, clean lighting, sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpndUOXhA9a7f-mGdAJmSC6yhGyRp1_NRT3axv7bs_ZpX59i6zH3BwVpQZ-YngFR5beMDZ-SuUQl4lv22nlV2QKWrqs22uAKTCK8DZPspxysUIXWnbfh-K4UVirNs8hZn5XTDs1rQbfQodJTjgt2y6QfzD9ThO68RFRe5kkR_8ByycefKjV0ERcGiHnLj39vdYA9wFp0fVIZ_8fmPRpFIzsxWuxVzlr580oNmALUpkXqH9cCDVSSnlQFAEe6UwyEY4sIS68M--a9lK"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 pt-24 pb-12 px-8 min-h-screen">
+<!-- Institutional Module Header -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<nav class="mb-2">
+<span class="font-mono text-[10px] text-slate-400 uppercase tracking-widest">EthioChart / Registry / Staff</span>
+</nav>
+<h3 class="text-3xl font-headline font-semibold text-primary">Doctor Registry</h3>
+<p class="text-slate-500 mt-1 max-w-xl">Central ledger of verified medical professionals currently active within the sovereign healthcare network.</p>
+</div>
+<button class="bg-primary text-white px-6 py-2.5 rounded-lg font-semibold flex items-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-lg">person_add</span>
+                New Practitioner
+            </button>
+</div>
+<!-- 3-Column Grid of Doctor Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-white doctor-card-shadow rounded-lg overflow-hidden border-l-[4px] border-[#1B4332] p-6 relative group transition-transform hover:-translate-y-1">
+<div class="flex items-start gap-4 mb-6">
+<img alt="Dr. Selamawit Bekele" class="w-16 h-16 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Professional portrait of a female Ethiopian doctor wearing a white medical coat and stethoscope, smiling confidently in a bright hospital hallway" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT7FmOeOL6WG6Ag1j3Xp01SS7bVTCTnK9j5Ed0A5lmKuxwEIbmKkaHAmHcz4xQPo2WpAD05rQDBdMgoiqd8cebULllkZA-egep8lvu0Na9T6wMhmrKKgsCDdBoL97nfkqrXviZca7uCSEcWduxt3BOL6OFS5Z7R2CqbrshxkQsvldQoJ2Aw06MKmNYAgxFTJs2MLohHDOlf8qs0cR8G79ZZ106oDu3E8c1KEJeCkYYqx9JmEu2Owtx10II_N1mRnSbGeeZKRh6R-Hc"/>
+<div>
+<h4 class="font-poppins text-lg text-primary leading-tight">Dr. Selamawit Bekele</h4>
+<p class="text-[11px] font-mono text-slate-400 mt-1">ID: DOC-ETH-0021</p>
+<p class="text-[#D4A843] font-medium text-sm mt-1 uppercase tracking-tight">Addis Ababa General Hospital</p>
+</div>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span class="text-sm font-body">s.bekele@ethiochart.gov</span>
+</div>
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-sm">call</span>
+<span class="text-sm font-body">+251 911 234 567</span>
+</div>
+</div>
+<div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+<div class="font-mono text-[10px] text-slate-500 bg-slate-50 px-2 py-1 rounded">
+                        24 appointments · 12 patients
+                    </div>
+<div class="flex items-center gap-1">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white doctor-card-shadow rounded-lg overflow-hidden border-l-[4px] border-[#1B4332] p-6 relative group transition-transform hover:-translate-y-1">
+<div class="flex items-start gap-4 mb-6">
+<img alt="Dr. Meron Asrat" class="w-16 h-16 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Ethiopian female physician in a clinical setting, soft natural lighting, looking directly into camera with warmth and expertise" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy-N5a9OpVWqIL5kPntDuEAx6IhKBCmc-QgWXunfAAyNEw9VPuaGkRc9MovdNgUGJanGAPYk4uM8aT6qePyMFqgu6nv7TKtqLCCBbHGkh-72se4nEZlNVwXiOZ62gibBOiK3KsWDbsYJOnWNTHCuYvGFneX6afJLn7fLume7ZwAbVA7_NO3y3d8vqyi-1_nN18DhMkExtrDWyyTw1zqmnHhSCODk4C4QyeGHotoE-x7jvJvM78Oa9VYZzkeq-EzBfKYXvfQIoiK1n6"/>
+<div>
+<h4 class="font-poppins text-lg text-primary leading-tight">Dr. Meron Asrat</h4>
+<p class="text-[11px] font-mono text-slate-400 mt-1">ID: DOC-ETH-0042</p>
+<p class="text-[#D4A843] font-medium text-sm mt-1 uppercase tracking-tight">St. Paul's Hospital</p>
+</div>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span class="text-sm font-body">m.asrat@ethiochart.gov</span>
+</div>
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-sm">call</span>
+<span class="text-sm font-body">+251 912 345 678</span>
+</div>
+</div>
+<div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+<div class="font-mono text-[10px] text-slate-500 bg-slate-50 px-2 py-1 rounded">
+                        18 appointments · 9 patients
+                    </div>
+<div class="flex items-center gap-1">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white doctor-card-shadow rounded-lg overflow-hidden border-l-[4px] border-[#1B4332] p-6 relative group transition-transform hover:-translate-y-1">
+<div class="flex items-start gap-4 mb-6">
+<img alt="Dr. Dawit Alemu" class="w-16 h-16 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Male Ethiopian doctor in his 40s wearing glasses and professional attire, studio lighting, clean gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3calOYJVrFfVli7tEuPp1VhXlkaexXpXcF8hIUDELR4Tc0ToOFH3xiGNm41RQ8bn2u3T5vkFbyTuocWCI0gfNx-GSITfTTvD_mQ0GLeAAQLjZrd6T08-Kx9OBYXK_pJActIGF0DW6HAjanbCGkRaUdeAt3njnJL3JzbCkW0B1owVILxSpZPBS6v9XhCzbJsPM4w68K0ZSA6p3X1i0Doov0p9StYuvdjqWmB0Bmurs5fU9G1IJ_06II1_zCpT7bKiZfNed3SHZsUrg"/>
+<div>
+<h4 class="font-poppins text-lg text-primary leading-tight">Dr. Dawit Alemu</h4>
+<p class="text-[11px] font-mono text-slate-400 mt-1">ID: DOC-ETH-0055</p>
+<p class="text-[#D4A843] font-medium text-sm mt-1 uppercase tracking-tight">Addis Ababa General Hospital</p>
+</div>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span class="text-sm font-body">d.alemu@ethiochart.gov</span>
+</div>
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-sm">call</span>
+<span class="text-sm font-body">+251 913 456 789</span>
+</div>
+</div>
+<div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+<div class="font-mono text-[10px] text-slate-500 bg-slate-50 px-2 py-1 rounded">
+                        32 appointments · 15 patients
+                    </div>
+<div class="flex items-center gap-1">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-white doctor-card-shadow rounded-lg overflow-hidden border-l-[4px] border-[#1B4332] p-6 relative group transition-transform hover:-translate-y-1">
+<div class="flex items-start gap-4 mb-6">
+<img alt="Dr. Kebede Tekle" class="w-16 h-16 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Experienced senior male doctor with grey hair, warm expression, wearing a stethoscope, office background with books" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWINEBEk7lwMajkwMgDOoSEJetcZwrz51Bn17aA0Z1_kPRrRV62zNeYxHh4A-0_puD5G4ePZmEChsGEnYOSMh4yYGV_37NgSyvkP_yBMllTTPj3oErJNw3U5kdQroJWrzOfBBw-1fCRLG9V2cZ4yfksrYoIHRFWPl7qJjR3HJAaUiIvKTvsHfBE5MbTpaJpTIbG5O92CJOCG8zDOKbOlqOs-MP--WML6FTY5HCkr7WowFI95LtDhOgzV7Y2ad8FBbrmtRYa79eoU04"/>
+<div>
+<h4 class="font-poppins text-lg text-primary leading-tight">Dr. Kebede Tekle</h4>
+<p class="text-[11px] font-mono text-slate-400 mt-1">ID: DOC-ETH-0012</p>
+<p class="text-[#D4A843] font-medium text-sm mt-1 uppercase tracking-tight">Black Lion Hospital</p>
+</div>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span class="text-sm font-body">k.tekle@ethiochart.gov</span>
+</div>
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-sm">call</span>
+<span class="text-sm font-body">+251 914 567 890</span>
+</div>
+</div>
+<div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+<div class="font-mono text-[10px] text-slate-500 bg-slate-50 px-2 py-1 rounded">
+                        45 appointments · 31 patients
+                    </div>
+<div class="flex items-center gap-1">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-white doctor-card-shadow rounded-lg overflow-hidden border-l-[4px] border-[#1B4332] p-6 relative group transition-transform hover:-translate-y-1">
+<div class="flex items-start gap-4 mb-6">
+<img alt="Dr. Tigist Bekele" class="w-16 h-16 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Close up of a young Ethiopian female doctor with hair pulled back, focused gaze, minimalist clinical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArHAm8ZBLVLCcKLQAQP7YuAA7FSXdj2z-UwZDHWm4-lY25ncvVXFf6Ow9xpo2eaF6a-utvStY3E_2PI8OOz1l_-RZQKkQEVD7YKrlUrT6lxCF7uJuX8wlqvqxHeqM_zPA0_mFF0YIG5xEA42OUDsdZbtWQHfFS6MRDxMkLSyCtB_6K9aXGOf-wFcGqI9fcYVU09fZ4lOi1cWauZ3ixLrPYJXI0E5u7sk-RkXnu-bCTmYoam66YMbhK-xrHcz0VloYx3Bevx1p1az0V"/>
+<div>
+<h4 class="font-poppins text-lg text-primary leading-tight">Dr. Tigist Bekele</h4>
+<p class="text-[11px] font-mono text-slate-400 mt-1">ID: DOC-ETH-0068</p>
+<p class="text-[#D4A843] font-medium text-sm mt-1 uppercase tracking-tight">St. Paul's Hospital</p>
+</div>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span class="text-sm font-body">t.bekele@ethiochart.gov</span>
+</div>
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-sm">call</span>
+<span class="text-sm font-body">+251 915 678 901</span>
+</div>
+</div>
+<div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+<div class="font-mono text-[10px] text-slate-500 bg-slate-50 px-2 py-1 rounded">
+                        21 appointments · 14 patients
+                    </div>
+<div class="flex items-center gap-1">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="bg-white doctor-card-shadow rounded-lg overflow-hidden border-l-[4px] border-[#1B4332] p-6 relative group transition-transform hover:-translate-y-1">
+<div class="flex items-start gap-4 mb-6">
+<img alt="Dr. Elias Melaku" class="w-16 h-16 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Headshot of a confident male Ethiopian surgeon in navy scrubs, professional lighting, modern medical facility background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_mxCBUdnYvQGzgNe8h5snzHPq0SoLoAyvthjfHgQExkq4z1hvFGjVw038R4KoUkm-E2To-Gv8XPxV1EnEwqk6AvR8uTMJAOabQwVlwZBhF9-QRTPKBSPo0hBXk8ZIydIEnkKylk4pGOdP1qaoEofVuSAYkspezutyCK2EbNjWZxNxN2Qmj0lYqCkpzynBTtLovCYsxQUeoxQ66huldh6KjVJp8prBPGxzi5fFlsUrXftPWwhtGggV_T3AfWh4t3Oj-Imm29hJyg0x"/>
+<div>
+<h4 class="font-poppins text-lg text-primary leading-tight">Dr. Elias Melaku</h4>
+<p class="text-[11px] font-mono text-slate-400 mt-1">ID: DOC-ETH-0089</p>
+<p class="text-[#D4A843] font-medium text-sm mt-1 uppercase tracking-tight">Zewditu Memorial Hospital</p>
+</div>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span class="text-sm font-body">e.melaku@ethiochart.gov</span>
+</div>
+<div class="flex items-center gap-3 text-slate-600">
+<span class="material-symbols-outlined text-sm">call</span>
+<span class="text-sm font-body">+251 916 789 012</span>
+</div>
+</div>
+<div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+<div class="font-mono text-[10px] text-slate-500 bg-slate-50 px-2 py-1 rounded">
+                        12 appointments · 8 patients
+                    </div>
+<div class="flex items-center gap-1">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Registry Stats -->
+<div class="mt-12 pt-8 border-t border-slate-200 flex justify-between items-center text-slate-400 font-mono text-[11px]">
+<p>TOTAL RECORDS: 248 VERIFIED PRACTITIONERS</p>
+<div class="flex gap-4">
+<button class="hover:text-primary transition-colors">PAGE 1 OF 42</button>
+<button class="flex items-center gap-1 hover:text-primary transition-colors">
+                    NEXT PAGE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (Supressed as per task hierarchy, but keeping logic in mind) -->
+</body></html>

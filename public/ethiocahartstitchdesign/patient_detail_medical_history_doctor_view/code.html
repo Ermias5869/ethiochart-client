@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Patient Detail | EthioChart Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Poppins:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#f5f2ff",
+                        "secondary-fixed": "#d1e8dc",
+                        "on-secondary-fixed": "#0b1f18",
+                        "on-primary-fixed": "#002114",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e2e0fc",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#ffdf9f",
+                        "tertiary-fixed-dim": "#eec058",
+                        "tertiary": "#332400",
+                        "surface": "#fcf8ff",
+                        "primary-fixed": "#c1ecd4",
+                        "inverse-on-surface": "#f2efff",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf8ff",
+                        "surface-container": "#efecff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "primary-container": "#1b4332",
+                        "on-tertiary-container": "#cba03b",
+                        "on-surface-variant": "#414844",
+                        "on-background": "#1a1a2e",
+                        "on-secondary-container": "#52675e",
+                        "surface-dim": "#dad7f3",
+                        "secondary-fixed-dim": "#b5ccc0",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#012d1d",
+                        "surface-bright": "#fcf8ff",
+                        "outline": "#717973",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2f2e43",
+                        "surface-variant": "#e2e0fc",
+                        "surface-tint": "#3f6653",
+                        "secondary": "#4e635a",
+                        "surface-container-high": "#e8e5ff",
+                        "on-surface": "#1a1a2e",
+                        "outline-variant": "#c1c8c2",
+                        "tertiary-container": "#4e3800",
+                        "on-secondary-fixed-variant": "#374b42",
+                        "inverse-primary": "#a5d0b9",
+                        "secondary-container": "#cee5d9",
+                        "on-primary": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Poppins", "Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .flag-stripe {
+            background: linear-gradient(to right, #1B4332, #D4A843, #C1292E);
+            height: 3px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+        .sidebar-gradient {
+            background: linear-gradient(to bottom, #081C15, #012D1D);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+<div class="flag-stripe"></div>
+<!-- Sidebar Navigation -->
+<aside class="sidebar-gradient h-screen w-64 fixed left-0 top-0 flex flex-col py-6 z-40">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-8 h-8 bg-on-tertiary-container flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<div>
+<h1 class="text-white font-headline text-lg font-bold leading-none">EthioChart</h1>
+<p class="text-emerald-200/50 text-[10px] font-mono tracking-widest uppercase mt-1">Sovereign Ledger</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 px-6 py-3 text-emerald-200/70 hover:text-white hover:bg-emerald-900/40 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-emerald-200/70 hover:text-white hover:bg-emerald-900/40 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+<span class="text-sm font-medium">My Appointments</span>
+</a>
+<!-- Active State: My Patients -->
+<a class="flex items-center gap-4 px-6 py-3 bg-emerald-800 text-white rounded-r-lg font-medium translate-x-1 duration-300" href="#">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="text-sm">My Patients</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-emerald-200/70 hover:text-white hover:bg-emerald-900/40 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">medication</span>
+<span class="text-sm font-medium">Prescriptions</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-emerald-200/70 hover:text-white hover:bg-emerald-900/40 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">biotech</span>
+<span class="text-sm font-medium">Lab Results</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-emerald-200/70 hover:text-white hover:bg-emerald-900/40 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">chat</span>
+<span class="text-sm font-medium">Messages</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-emerald-200/70 hover:text-white hover:bg-emerald-900/40 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">videocam</span>
+<span class="text-sm font-medium">Video Sessions</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-emerald-200/70 hover:text-white hover:bg-emerald-900/40 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">psychology</span>
+<span class="text-sm font-medium">AI Assistant</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-emerald-200/70 hover:text-white hover:bg-emerald-900/40 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">person</span>
+<span class="text-sm font-medium">Profile</span>
+</a>
+</nav>
+<div class="px-6 pt-6 mt-auto border-t border-emerald-900/50">
+<a class="flex items-center gap-4 py-3 text-emerald-200/70 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center px-8 py-4 bg-white sticky top-0 z-30 shadow-[0px_12px_32px_rgba(26,26,46,0.04)]">
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-xl">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container border-none rounded-lg text-sm w-80 focus:ring-2 focus:ring-primary-container transition-all" placeholder="Search patient ledger..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="flex items-center gap-3 pl-6 border-l border-outline-variant">
+<div class="text-right">
+<p class="text-xs font-bold text-primary leading-none">Dr. Selamawit</p>
+<p class="text-[10px] text-on-surface-variant mt-1 font-mono">MD, Cardiology</p>
+</div>
+<img alt="Doctor profile avatar" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary/10" data-alt="Professional portrait of a female doctor in a white coat with a warm, clinical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC95MoMm10zSJ3bR5VRpwEJh6nsc2XjWpXLmuPmC_nx43BYSRZoqzeYNnd5FfNICrHEAoCQHzaUNsveV1wZ9u3hBQeHMZgQ9H1Hg3rzazw40eeFFDfru9CFmtEt8dSmrgWGVLR7SEvOBClGNS3nomuyIGxxKMzJ9S2BG0feB_LqBA0CHuXEK3yWaavGbOVB-0tksjfp63TCsvKihe3wAurYftnzTAwxnVDuU4BXo3W_JHYXELtFENBJvMMtTgmGbO00l_ykI-eyO7ul"/>
+</div>
+</div>
+</header>
+<!-- Institutional Header -->
+<section class="bg-primary-container text-white px-8 py-10">
+<nav class="flex items-center gap-2 mb-6">
+<span class="font-mono text-[10px] tracking-widest text-emerald-300 uppercase">Ledger</span>
+<span class="material-symbols-outlined text-[12px] text-emerald-500">chevron_right</span>
+<span class="font-mono text-[10px] tracking-widest text-emerald-300 uppercase">Patients</span>
+<span class="material-symbols-outlined text-[12px] text-emerald-500">chevron_right</span>
+<span class="font-mono text-[10px] tracking-widest text-white uppercase font-bold">Abebe Tadesse</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-8">
+<div class="flex items-start gap-6">
+<img alt="Abebe Tadesse Avatar" class="w-24 h-24 rounded-xl object-cover border-4 border-emerald-900 shadow-xl" data-alt="Dignified portrait of an older Ethiopian man with silver hair and warm expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4GwA64hDG0XZlfcNuUVYUGPjBkCVtG3FeCOYaxDGpaVnHvXECVcuMhGqeOsxRCyoZsu-yJbx0OMODy5VsPIgVPsp4PNX4gzRWZ9c84jD5QFxaPaU6baHgnZ0f_t0se58iLMo6rHJJdQqD2ogkHUv0Mg3U5wARU1T63Od8DVNr_BMG4HtzA8WoMSIdiZNDqWx4BTZsmTm9o9PfcT4Ypnf19jVhmxopGWhd6jN5kLDGNazF159YwIVD-sV8dewAfQ67gVIuCQNfTT8O"/>
+<div class="space-y-2">
+<h2 class="text-3xl font-headline font-semibold">Abebe Tadesse</h2>
+<div class="flex items-center gap-3">
+<span class="bg-emerald-900/50 text-emerald-100 px-3 py-1 rounded text-xs font-mono tracking-tighter">EC-M5K2XRPA-A1B2C3</span>
+<span class="h-4 w-[1px] bg-emerald-700"></span>
+<span class="text-emerald-200/80 text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Black Lion Hospital
+                            </span>
+</div>
+<div class="flex flex-wrap gap-4 pt-2">
+<div class="flex items-center gap-2 text-xs text-emerald-100/70">
+<span class="material-symbols-outlined text-[16px]">call</span> +251 911 234 567
+                            </div>
+<div class="flex items-center gap-2 text-xs text-emerald-100/70">
+<span class="material-symbols-outlined text-[16px]">mail</span> a.tadesse@health.et
+                            </div>
+</div>
+</div>
+</div>
+<div class="flex items-center">
+<button class="bg-on-tertiary-container hover:bg-tertiary-fixed text-primary px-6 py-3 rounded-lg font-bold flex items-center gap-3 transition-all active:scale-95 shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+                        Ask AI Assistant
+                    </button>
+</div>
+</div>
+</section>
+<!-- Patient Content Tabs -->
+<section class="px-8 -mt-6">
+<div class="bg-surface-container-lowest shadow-[0px_4px_24px_rgba(0,0,0,0.05)] rounded-xl overflow-hidden">
+<div class="flex bg-surface-container-low px-6">
+<button class="px-8 py-5 text-sm font-bold border-b-2 border-primary text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">history</span>
+                        Medical History
+                    </button>
+<button class="px-8 py-5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">event</span>
+                        Appointments
+                    </button>
+<button class="px-8 py-5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">receipt_long</span>
+                        Prescriptions
+                    </button>
+<button class="px-8 py-5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">biotech</span>
+                        Lab Results
+                    </button>
+</div>
+<div class="p-8 space-y-12">
+<!-- Active Conditions Section -->
+<div>
+<div class="flex items-center justify-between mb-8 border-b-2 border-primary/5 pb-4">
+<h3 class="text-xl font-headline font-semibold text-primary">Active Conditions</h3>
+<span class="text-xs font-mono uppercase tracking-widest text-on-surface-variant">4 Active Protocols</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Condition Card 1: Severe -->
+<div class="bg-surface-container-lowest p-6 border-l-4 border-error shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-error-container text-on-error-container px-2 py-0.5 text-[10px] font-bold uppercase rounded">Severe</span>
+<span class="font-mono text-[10px] text-on-surface-variant">Since: 22/05/2021</span>
+</div>
+<h4 class="text-lg font-bold text-primary mb-2">Type 2 Diabetes</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-4 italic">"Patient reports irregular insulin management and rising fasting glucose levels."</p>
+<div class="flex items-center gap-2 text-[10px] text-primary/60 font-medium">
+<span class="material-symbols-outlined text-sm">medical_services</span>
+                                    ICD-10: E11.9
+                                </div>
+</div>
+<!-- Condition Card 2: Moderate -->
+<div class="bg-surface-container-lowest p-6 border-l-4 border-tertiary shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-0.5 text-[10px] font-bold uppercase rounded">Moderate</span>
+<span class="font-mono text-[10px] text-on-surface-variant">Since: 14/11/2022</span>
+</div>
+<h4 class="text-lg font-bold text-primary mb-2">Hypertension</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-4">Consistent systolic readings between 140-150. Prescribed Lisinopril therapy.</p>
+<div class="flex items-center gap-2 text-[10px] text-primary/60 font-medium">
+<span class="material-symbols-outlined text-sm">medical_services</span>
+                                    ICD-10: I10
+                                </div>
+</div>
+<!-- Condition Card 3: Mild -->
+<div class="bg-surface-container-lowest p-6 border-l-4 border-emerald-500 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 text-[10px] font-bold uppercase rounded">Mild</span>
+<span class="font-mono text-[10px] text-on-surface-variant">Since: 03/02/2023</span>
+</div>
+<h4 class="text-lg font-bold text-primary mb-2">Vitamin D Deficiency</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-4">Seasonal deficiency observed. Recommended dietary adjustment and supplement.</p>
+<div class="flex items-center gap-2 text-[10px] text-primary/60 font-medium">
+<span class="material-symbols-outlined text-sm">medical_services</span>
+                                    ICD-10: E55.9
+                                </div>
+</div>
+</div>
+</div>
+<!-- Allergies Section -->
+<div class="bg-surface-container-low/50 p-8 rounded-xl border-2 border-dashed border-outline-variant/30">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h3 class="text-xl font-headline font-semibold text-primary uppercase tracking-tight">Critical Allergies</h3>
+</div>
+<div class="flex flex-wrap gap-4">
+<div class="bg-white px-5 py-4 flex items-center gap-4 shadow-sm group">
+<div class="w-10 h-10 bg-error-container/40 flex items-center justify-center rounded-full text-error">
+<span class="material-symbols-outlined text-lg">pill</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary leading-none">Penicillin</p>
+<p class="text-[10px] text-error font-mono mt-1">ANAPHYLACTIC RISK</p>
+</div>
+</div>
+<div class="bg-white px-5 py-4 flex items-center gap-4 shadow-sm group">
+<div class="w-10 h-10 bg-error-container/40 flex items-center justify-center rounded-full text-error">
+<span class="material-symbols-outlined text-lg">nutrition</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary leading-none">Peanuts</p>
+<p class="text-[10px] text-error font-mono mt-1">SEVERE REACTION</p>
+</div>
+</div>
+<div class="bg-white px-5 py-4 flex items-center gap-4 shadow-sm group">
+<div class="w-10 h-10 bg-tertiary-fixed/30 flex items-center justify-center rounded-full text-tertiary">
+<span class="material-symbols-outlined text-lg">air</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary leading-none">Latex</p>
+<p class="text-[10px] text-on-tertiary-fixed-variant font-mono mt-1">MODERATE CONTACT</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Asymmetric Information Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Patient Notes -->
+<div class="lg:col-span-8 space-y-6">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="text-lg font-headline font-semibold text-primary">Clinical Narrative</h3>
+<div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+</div>
+<div class="prose prose-sm max-w-none text-on-surface-variant">
+<p class="leading-relaxed">
+                                    Abebe Tadesse is a 64-year-old male with a significant history of Type 2 Diabetes and Hypertension. He has been under regular observation at Black Lion Hospital since 2021. Most recent clinical observation indicates a need for stricter adherence to his glycemic control protocol.
+                                </p>
+<p class="leading-relaxed mt-4">
+                                    His cardiovascular status remains stable, though periodic ECG monitoring is recommended given his sedentary lifestyle reporting. Current medication adherence is self-reported at 85%. No new acute symptoms were reported during the last consultation on April 12, 2024.
+                                </p>
+</div>
+</div>
+<!-- Right Column: Institutional Quick Stats -->
+<div class="lg:col-span-4 bg-primary-container p-6 text-white rounded-lg self-start">
+<h3 class="text-xs font-mono uppercase tracking-[0.2em] text-emerald-300 mb-6">Patient Vitals Summary</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-end border-b border-emerald-800 pb-2">
+<span class="text-xs text-emerald-200/70">Last BP Reading</span>
+<span class="font-mono text-xl font-bold">142/88</span>
+</div>
+<div class="flex justify-between items-end border-b border-emerald-800 pb-2">
+<span class="text-xs text-emerald-200/70">BMI Index</span>
+<span class="font-mono text-xl font-bold">28.4</span>
+</div>
+<div class="flex justify-between items-end border-b border-emerald-800 pb-2">
+<span class="text-xs text-emerald-200/70">Next Lab Panel</span>
+<span class="font-mono text-xl font-bold">Jun '24</span>
+</div>
+</div>
+<div class="mt-8 pt-4">
+<div class="w-full bg-emerald-900 rounded-full h-1.5 mb-2">
+<div class="bg-on-tertiary-container h-1.5 rounded-full" style="width: 65%"></div>
+</div>
+<p class="text-[10px] text-emerald-300/80 uppercase font-mono tracking-widest">Protocol Adherence: 65%</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="px-8 py-10 mt-12 border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-on-surface-variant/60 font-mono">
+                    GENERATED ON: 2024-05-20T10:42:12Z • AUTHORIZED VIEW ONLY
+                </p>
+<div class="flex gap-6">
+<a class="text-xs text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Legal Ledger Info</a>
+<a class="text-xs text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Privacy Policy</a>
+<a class="text-xs text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Technical Support</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>
