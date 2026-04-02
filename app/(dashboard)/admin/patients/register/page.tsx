@@ -68,6 +68,8 @@ export default function PatientRegistrationPage() {
     try {
       const res = await api.registerPatient({
         nationalId,
+        fullName: verifiedInfo.name,
+        dateOfBirth: verifiedInfo.dob,
         email,
         phone,
         password,
@@ -288,6 +290,7 @@ export default function PatientRegistrationPage() {
               </div>
               <p className="text-sm">National ID: <span className="font-mono font-bold">{nationalId}</span></p>
               <p className="text-sm">Name: <span className="font-semibold">{verifiedInfo.name}</span></p>
+              <p className="text-sm">Date of Birth: <span className="font-semibold">{verifiedInfo.dob}</span></p>
             </div>
             <div className="p-4 border border-outline-variant/20">
               <div className="flex items-center gap-2 mb-3">
@@ -324,6 +327,10 @@ export default function PatientRegistrationPage() {
             </div>
             <h3 className="text-2xl font-headline font-bold text-primary mb-2">Patient Registered Successfully!</h3>
             <p className="text-on-surface-variant mb-8">The patient has been registered in the EthioChart system</p>
+            <div className="inline-block bg-primary-container/5 border-2 border-primary-container/20 px-8 py-4 mb-4">
+              <p className="font-mono text-[10px] text-on-surface-variant uppercase tracking-wider mb-1">Patient Name</p>
+              <p className="font-headline text-xl font-bold text-primary">{registeredPatient.fullName || verifiedInfo.name}</p>
+            </div>
             <div className="inline-block bg-primary-container/5 border-2 border-primary-container/20 px-8 py-4 mb-6">
               <p className="font-mono text-[10px] text-on-surface-variant uppercase tracking-wider mb-1">EthioChart ID</p>
               <p className="font-mono text-3xl font-bold text-primary-container">{registeredPatient.ethioChartId}</p>

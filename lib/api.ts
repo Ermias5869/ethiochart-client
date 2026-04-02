@@ -201,7 +201,19 @@ class ApiClient {
     return this.request('/video-sessions', { method: 'POST', body: JSON.stringify(data) });
   }
 
-  // AI Query
+  // AI Query — Dual Mode
+  async patientAiAssist(data: { patientId: number; question: string }): Promise<ApiResponse<any>> {
+    return this.request('/ai-query/patient-assist', { method: 'POST', body: JSON.stringify(data) });
+  }
+
+  async generalAiQuery(data: { question: string }): Promise<ApiResponse<any>> {
+    return this.request('/ai-query/general-query', { method: 'POST', body: JSON.stringify(data) });
+  }
+
+  async getAiHistory(doctorId: number): Promise<ApiResponse<any[]>> {
+    return this.request(`/ai-query/history/${doctorId}`);
+  }
+
   async getAiQueries(patientId: number): Promise<ApiResponse<any[]>> {
     return this.request(`/ai-query/${patientId}`);
   }
