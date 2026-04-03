@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useAuthStore, getRoleLabel } from '@/lib/auth';
 import type { UserRole } from '@/lib/types';
 
@@ -57,11 +57,17 @@ function getNavItems(role: UserRole): NavItem[] {
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
   const { user, logout } = useAuthStore();
 
   if (!user) return null;
 
   const navItems = getNavItems(user.role);
+
+  const handleLogout = () => {
+    logout();
+    router.push('/login');
+  };
 
   const isActive = (href: string) => {
     if (href === '/admin' || href === '/doctor' || href === '/patient') {
@@ -102,7 +108,7 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      {/* User Info */}
+      {/* User Info + Logout */}
       <div className="px-4 py-4 border-t border-white/10">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-full bg-primary-container flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
@@ -114,6 +120,13 @@ export default function Sidebar() {
               {getRoleLabel(user.role)}
             </p>
           </div>
+          <button
+            onClick={handleLogout}
+            title="Sign Out"
+            className="text-gray-500 hover:text-red-400 transition-colors"
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: 20 }}>logout</span>
+          </button>
         </div>
       </div>
     </aside>

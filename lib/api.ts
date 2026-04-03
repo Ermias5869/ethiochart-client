@@ -193,8 +193,16 @@ class ApiClient {
   }
 
   // Video Sessions
-  async getVideoSessions(patientId: number): Promise<ApiResponse<any[]>> {
-    return this.request(`/video-sessions/${patientId}`);
+  async getVideoSessions(): Promise<ApiResponse<any[]>> {
+    return this.request('/video-sessions');
+  }
+
+  async getVideoSessionsByDoctor(doctorId: number): Promise<ApiResponse<any[]>> {
+    return this.request(`/video-sessions/doctor/${doctorId}`);
+  }
+
+  async getVideoSessionsByPatient(patientId: number): Promise<ApiResponse<any[]>> {
+    return this.request(`/video-sessions/patient/${patientId}`);
   }
 
   async createVideoSession(data: any): Promise<ApiResponse<any>> {
@@ -236,6 +244,16 @@ class ApiClient {
     formData.append('file', file);
     formData.append('type', type);
     return this.request('/upload', { method: 'POST', body: formData });
+  }
+
+  // Generic GET
+  async get(endpoint: string): Promise<ApiResponse<any>> {
+    return this.request(endpoint);
+  }
+
+  // Generic POST
+  async post(endpoint: string, data: any): Promise<ApiResponse<any>> {
+    return this.request(endpoint, { method: 'POST', body: JSON.stringify(data) });
   }
 
   // Generic PATCH
